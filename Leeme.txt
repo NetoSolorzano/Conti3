@@ -1,0 +1,173 @@
+﻿06/11/2024 inicio de bitacora leeme.txt
+A esta fecha el sistema esta desarrollado segun los requerimientos de los clientes
+Se instalará en los equipos de Claudia y Paolo para que lo usen en pruebas intensivas
+y reales. Después de la confirmación de ellos y adecuaciones que resulten necesarias
+se pasará a producción.
+PARA PASAR A PRODUCCION se necesita:
+- Limpiar de datos la base de pruebas actual (se convertirá en producción)
+- Importar la base antigua a la nueva
+- Hacer las actualizaciones de los datos anteriores a nuevos y campos nuevos ponerles valor
+- Tener en cuenta los contattori, saldos, etc.
+- Revisar que todo este bien haciendo unas pruebas reales
+
+Form finan_camion, arreglo bordes movibles ...................................... 21/11/2024
+Form Finan_camion, agregar selectAll() cuando el campo tiene el focus ........... 28/11/2024
+Form Finan_egres, agregar selectAll() cuando el campo tiene el focus ............ 28/11/2024
+Form Finan_ingres, agregar selectAll() cuando el campo tiene el focus ........... 28/11/2024
+Form Finan_egres, cambiar a rojo las letras, no fondo ctas sin saldo ............ 28/11/2024
+Form Finan_egres, proveedores, poner autocompletado como los otros .............. 29/11/2024
+Form Finan_egres, adecuaciones colores boton grabar ............................. 03/12/2024
+Form Finan_ingres, adecuaciones colores boton grabar ............................ 03/12/2024
+Form Finan_camion, adecuaciones colores boton grabar ............................ 03/12/2024
+Form ayuda2, al dar enter en la columna 1 se debe seleccionar la fila ........... 03/12/2024
+Form Finan_egres, adecuaciones pa que F1 en cta destino grabe el objeto Ocajd ... 03/12/2024
+Form Finan_ingres, adecuaciones pa que F1 en cta destino grabe el objeto Ocajd .. 03/12/2024
+Form Finan_ingres, arreglar tip camb y valores en operaciones con EUR:
+	- Si ingreso es euros se debe poner el valor en soles tambien y T/C ......... 04/12/2024
+	- En modo edición debe actualizar todos los campos, incluso importes ........ 04/12/2024
+	- En edicion no se debe permitir cambiar fecha .............................. 04/12/2024	Obs. Fechas adelantadas no se permite
+	- En nuevo validar debe permitir cambiar fecha hacia atras .................. 04/12/2024	Obs. Fechas adelantadas no se permite
+P.A. ConIngre_cassaconti, tipcambio pasa a ser campo TCMonOri ................... 04/12/2024
+P.A. ConIngre_cassaOmg, tipcambio pasa a ser campo TCMonOri ..................... 04/12/2024
+P.A. ConEgre_cassaconti, tipcambio pasa a ser campo TCMonOri .................... 05/12/2024
+P.A. ConEgre_cassaOmg, tipcambio pasa a ser campo TCMonOri ...................... 05/12/2024
+Form Finan_egres, arreglar tip camb y valores en operaciones con EUR:
+	- Si el egreso es euros se debe poner el valor en soles tambien y T/C ....... 05/12/2024
+	- En modo edición debe actualizar todos los campos, incluso importes ........ probar 
+	- En edicion no se debe permitir cambiar fecha .............................. 05/12/2024	Obs. Fechas adelantadas no se permite
+	- En nuevo debe permitir cambiar fecha hacia atras .......................... 05/12/2024	Obs. Fechas adelantadas no se permite
+Form Finan_reps1, adecuar calculos rep en dolares con datos en euros ............ 05/12/2024	los euros se pasan a soles y de ahi a dolares
+Form todos, agragar el toolboton() de permisos .................................. 06/12/2024
+Form Finan_camion, adecuaciones de fecha y tipo de cambio:
+	- En edicion no se debe permitir cambiar fecha adelantadas .................. 06/12/2024	Obs. Fechas adelantadas no se permite
+	- En nuevo debe permitir cambiar fecha hacia atras no hacia adelante ........ 06/12/2024	Obs. Fechas adelantadas no se permite
+*** COLORES DE FORMULARIOS DESDE B.D. ***
+Tabla: dtproperties
+Form Form1, crear la clase ccolores ............................................. 06/12/2024
+Form Finan_ingres, lectura de tabla para asignar colores ........................ 06/12/2024
+Form Finan_egres, lectura de tabla para asignar colores ......................... 06/12/2024
+Form Finan_camion, lectura de tabla para asignar colores ........................ 07/12/2024
+Form Finan_reps1, lectura de tabla para asignar colores ......................... 07/12/2024
+Form provee, lectura de tabla para asignar colores .............................. 07/12/2024
+Form tipcam, lectura de tabla para asignar colores .............................. 07/12/2024
+form usuarweb, lectura de tabla para asignar colores ............................ 12/12/2024
+**************** fin colores
+Form Finan_ingres, validaciones entre objetos y campo texto ..................... 13/12/2024
+Form Finan_egres, validaciones entre objetos y campo texto ...................... 13/12/2024
+Form Finan_camion, validaciones entre objetos y campo texto ..................... 13/12/2024
+Clase AutocompleteTexBox, agregar evento DobleClick dentro de la clase .......... 14/12/2024
+Form Finan_camion, adecuaciones para la nueva funcion con el mouse .............. 14/12/2024
+Form Finan_ingres, adecuaciones para la nueva funcion con el mouse .............. 23/12/2024
+Form Finan_egres, adecuaciones para la nueva funcion con el mouse ............... 23/12/2024
+Clase AutoCompleteTexBox, agregué ENTER despues del doble click ................. 08/01/2025
+P.A. conegre_cassaconti, agregar orden por año y movimiento ..................... 08/01/2025
+P.A. conegre_cassaomg, agregar orden por año y movimiento ....................... 08/01/2025
+P.A. coningre_cassaconti, agregar orden por año y movimiento .................... 08/01/2025
+P.A. coningre_cassaomg, agregar orden por año y movimiento ...................... 08/01/2025
+P.A. conprel_cassaconti, agregar orden por año y movimiento ..................... 08/01/2025
+P.A. ConCamion, agregar orden por año y movimiento .............................. 08/01/2025
+Form Finan_reps1, poner fechas automaticas inicio de año y fecha actual ......... 08/01/2025
+Form egborrador, habilitar egresos de casa OMG .................................. 14/01/2025
+Form egborrador, grilla:
+	- la primera columna debe ser el check de aprobar modo edicion,aprobacion ... 08/01/2025
+	- Agregar modo check "a todos" .............................................. 14/01/2025
+Form egborrador, desarrollo del form para los ingresos de gastos en borrador .... 14/01/2025
+Form egborrador, agregar giroconto, igual que el form egresos ................... 18/01/2025
+Form egborrador, en validacion no esta jalando el combo moneda correctamente .... 18/01/2025
+Form Finan_egres, adecuaciones para GiroConto solo a cuentas personales ......... 18/01/2025	Ojo: Giros de Per a Per, de Omg a Per, NO de Omg a OMG y Per a OMG
+Form Finan_ingres, arreglo en función tipCambio() ............................... 18/01/2025
+Form Finan_egres, arreglo en función tipCambio() ................................ 18/01/2025
+Form Finan_reps1, agregar ordenación en combo de categoria ...................... 20/01/2025
+Form users, arreglo de imagen en boton anular - borrar .......................... 22/01/2025
+Form Finan_reps1, no funcionan los filtros en la grilla ......................... 22/01/2025	se agregó las funciones de la grilla sort y filter
+Form Finan_egres, dar doble click (grilla) modo NUEVO, se copien los datos ...... 24/01/2025
+Form Finan_ingres, dar doble click (grilla) modo NUEVO, se copien los datos ..... 24/01/2025
+Form Finan_reps1, cambiar combo por autocompletados y otros arreglos ............ 25/01/2025
+Form Finan_egres, "Datos similares" no está guardando bien datos de giro ........ 27/01/2025
+Form Finan_egres, "Datos similares" no esta guardando bien categoria ............ 27/01/2025
+Form egborrador, agregar check "Asociación" que tenga un combo de 2 cuentas 
+				personales definidas y que sea excluyente del giroconto ......... 27/01/2025
+Form egborrador, la categoría de egreso no es obligatorio ....................... 28/01/2025, para validacion si
+Form egborrador, agregar al lado de proveedor, cuenta corriente y ruc ........... 29/01/2025
+Form Finan_reps1, arreglar mensaje en autocompletado cuando das un click ........ 30/01/2025
+Form Finan_egres, arreglar datos similares con nombre corto y largo ............. 30/01/2025
+Form Finan_egres, en datos similares debe copiar tambien la fecha:
+	- se cambio la funcionalidad, ya no se jala el ultimo en datosimilares(), 
+	  solo no se limpia el objeto y campo ....................................... 31/01/2025
+	- Esta colocando la descrip de categoria en minisculas en grilla ............ 31/01/2025
+Form Finan_ingres, pasar la funcionalidad datosimilares() de egresos ............ 31/01/2025
+Form Finan_ingres, la fecha de operacion no debe cambiar si es datossimilares ... 31/01/2025
+Form Finan_camion, adecuaciones de fecha y datos similares ...................... 31/01/2025
+Form Login, adecuacion para que jale la version en automatico ................... 31/01/2025
+Form Finan_ingres, arreglo de combo moneda y columna moneda en grilla OMG ....... 31/01/2025
+Form provee, agregar ruc y cuenta corriente ..................................... 31/01/2025
+Form ayuda1, agregar ruc y cuenta corriente ..................................... 31/01/2025
+Form Finan_egres, arreglo errores si no hay tipo de cambio en Botones Add,Edit .. 01/02/2025
+Form Finan_egres, al crear nuevo proveedor no graba en el egreso ................ 01/02/2025
+Form egborrador, pasar la funcionalidad datosimilares() de egresos .............. 01/02/2025
+Form egborrador, al seleccionar OMG o PER no debe borrar todo, solo cta.destino . 01/02/2025
+Form egborrador, en modo VALIDACION con Giro, el ingreso no esta funcionando .... 02/02/2025
+Form defs, simplificacion del funcionamiento .................................... 05/02/2025
+Form Finan_reps1, hacer que el form sea ajustable el tamño ...................... 05/02/2025
+form usuarweb, reemplazar combo por autocompletado .............................. 07/02/2025
+form usuarweb, arreglar color fondo de grilla ................................... 07/02/2025
+Form Finan_reps1, agregar check de seleccion todos o ninguno .................... 10/02/2025
+Form Finan_egres, validar monto y moneda antes de grabar ........................ 10/02/2025 ver .02.2
+Form Finan_reps1, rep omg, si se borra el campo cta debe limpiar el objeto cta .. 10/02/2025
+Form Finan_reps1, arreglo boton genera para que borre la grilla ................. 11/02/2025
+C.R.repGasCam1, adcuaciones en formato .......................................... 11/02/2025
+C.R.repGenOMG1, adecuaciones en ancho de campos ................................. 11/02/2025
+Actualización de paquetes vulnerables ........................................... 11/02/2025 ver .11.2
+Form Finan_reps1, SE DESHABILITA CATEGORIA por diversos problemas, el principal
+	es que el total real de ingresos y egresos se calcula del datatable resultado
+	del P.A.
+	Mejor alternativa es filtrar por las categorias que se desea una vez generada
+	la grilla ................................................................... 11/02/2025
+Form Finan_reps1, el check no se colorea correctamente al salir de filtros ...... 12/02/2025
+Form Finan_ingres, las inserciones en la grilla deben quedarse siempre arriba ... 12/02/2025
+Form Finan_egres, las inserciones en la grilla deben quedarse siempre arriba .... 12/02/2025
+Form Finan_camion, las inserciones en la grilla deben quedarse siempre arriba ... 12/02/2025
+Form egborrador, las inserciones en la grilla deben quedarse siempre arriba ..... 12/02/2025
+Form Finan_reps1, cambio de icono y se puso titulo .............................. 12/02/2025
+Form Finan_ingres, cambio de icono y se puso titulo ............................. 12/02/2025
+Form Finan_egres, cambio de icono y se puso titulo .............................. 12/02/2025
+Form Finan_camion, cambio de icono y se puso titulo ............................. 12/02/2025
+Form egborrador, cambio de icono y se puso titulo ............................... 12/02/2025
+Form usuarweb, cambio de icono y se puso titulo ................................. 12/02/2025
+Form provee, cambio de icono y se puso titulo ................................... 12/02/2025
+Form tipcam, cambio de icono y se puso titulo ................................... 12/02/2025
+Form Finan_ingres, mejora en el campo descripción para la edicion de texto ...... 12/02/2025
+Form Finan_egres, mejora en el campo descripción para la edicion de texto ....... 12/02/2025
+Form Finan_camion, mejora en el campo descripción para la edicion de texto ...... 12/02/2025
+Form egborrador, mejora en el campo descripción para la edicion de texto ........ 12/02/2025
+Form Finan_egres, se arregló la cuenta giro para que jale los numero=1 .......... 21/02/2025
+Form Finan_reps1, error en grilla filtrada con click en bt_genera ............... 10/03/2025
+Form Finan_reps1, agregar resumen de cuentas OMG ................................ 12/03/2025
+Form Finan_reps1, agregar categoría en casa omg ................................. 19/03/2025
+Form defs, quitar el ding al presionar ENTER en textbox ......................... 24/03/2025
+Form enlaces, quitar el ding al presionar ENTER en textbox ...................... 24/03/2025
+Form users, quitar el ding al presionar ENTER en textbox ........................ 24/03/2025
+Form Form1, clase generalTextBox quitar el ding al presionar ENTER en textbox ... 24/03/2025
+Form login, quitar el ding al presionar ENTER en textbox ........................ 24/03/2025
+Form egborrador, quitar el ding al presionar ENTER en textbox ................... 25/03/2025
+Form usuarweb, quitar el ding al presionar ENTER en textbox ..................... 25/03/2025
+Form Finan_Ingres, quitar el ding al presionar ENTER en textbox ................. 25/03/2025
+Form Finan_egres, quitar el ding al presionar ENTER en textbox .................. 25/03/2025
+Form Finan_camion, quitar el ding al presionar ENTER en textbox ................. 25/03/2025
+Form Finan_reps1, quitar el ding al presionar ENTER en textbox .................. 25/03/2025
+Dataset DataSet1, agregar totales en soles y dolares en repSaldo_ini ............ 28/03/2025
+Form Finan_reps1, reporte cuentas personales, adecuaciones de totales ........... 28/03/2025
+Form Finan_egres, arreglo de problema de asignar categoria y cuenta ............. 30/03/2025
+Form Finan_Ingres, arreglo de problema de asignar categoria y cuenta ............ 30/03/2025
+C.R. repCtaPers1, adecuaciones para arreglar totales S/ y $ ..................... 03/04/2025
+C.R. repGenOMG1, adecuaciones para arreglar totales S/ y $ ...................... 03/04/2025
+Form Finan_egres, arreglo de calculo para poner en ROJO a cta sin saldo ......... 03/04/2025
+Form Finan_reps1, regreso del tipo de cambio del día en saldoiniciales .......... 14/04/2025
+Form Finan_reps1, error: dt_d.Select("idcategoria='" + va04 + "'").CopyTo ....... 15/04/2025
+C.R. repGenOMGR, agregar categoria a la cabecera ................................ 15/04/2025
+C.R. repCtaPers1, agregar categoria a la cabecera ............................... 15/04/2025
+C.R. repGenOMG1, arreglos varios ................................................ 15/04/2025
+falta arreglar con categoria y resumen total OMG
+**** pendientes:
+- Cambiar la validacion de ingresos y egresos como en camion, tx_ctaDes.Leave() .... ummm no seeee
+
