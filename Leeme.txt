@@ -167,7 +167,10 @@ Form Finan_reps1, error: dt_d.Select("idcategoria='" + va04 + "'").CopyTo ......
 C.R. repGenOMGR, agregar categoria a la cabecera ................................ 15/04/2025
 C.R. repCtaPers1, agregar categoria a la cabecera ............................... 15/04/2025
 C.R. repGenOMG1, arreglos varios ................................................ 15/04/2025
-falta arreglar con categoria y resumen total OMG
-**** pendientes:
-- Cambiar la validacion de ingresos y egresos como en camion, tx_ctaDes.Leave() .... ummm no seeee
+C.R. repCtaPers1, arreglo de formula de saldo final en soles .................... 19/04/2025
+Form provee, arreglos para bloquear un proveedor ................................ 19/04/2025
+Form Finan_Ingres, adecuar ancho en categorias y cuentas ........................ 19/04/2025
+Form Finan_egres, adecuar ancho en categorias y cuentas ......................... 19/04/2025
+Form Finan_camion, adecuar ancho en categorias y cuentas ........................ 19/04/2025
+Form egborrador, adecuar ancho en categorias y cuentas .......................... 19/04/2025
 

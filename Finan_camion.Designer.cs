@@ -125,7 +125,7 @@
             this.eti_tituloForm.ForeColor = System.Drawing.Color.Blue;
             this.eti_tituloForm.Location = new System.Drawing.Point(1, 5);
             this.eti_tituloForm.Name = "eti_tituloForm";
-            this.eti_tituloForm.Size = new System.Drawing.Size(891, 29);
+            this.eti_tituloForm.Size = new System.Drawing.Size(933, 29);
             this.eti_tituloForm.TabIndex = 339;
             this.eti_tituloForm.Tag = "CAMIONES ";
             this.eti_tituloForm.Text = "GASTOS ALMACEN";
@@ -164,7 +164,7 @@
             this.toolStripSeparator11});
             this.toolStrip1.Location = new System.Drawing.Point(0, 387);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(893, 35);
+            this.toolStrip1.Size = new System.Drawing.Size(935, 35);
             this.toolStrip1.TabIndex = 338;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -416,7 +416,7 @@
             this.advancedDataGridView1.DateWithTime = false;
             this.advancedDataGridView1.Location = new System.Drawing.Point(0, 183);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.Size = new System.Drawing.Size(893, 202);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(935, 202);
             this.advancedDataGridView1.TabIndex = 8;
             this.advancedDataGridView1.TimeFilter = false;
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
@@ -429,9 +429,9 @@
             this.Bt_graba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(819, 81);
+            this.Bt_graba.Location = new System.Drawing.Point(855, 109);
             this.Bt_graba.Name = "Bt_graba";
-            this.Bt_graba.Size = new System.Drawing.Size(62, 62);
+            this.Bt_graba.Size = new System.Drawing.Size(62, 60);
             this.Bt_graba.TabIndex = 7;
             this.Bt_graba.UseVisualStyleBackColor = false;
             this.Bt_graba.Click += new System.EventHandler(this.Bt_graba_Click);
@@ -443,7 +443,7 @@
             this.generalEtiqueta2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta2.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta2.Location = new System.Drawing.Point(339, 43);
+            this.generalEtiqueta2.Location = new System.Drawing.Point(426, 43);
             this.generalEtiqueta2.Name = "generalEtiqueta2";
             this.generalEtiqueta2.Size = new System.Drawing.Size(104, 15);
             this.generalEtiqueta2.TabIndex = 67;
@@ -455,7 +455,7 @@
             this.tx_tipcam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_tipcam.Font = new System.Drawing.Font("Verdana", 9F);
             this.tx_tipcam.ForeColor = System.Drawing.Color.Blue;
-            this.tx_tipcam.Location = new System.Drawing.Point(445, 43);
+            this.tx_tipcam.Location = new System.Drawing.Point(532, 43);
             this.tx_tipcam.Name = "tx_tipcam";
             this.tx_tipcam.Size = new System.Drawing.Size(77, 15);
             this.tx_tipcam.TabIndex = 1;
@@ -478,9 +478,9 @@
             this.generalEtiqueta7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta7.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta7.Location = new System.Drawing.Point(4, 100);
+            this.generalEtiqueta7.Location = new System.Drawing.Point(5, 100);
             this.generalEtiqueta7.Name = "generalEtiqueta7";
-            this.generalEtiqueta7.Size = new System.Drawing.Size(124, 32);
+            this.generalEtiqueta7.Size = new System.Drawing.Size(124, 33);
             this.generalEtiqueta7.TabIndex = 345;
             this.generalEtiqueta7.Text = "Descripción";
             this.generalEtiqueta7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -490,7 +490,7 @@
             this.linV2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.linV2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.linV2.Enabled = false;
-            this.linV2.Location = new System.Drawing.Point(541, 40);
+            this.linV2.Location = new System.Drawing.Point(628, 40);
             this.linV2.Name = "linV2";
             this.linV2.Size = new System.Drawing.Size(2, 136);
             this.linV2.TabIndex = 347;
@@ -501,7 +501,7 @@
             this.linO6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.linO6.Location = new System.Drawing.Point(4, 174);
             this.linO6.Name = "linO6";
-            this.linO6.Size = new System.Drawing.Size(538, 2);
+            this.linO6.Size = new System.Drawing.Size(625, 2);
             this.linO6.TabIndex = 348;
             // 
             // label1
@@ -510,7 +510,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(4, 134);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(538, 2);
+            this.label1.Size = new System.Drawing.Size(625, 2);
             this.label1.TabIndex = 349;
             // 
             // cmb_mon
@@ -518,7 +518,7 @@
             this.cmb_mon.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmb_mon.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_mon.FormattingEnabled = true;
-            this.cmb_mon.Location = new System.Drawing.Point(819, 154);
+            this.cmb_mon.Location = new System.Drawing.Point(869, 90);
             this.cmb_mon.Name = "cmb_mon";
             this.cmb_mon.Size = new System.Drawing.Size(47, 20);
             this.cmb_mon.TabIndex = 666;
@@ -529,7 +529,7 @@
             this.generalEtiqueta3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta3.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta3.Location = new System.Drawing.Point(4, 138);
+            this.generalEtiqueta3.Location = new System.Drawing.Point(5, 138);
             this.generalEtiqueta3.Name = "generalEtiqueta3";
             this.generalEtiqueta3.Size = new System.Drawing.Size(124, 15);
             this.generalEtiqueta3.TabIndex = 351;
@@ -555,7 +555,7 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Location = new System.Drawing.Point(4, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(538, 2);
+            this.label3.Size = new System.Drawing.Size(625, 2);
             this.label3.TabIndex = 356;
             // 
             // eti_nomCaja
@@ -563,9 +563,9 @@
             this.eti_nomCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.eti_nomCaja.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_nomCaja.ForeColor = System.Drawing.Color.Blue;
-            this.eti_nomCaja.Location = new System.Drawing.Point(339, 82);
+            this.eti_nomCaja.Location = new System.Drawing.Point(459, 82);
             this.eti_nomCaja.Name = "eti_nomCaja";
-            this.eti_nomCaja.Size = new System.Drawing.Size(201, 15);
+            this.eti_nomCaja.Size = new System.Drawing.Size(169, 15);
             this.eti_nomCaja.TabIndex = 361;
             // 
             // generalEtiqueta5
@@ -573,7 +573,7 @@
             this.generalEtiqueta5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta5.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta5.Location = new System.Drawing.Point(4, 82);
+            this.generalEtiqueta5.Location = new System.Drawing.Point(5, 82);
             this.generalEtiqueta5.Name = "generalEtiqueta5";
             this.generalEtiqueta5.Size = new System.Drawing.Size(124, 15);
             this.generalEtiqueta5.TabIndex = 360;
@@ -585,7 +585,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Location = new System.Drawing.Point(4, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(538, 2);
+            this.label4.Size = new System.Drawing.Size(625, 2);
             this.label4.TabIndex = 362;
             // 
             // Tx_fecha
@@ -593,7 +593,7 @@
             this.Tx_fecha.BeepOnError = true;
             this.Tx_fecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_fecha.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.Tx_fecha.Location = new System.Drawing.Point(445, 64);
+            this.Tx_fecha.Location = new System.Drawing.Point(532, 64);
             this.Tx_fecha.Mask = "00/00/0000";
             this.Tx_fecha.Name = "Tx_fecha";
             this.Tx_fecha.Size = new System.Drawing.Size(77, 13);
@@ -621,7 +621,7 @@
             this.eti_idOper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.eti_idOper.Font = new System.Drawing.Font("Verdana", 8F);
             this.eti_idOper.ForeColor = System.Drawing.Color.Blue;
-            this.eti_idOper.Location = new System.Drawing.Point(4, 63);
+            this.eti_idOper.Location = new System.Drawing.Point(5, 63);
             this.eti_idOper.Name = "eti_idOper";
             this.eti_idOper.Size = new System.Drawing.Size(124, 15);
             this.eti_idOper.TabIndex = 366;
@@ -630,7 +630,7 @@
             // selecFecha1
             // 
             this.selecFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.selecFecha1.Location = new System.Drawing.Point(523, 60);
+            this.selecFecha1.Location = new System.Drawing.Point(610, 60);
             this.selecFecha1.Name = "selecFecha1";
             this.selecFecha1.Size = new System.Drawing.Size(18, 20);
             this.selecFecha1.TabIndex = 13;
@@ -641,7 +641,7 @@
             this.generalEtiqueta6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta6.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta6.Location = new System.Drawing.Point(339, 63);
+            this.generalEtiqueta6.Location = new System.Drawing.Point(426, 63);
             this.generalEtiqueta6.Name = "generalEtiqueta6";
             this.generalEtiqueta6.Size = new System.Drawing.Size(104, 15);
             this.generalEtiqueta6.TabIndex = 365;
@@ -653,7 +653,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(3, 59);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(538, 2);
+            this.label5.Size = new System.Drawing.Size(626, 2);
             this.label5.TabIndex = 368;
             // 
             // panelGeneral1
@@ -681,9 +681,9 @@
             this.panelGeneral1.Controls.Add(this.generalEtiqueta10);
             this.panelGeneral1.Controls.Add(this.generalEtiqueta9);
             this.panelGeneral1.ForeColor = System.Drawing.Color.Blue;
-            this.panelGeneral1.Location = new System.Drawing.Point(549, 39);
+            this.panelGeneral1.Location = new System.Drawing.Point(636, 39);
             this.panelGeneral1.Name = "panelGeneral1";
-            this.panelGeneral1.Size = new System.Drawing.Size(215, 138);
+            this.panelGeneral1.Size = new System.Drawing.Size(199, 137);
             this.panelGeneral1.TabIndex = 6;
             this.panelGeneral1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGeneral1_Paint);
             // 
@@ -693,7 +693,7 @@
             this.Tx_impues.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_impues.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tx_impues.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_impues.Location = new System.Drawing.Point(109, 59);
+            this.Tx_impues.Location = new System.Drawing.Point(93, 59);
             this.Tx_impues.Name = "Tx_impues";
             this.Tx_impues.Size = new System.Drawing.Size(101, 15);
             this.Tx_impues.TabIndex = 3;
@@ -727,7 +727,7 @@
             this.Tx_totalR.Enabled = false;
             this.Tx_totalR.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_totalR.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_totalR.Location = new System.Drawing.Point(109, 118);
+            this.Tx_totalR.Location = new System.Drawing.Point(93, 118);
             this.Tx_totalR.Name = "Tx_totalR";
             this.Tx_totalR.ReadOnly = true;
             this.Tx_totalR.Size = new System.Drawing.Size(101, 15);
@@ -752,7 +752,7 @@
             this.Tx_honor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_honor.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tx_honor.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_honor.Location = new System.Drawing.Point(109, 78);
+            this.Tx_honor.Location = new System.Drawing.Point(93, 78);
             this.Tx_honor.Name = "Tx_honor";
             this.Tx_honor.Size = new System.Drawing.Size(101, 15);
             this.Tx_honor.TabIndex = 4;
@@ -765,7 +765,7 @@
             this.Tx_varios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_varios.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tx_varios.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_varios.Location = new System.Drawing.Point(109, 97);
+            this.Tx_varios.Location = new System.Drawing.Point(93, 97);
             this.Tx_varios.Name = "Tx_varios";
             this.Tx_varios.Size = new System.Drawing.Size(101, 15);
             this.Tx_varios.TabIndex = 5;
@@ -778,7 +778,7 @@
             this.Tx_rptos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_rptos.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tx_rptos.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_rptos.Location = new System.Drawing.Point(109, 40);
+            this.Tx_rptos.Location = new System.Drawing.Point(93, 40);
             this.Tx_rptos.Name = "Tx_rptos";
             this.Tx_rptos.Size = new System.Drawing.Size(101, 15);
             this.Tx_rptos.TabIndex = 2;
@@ -791,7 +791,7 @@
             this.Tx_viati.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_viati.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tx_viati.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_viati.Location = new System.Drawing.Point(109, 22);
+            this.Tx_viati.Location = new System.Drawing.Point(93, 22);
             this.Tx_viati.Name = "Tx_viati";
             this.Tx_viati.Size = new System.Drawing.Size(101, 15);
             this.Tx_viati.TabIndex = 1;
@@ -804,7 +804,7 @@
             this.Tx_combus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_combus.Font = new System.Drawing.Font("Verdana", 9F);
             this.Tx_combus.ForeColor = System.Drawing.Color.Blue;
-            this.Tx_combus.Location = new System.Drawing.Point(109, 3);
+            this.Tx_combus.Location = new System.Drawing.Point(93, 3);
             this.Tx_combus.Name = "Tx_combus";
             this.Tx_combus.Size = new System.Drawing.Size(101, 15);
             this.Tx_combus.TabIndex = 0;
@@ -913,7 +913,7 @@
             // 
             // tx_dat_asignado
             // 
-            this.tx_dat_asignado.Location = new System.Drawing.Point(817, 38);
+            this.tx_dat_asignado.Location = new System.Drawing.Point(846, 38);
             this.tx_dat_asignado.Name = "tx_dat_asignado";
             this.tx_dat_asignado.Size = new System.Drawing.Size(68, 20);
             this.tx_dat_asignado.TabIndex = 371;
@@ -924,7 +924,7 @@
             this.Tx_asignado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_asignado.Location = new System.Drawing.Point(130, 44);
             this.Tx_asignado.Name = "Tx_asignado";
-            this.Tx_asignado.Size = new System.Drawing.Size(206, 13);
+            this.Tx_asignado.Size = new System.Drawing.Size(294, 13);
             this.Tx_asignado.TabIndex = 0;
             this.Tx_asignado.Values = null;
             this.Tx_asignado.Enter += new System.EventHandler(this.Tx_asignado_Enter);
@@ -936,7 +936,7 @@
             this.Tx_ctaDes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_ctaDes.Location = new System.Drawing.Point(130, 83);
             this.Tx_ctaDes.Name = "Tx_ctaDes";
-            this.Tx_ctaDes.Size = new System.Drawing.Size(206, 13);
+            this.Tx_ctaDes.Size = new System.Drawing.Size(327, 13);
             this.Tx_ctaDes.TabIndex = 4;
             this.Tx_ctaDes.Values = null;
             this.Tx_ctaDes.Enter += new System.EventHandler(this.Tx_ctaDes_Enter);
@@ -949,7 +949,7 @@
             this.generalEtiqueta8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta8.Font = new System.Drawing.Font("Verdana", 8F);
             this.generalEtiqueta8.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta8.Location = new System.Drawing.Point(4, 43);
+            this.generalEtiqueta8.Location = new System.Drawing.Point(5, 43);
             this.generalEtiqueta8.Name = "generalEtiqueta8";
             this.generalEtiqueta8.Size = new System.Drawing.Size(124, 15);
             this.generalEtiqueta8.TabIndex = 377;
@@ -958,7 +958,7 @@
             // chk_datSimil
             // 
             this.chk_datSimil.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chk_datSimil.Location = new System.Drawing.Point(391, 157);
+            this.chk_datSimil.Location = new System.Drawing.Point(455, 157);
             this.chk_datSimil.Name = "chk_datSimil";
             this.chk_datSimil.Size = new System.Drawing.Size(120, 16);
             this.chk_datSimil.TabIndex = 376;
@@ -972,7 +972,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Location = new System.Drawing.Point(4, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(538, 2);
+            this.label2.Size = new System.Drawing.Size(625, 2);
             this.label2.TabIndex = 378;
             // 
             // generalEtiqueta1
@@ -980,7 +980,7 @@
             this.generalEtiqueta1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta1.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta1.Location = new System.Drawing.Point(4, 158);
+            this.generalEtiqueta1.Location = new System.Drawing.Point(5, 158);
             this.generalEtiqueta1.Name = "generalEtiqueta1";
             this.generalEtiqueta1.Size = new System.Drawing.Size(124, 15);
             this.generalEtiqueta1.TabIndex = 379;
@@ -992,7 +992,7 @@
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.Location = new System.Drawing.Point(3, 154);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(538, 2);
+            this.label11.Size = new System.Drawing.Size(626, 2);
             this.label11.TabIndex = 380;
             // 
             // tx_montoD
@@ -1011,7 +1011,7 @@
             // chk_dol
             // 
             this.chk_dol.AutoSize = true;
-            this.chk_dol.Location = new System.Drawing.Point(766, 80);
+            this.chk_dol.Location = new System.Drawing.Point(837, 81);
             this.chk_dol.Name = "chk_dol";
             this.chk_dol.Size = new System.Drawing.Size(47, 17);
             this.chk_dol.TabIndex = 382;
@@ -1021,7 +1021,7 @@
             // 
             // tx_dat_rptosS
             // 
-            this.tx_dat_rptosS.Location = new System.Drawing.Point(798, 56);
+            this.tx_dat_rptosS.Location = new System.Drawing.Point(848, 56);
             this.tx_dat_rptosS.Name = "tx_dat_rptosS";
             this.tx_dat_rptosS.Size = new System.Drawing.Size(68, 20);
             this.tx_dat_rptosS.TabIndex = 667;
@@ -1044,7 +1044,7 @@
             this.tx_descrip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_descrip.Location = new System.Drawing.Point(130, 100);
             this.tx_descrip.Name = "tx_descrip";
-            this.tx_descrip.Size = new System.Drawing.Size(411, 34);
+            this.tx_descrip.Size = new System.Drawing.Size(498, 34);
             this.tx_descrip.TabIndex = 5;
             this.tx_descrip.Text = "";
             this.tx_descrip.Enter += new System.EventHandler(this.tx_descrip_Enter);
@@ -1054,7 +1054,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
-            this.ClientSize = new System.Drawing.Size(893, 422);
+            this.ClientSize = new System.Drawing.Size(935, 422);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.tx_anno);
             this.Controls.Add(this.tx_dat_rptosS);

@@ -1,7 +1,5 @@
-﻿//using ADGV;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-//using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -204,6 +202,8 @@ namespace Conti3
             tx_tele2.Text = fila[4];
             tx_correo.Text = fila[5];
             tx_estado.Text = fila[6];
+            if (fila[6] == "1") chk_bloq.Checked = true;
+            else chk_bloq.Checked = false;
             tx_ruc.Text = fila[7];
             tx_cuenta.Text = fila[8];
         }                                                   // muestra en el formulario los objetos de la clase Egresos
@@ -324,6 +324,7 @@ namespace Conti3
             limpiar();
             limpia_otros();
             limpia_combos();
+            limpia_chk();
             tx_idOper.ReadOnly = true;
             Tx_nombre.Focus();
         }
@@ -337,6 +338,7 @@ namespace Conti3
             limpiar();
             limpia_otros();
             limpia_combos();
+            limpia_chk();
             tx_idOper.ReadOnly = false;
             tx_idOper.Focus();
         }
@@ -363,6 +365,7 @@ namespace Conti3
             limpiar();
             limpia_otros();
             limpia_combos();
+            limpia_chk();
             tx_idOper.Enabled = true;
             tx_idOper.ReadOnly = false;
             tx_idOper.Focus();
@@ -445,6 +448,7 @@ namespace Conti3
                 limpiar();
                 limpia_otros();
                 limpia_combos();
+                limpia_chk();
                 jalaoc(fila);
             }
         }
@@ -582,7 +586,7 @@ namespace Conti3
                 return;
             }
             errorProvider1.SetError(Tx_nombre, "");
-            if (tx_estado.Text.Trim() == "")
+            /*  if (tx_estado.Text.Trim() == "")
             {
                 errorProvider1.SetError(tx_estado, "Debe ingresar: " + Environment.NewLine +
                     "1 para Activo " + Environment.NewLine +
@@ -591,7 +595,27 @@ namespace Conti3
                 return;
             }
             errorProvider1.SetError(tx_estado, "");
-
+            */
+            if (tx_tele1.Text.Trim() == "" && tx_tele2.Text.Trim() == "")
+            {
+                var aa = MessageBox.Show("No estan registrados los teléfonos" + Environment.NewLine +
+                    "Es correcto eso?","Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (aa == DialogResult.No)
+                {
+                    tx_tele1.Focus();
+                    return;
+                }
+            }
+            if (tx_ruc.Text == "" || tx_cuenta.Text == "")
+            {
+                var aa = MessageBox.Show("No estan registrados el RUC y/o CUENTA" + Environment.NewLine +
+                    "Es correcto eso?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (aa == DialogResult.No)
+                {
+                    tx_ruc.Focus();
+                    return;
+                }
+            }
             using (MySqlConnection conn = new MySqlConnection(DB_CONN_STR))
             {
                 var aa = MessageBox.Show("Confirma que desea grabar?","Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
@@ -631,7 +655,7 @@ namespace Conti3
                             micon.Parameters.AddWithValue("@tel1", tx_tele1.Text.Trim());
                             micon.Parameters.AddWithValue("@tel2", tx_tele2.Text.Trim());
                             micon.Parameters.AddWithValue("@corr", tx_correo.Text.Trim());
-                            micon.Parameters.AddWithValue("@esta", tx_estado.Text);
+                            micon.Parameters.AddWithValue("@esta", (chk_bloq.CheckState == CheckState.Checked)? "1" : "0"); // tx_estado.Text
                             micon.Parameters.AddWithValue("@ruc", tx_ruc.Text);
                             micon.Parameters.AddWithValue("@cta", tx_cuenta.Text);
                             micon.Parameters.AddWithValue("@vap", verapp);
@@ -660,16 +684,15 @@ namespace Conti3
                         fila[3] = tx_tele1.Text;
                         fila[4] = tx_tele2.Text;
                         fila[5] = tx_correo.Text;
-                        fila[6] = tx_estado.Text;
+                        fila[6] = (chk_bloq.CheckState == CheckState.Checked) ? "1" : "0";   // tx_estado.Text
                         fila[7] = tx_ruc.Text;
                         fila[8] = tx_cuenta.Text;
                         dtm.Rows.InsertAt(fila, 0);
                     }
                     if (Tx_modo.Text == "EDITAR")
                     {
-                        // me quede aca .. .faltan los nuevos campos
-                        string cins = "update anagrafiche set ragionesociale=@nom,indirizzo1=@dir,numerotel1=@tel1,numerotel2=@tel2," +
-                            "email=@corr,stato=@esta,CodiceFiscale=@ruc,ContoCorrente=@cta," +
+                        string cins = "update anagrafiche set ragionesociale=@nom,indirizzo1=@dir,numerotel1=@tel1," +
+                            "numerotel2=@tel2,email=@corr,stato=@esta,CodiceFiscale=@ruc,ContoCorrente=@cta," +
                             "verApp=@vap,userm=@asd,fechm=now(),diriplan4=@ipl,diripwan4=@ipw,netbname=@nbna " +
                             "where idanagrafica=@ida";
                         using (MySqlCommand micon = new MySqlCommand(cins, conn))
@@ -680,7 +703,7 @@ namespace Conti3
                             micon.Parameters.AddWithValue("@tel1", tx_tele1.Text.Trim());
                             micon.Parameters.AddWithValue("@tel2", tx_tele2.Text.Trim());
                             micon.Parameters.AddWithValue("@corr", tx_correo.Text.Trim());
-                            micon.Parameters.AddWithValue("@esta", tx_estado.Text);
+                            micon.Parameters.AddWithValue("@esta", (chk_bloq.CheckState == CheckState.Checked) ? "1" : "0"); // tx_estado.Text
                             micon.Parameters.AddWithValue("@ruc", tx_ruc.Text);
                             micon.Parameters.AddWithValue("@cta", tx_cuenta.Text);
                             micon.Parameters.AddWithValue("@vap", verapp);
@@ -700,7 +723,7 @@ namespace Conti3
                             fila[3] = tx_tele1.Text;
                             fila[4] = tx_tele2.Text;
                             fila[5] = tx_correo.Text;
-                            fila[6] = tx_estado.Text;
+                            fila[6] = (chk_bloq.CheckState == CheckState.Checked) ? "1" : "0";  // tx_estado.Text;
                             fila[7] = tx_ruc.Text;
                             fila[8] = tx_cuenta.Text;
                         }
@@ -710,8 +733,8 @@ namespace Conti3
             limpiar();
             limpia_otros();
             limpia_combos();
+            limpia_chk();
             pintaFilaAnul();
         }
-
     }
 }
