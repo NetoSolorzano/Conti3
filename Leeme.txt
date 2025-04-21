@@ -173,4 +173,8 @@ Form Finan_Ingres, adecuar ancho en categorias y cuentas .......................
 Form Finan_egres, adecuar ancho en categorias y cuentas ......................... 19/04/2025
 Form Finan_camion, adecuar ancho en categorias y cuentas ........................ 19/04/2025
 Form egborrador, adecuar ancho en categorias y cuentas .......................... 19/04/2025
-
+C.R. repCtaPers1, adecuar ancho de descripción a 100 caracteres o mas ........... 21/04/2025
+C.R. repGenOMG1, adecuar ancho de descripción a 100 caract y otros mas .......... 21/04/2025
+C.R.repGasCam1,adecuar ancho de descripción a 100 caracteres .................... me quede en quitar 
+los espacios en blanco en la descrip, centrar verticalmente el contenido de la seccion y 
+centrar verticalmente el texto dentro de su propio recuadro
