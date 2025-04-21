@@ -1527,7 +1527,7 @@ namespace Conti3
                         detalle.cuenta = row["CUENTA"].ToString();
                         detalle.placa = row["ASIGNADO"].ToString();
                         detalle.destino = row["DESTINO"].ToString();
-                        detalle.descrip = row["DESCRIPCION"].ToString();
+                        detalle.descrip = row["DESCRIPCION"].ToString().Trim();
                         detalle.combust = decimal.Parse(row["COMBUST"].ToString());
                         detalle.honorar = decimal.Parse(row["HONORAR"].ToString());
                         detalle.impuest = decimal.Parse(row["IMPTOS"].ToString());

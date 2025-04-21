@@ -387,7 +387,7 @@ namespace Conti3
             // CASA,AÑO,ID_MOVIM,FECHA,CAMION,DESTINO,TOTAL_SOL,TOTAL_DOL,TIP_CAMBIO,DESCRIPCION,
             // usuario,dia,codimon,nombmon,MONEDA,IDDestino,DET_DESTINO,
             // a.ImpCarbS,a.ImpViaS,a.ImpRicS,a.ImpVariS,a.imphons,a.ImpImpS,a.repdol,IDCamion 
-            if (Tx_modo.Text != "NUEVO")
+            if (true)    // 21/02/2025  Tx_modo.Text != "NUEVO"
             {
                 string anOp = "";
                 string fecOp = "";              // fecha de operacion
@@ -438,6 +438,7 @@ namespace Conti3
                     totalD = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TOTAL_DOL"].Value.ToString());
                     if (advancedDataGridView1.Rows[e.RowIndex].Cells["repdol"].Value.ToString() == "1") repsEnDol = 1;
                 }
+                sumador();
                 Ocamion.creaCamion(Oasig, idmov, fecOp, Ocajd, "nada", "nada",
                     Omone, tipca, descr, combust, viaticos, respuest, impuests,
                     honorar, varios, totalS, totalD, repsEnDol, anOp);   //varios, 
@@ -450,7 +451,8 @@ namespace Conti3
             // usuario,dia,codimon,nombmon,MONEDA,IDDestino,DET_DESTINO
 
             DataRow fila = dt_grilla.NewRow();
-            string fecOp = Tx_fecha.Text;    // selecFecha1.Value.Date.ToShortDateString();
+            string fecOp = Tx_fecha.Text;
+            advancedDataGridView1.Rows[0].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;  // 21/04/2025
             if (true)
             {
                 fila["CASA"] = _casa;
@@ -480,6 +482,7 @@ namespace Conti3
             }
             dt_grilla.Rows.InsertAt(fila, 0);
             advancedDataGridView1.CurrentCell = advancedDataGridView1.Rows[0].Cells[0];
+            advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightYellow;   // 21/04/2025
         }                                           // INSERTA en la grilla el registro nuevo despues de grabar en la B.D.
         private void jalaGrilla(int dAtras, string ntabla)
         {
