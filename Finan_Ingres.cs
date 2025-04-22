@@ -41,6 +41,8 @@ namespace Conti3
         string codDol = "MON002";
         string codEur = "MON003";
         string codSol = "MON001";
+        string col1rafila = "";                                                     // color html de la 1ra fila en ingresos
+
         public Finan_Ingres()
         {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -175,6 +177,8 @@ namespace Conti3
             diasAtroya = int.Parse(row[0]["valor"].ToString());
             row = Program.dt_enlaces.Select("formulario='" + nomForm + "' and campo='grillas' and param='limCols'");
             limCols = int.Parse(row[0]["valor"].ToString());
+            row = Program.dt_enlaces.Select("formulario='" + nomForm + "' and campo='grillas' and param='col1rafila'");
+            col1rafila = row[0]["valor"].ToString();              // color html de la 1ra fila en ingresos
         }
         private void jalaoc()
         {
@@ -1192,6 +1196,7 @@ namespace Conti3
         {
             DataRow fila = dt_grillaI.NewRow();
             string fecOp = Tx_fecha.Text;    // selecFecha1.Value.Date.ToShortDateString();
+            advancedDataGridView1.Rows[0].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;  // 22/04/2025
             if (rb_omg.Checked == true)
             {
                 // CASA,AÑO,ID_MOVIM,FECHA,DESTINO,EGRESO,MONEDA,MONTO,DESCRIPCION,TIP_CAMBIO,PROVEEDOR,GIRO_CTA,idgiroconto,CTA_DESTINO,
@@ -1263,6 +1268,7 @@ namespace Conti3
             }
             dt_grillaI.Rows.InsertAt(fila, 0);
             advancedDataGridView1.CurrentCell = advancedDataGridView1.Rows[0].Cells[0];
+            advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
         }                                           // INSERTA en la grilla el registro nuevo despues de grabar en la B.D.
         private void jalaGrilla(int dAtras, string ntabla)
         {

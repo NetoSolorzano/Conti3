@@ -29,6 +29,7 @@ namespace Conti3
         string nomForm = "";
         int diasAtroya = 0;                                                         // dias atras hasta donde mostrará la grilla
         int limCols = 1;                                                            // limite de columnas que muestra la grilla
+        string col1rafila = "";                                                     // color html de la 1ra fila en ingresos
 
         public Finan_camion()
         {
@@ -178,6 +179,8 @@ namespace Conti3
             diasAtroya = int.Parse(row[0]["valor"].ToString());
             row = Program.dt_enlaces.Select("formulario='" + nomForm + "' and campo='grillas' and param='limCols'");
             limCols = int.Parse(row[0]["valor"].ToString());
+            row = Program.dt_enlaces.Select("formulario='" + nomForm + "' and campo='grillas' and param='col1rafila'");
+            col1rafila = row[0]["valor"].ToString();              // color html de la 1ra fila en ingresos
         }
         private void initCampos()
         {
@@ -482,7 +485,7 @@ namespace Conti3
             }
             dt_grilla.Rows.InsertAt(fila, 0);
             advancedDataGridView1.CurrentCell = advancedDataGridView1.Rows[0].Cells[0];
-            advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightYellow;   // 21/04/2025
+            advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
         }                                           // INSERTA en la grilla el registro nuevo despues de grabar en la B.D.
         private void jalaGrilla(int dAtras, string ntabla)
         {

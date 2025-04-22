@@ -176,4 +176,9 @@ Form egborrador, adecuar ancho en categorias y cuentas .........................
 C.R. repCtaPers1, adecuar ancho de descripción a 100 caracteres o mas ........... 21/04/2025
 C.R. repGenOMG1, adecuar ancho de descripción a 100 caract y otros mas .......... 21/04/2025
 C.R.repGasCam1,adecuar ancho de descripción a 100 caracteres .................... 21/04/2025
-Form Finan_camion, permitir doble click en fila para jalar en modo NUEVO ........ me quede en que grabe total soles
+Form Finan_camion, fondo amarillo en nueva inserción ............................ 21/04/2025
+Form Finan_camion, doble click en fila para jalar en modo NUEVO ................. 22/04/2025
+Form egborrador, fondo amarillo en nueva inserción .............................. 22/04/2025
+Form Finan_egres, fondo amarillo en nueva inserción ............................. 22/04/2025
+Form Finan_Ingres, fondo amarillo en nueva inserción ............................ 22/04/2025
+

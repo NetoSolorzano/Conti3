@@ -745,6 +745,7 @@
             this.Tx_catEgre.Enter += new System.EventHandler(this.Tx_catEgre_Enter);
             this.Tx_catEgre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.Tx_catEgre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tx_catEgre_KeyPress);
+            this.Tx_catEgre.Leave += new System.EventHandler(this.Tx_catEgre_Leave);
             // 
             // eti_nomCat
             // 

@@ -45,6 +45,7 @@ namespace Conti3
         string ctasAsoc = "";                                                       // cuentas "asociación"
         string codEur = "MON003";
         string codSol = "MON001";
+        string col1rafila = "";                                                     // color html de la 1ra fila en ingresos
 
         public egborrador()
         {
@@ -291,6 +292,10 @@ namespace Conti3
                 {
                     //limCols = int.Parse(row[0]["valor"].ToString());
                     limCols = int.Parse(data.ItemArray[5].ToString());
+                }
+                if (data.ItemArray[2].ToString() == "grillas" && data.ItemArray[3].ToString() == "col1rafila")
+                {
+                    col1rafila = data.ItemArray[5].ToString();      // color html de la 1ra fila en ingresos
                 }
                 if (data.ItemArray[2].ToString() == "documento")
                 {
@@ -666,7 +671,7 @@ namespace Conti3
             // ImportoDU,ImportoSU,a.idanagrafica,a.IDConto,a.IDCategoria,
             // a.codimon,a.nombmon,a.TCMonOri,CUENTA,DET_EGRESO,a.CodGiro,
             // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB
-            if (Tx_modo.Text != "NUEVO")
+            if (true)    // Tx_modo.Text != "NUEVO"
             {
                 string fecOp = "";              // fecha de operacion
                 decimal tipca = 0;              // tip cambio del monto origen
@@ -746,6 +751,7 @@ namespace Conti3
 
             DataRow fila = dt_grilla.NewRow();
             string fecOp = selecFecha1.Value.Date.ToShortDateString();
+            advancedDataGridView1.Rows[0].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;  // 22/04/2025
             if (true)
             {
                 fila["CASA"] = _casa;
@@ -786,6 +792,7 @@ namespace Conti3
             }
             dt_grilla.Rows.InsertAt(fila, 0);
             advancedDataGridView1.CurrentCell = advancedDataGridView1.Rows[0].Cells[0];
+            advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
         }                                           // INSERTA en la grilla el registro nuevo despues de grabar en la B.D.
         private void jalaGrilla(int dAtras, string ntabla)
         {
@@ -1200,6 +1207,29 @@ namespace Conti3
                 }
             }
         }
+        private void Tx_catEgre_Leave(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION")
+            {
+                if (Tx_catEgre.Text.Trim() != "")
+                {
+                    DataRow[] nc = Program.dt_definic.Select("idtabella='CAM' and descrizione='" + Tx_catEgre.Text.Trim() + "' and numero=1");
+                    if (nc.Length > 0)
+                    {
+                        eti_nomCat.Text = nc[0].ItemArray[3].ToString();    // nc[0].ItemArray[2].ToString()
+                        OcatEg.codigo = nc[0].ItemArray[1].ToString();
+                        OcatEg.largo = Tx_catEgre.Text;    // OcatEg.nombre = Tx_catEgre.Text
+                        OcatEg.nombre = eti_nomCat.Text;     // OcatEg.largo = eti_nomCat.Text
+                    }
+                    else
+                    {
+                        Tx_catEgre.Clear();
+                        eti_nomCat.Text = "";
+                        MessageBox.Show("No existe el nombre del egreso");
+                    }
+                }
+            }
+        }
         private void Tx_nomProv_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Tx_nomProv.Text.Trim().Length > 3 && (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION"))
@@ -1248,7 +1278,6 @@ namespace Conti3
                 Oprove.cuenta = "";
             }
         }
-
         private void chk_giroC_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_giroC.CheckState == CheckState.Checked)
