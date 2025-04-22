@@ -181,4 +181,5 @@ Form Finan_camion, doble click en fila para jalar en modo NUEVO ................
 Form egborrador, fondo amarillo en nueva inserción .............................. 22/04/2025
 Form Finan_egres, fondo amarillo en nueva inserción ............................. 22/04/2025
 Form Finan_Ingres, fondo amarillo en nueva inserción ............................ 22/04/2025
+**** adecuaciones del aumento del 30% en los formularios ***********************************
 
