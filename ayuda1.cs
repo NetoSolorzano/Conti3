@@ -9,14 +9,15 @@ namespace Conti3
 {
     public partial class ayuda1 : Form1
     {
-        publicoConf conf = new publicoConf();
+        Finan_Egres OFegres = new Finan_Egres();
         libreria lib = new libreria();
+        ccolores OColores = new ccolores();
         public string para1 = "";
         public string para2 = "";
         public string para3 = "";
         public string para4 = "";
         // Se crea un DataTable que almacenará los datos desde donde se cargaran los datos al DataGridView
-        DataTable dtDatos = new DataTable();
+        //DataTable dtDatos = new DataTable();
         // string de conexion
         static string serv = ConfigurationManager.AppSettings["serv"].ToString();
         static string port = ConfigurationManager.AppSettings["port"].ToString();
@@ -35,10 +36,15 @@ namespace Conti3
         }
         private void ayuda1_Load(object sender, EventArgs e)
         {
+            using (MySqlConnection conn = new MySqlConnection(DB_CONN_STR))
+            {
+                conn.Open();
+                OFegres.jalacolores(conn, OColores, "provee");
+            }
+            OFegres.colorea(this, OColores.Fondo_fuerte, OColores.Fondo_normal, OColores.Fondo_suave);
             // color de boton Bt_graba
-            Bt_graba.BackColor = ColorTranslator.FromHtml("#667d97");   //  "#656d77",   #f5510f", "#e76433"
+            Bt_graba.BackColor = ColorTranslator.FromHtml(OColores.Fondo_boton_graba);
             Bt_graba.Image = null;
-            //this.BackColor = Color.FromArgb(conf.fondoPrinRojoE, conf.fondoPrinVerdeE, conf.fondoPriAzulE); // conf.fondoPrinBrilloE, 
             this.Text = "PROVEEDOR NUEVO";
             Bt_graba.Image = Conti3.Properties.Resources.save_negro40;
             //
@@ -51,6 +57,7 @@ namespace Conti3
             //Tx_nombre.BackColor = ColorTranslator.FromHtml("#d5f2de");
             tx_ruc.MaxLength = 11;
             tx_cuenta.MaxLength = 20;
+            tx_telef.MaxLength = 15;
             //
             ReturnValueA = new string[4] { "", "", "", "" };
         }
@@ -71,6 +78,51 @@ namespace Conti3
         {
             if (Tx_nombre.Text != "")
             {
+                // validaciones
+                string err1 = ""; string err2 = "";
+                using (MySqlConnection conn = new MySqlConnection(DB_CONN_STR))
+                {
+                    conn.Open();
+                    string uno = "select count(id) from anagrafiche where RagioneSociale=@nomb";
+                    string dos = "select RagioneSociale from anagrafiche where CodiceFiscale=@nruc";
+                    using (MySqlCommand micon = new MySqlCommand(uno, conn)) 
+                    {
+                        micon.Parameters.AddWithValue("@nomb", Tx_nombre.Text);
+                        using (MySqlDataReader dr = micon.ExecuteReader())
+                        {
+                            if (dr.Read()) 
+                            {
+                                if (dr.GetInt32(0) > 0) err1 = "El nombre del proveedor ya existe";
+                            }
+                        }
+                    }
+                    using (MySqlCommand micon = new MySqlCommand(dos, conn))
+                    {
+                        micon.Parameters.AddWithValue("@nruc", tx_ruc.Text);
+                        using (MySqlDataReader dr = micon.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                if (dr.Read())
+                                {
+                                    if (dr.GetString(0).Trim() != "") err2 = "El RUC ingresado ya existe" + Environment.NewLine + 
+                                            "correspode a: " + dr.GetString(0).Trim();
+                                }
+                            }
+                        }
+                    }
+                    if (err1 != "")
+                    {
+                        MessageBox.Show(err1,"Error!");
+                        return;
+                    }
+                    if (err2 != "")
+                    {
+                        MessageBox.Show(err2, "Error!");
+                        return;
+                    } 
+                }
+
                 var aa = MessageBox.Show("Confirma que desea grabar?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (aa == DialogResult.Yes)
                 {
@@ -137,15 +189,16 @@ namespace Conti3
                     Application.Exit();
                 }
                 string metela = "insert into anagrafiche " +
-                    "(RagioneSociale,IDCategoria,stato,CodiceFiscale,ContoCorrente," +
+                    "(RagioneSociale,IDCategoria,stato,CodiceFiscale,ContoCorrente,NumeroTel1," +
                     "verApp,userc,fechc,diriplan4,diripwan4,netbname) " +
-                    "values (@nomb,'FOR',1,@ruc,@cta," +
+                    "values (@nomb,'FOR',1,@ruc,@cta,@tel1," +
                     "@vap,@asd,now(),@ipl,@ipw,@nbna)";
                 using (MySqlCommand micon = new MySqlCommand(metela, conn))
                 {
                     micon.Parameters.AddWithValue("@nomb", Tx_nombre.Text.Trim());
                     micon.Parameters.AddWithValue("@ruc", tx_ruc.Text);
                     micon.Parameters.AddWithValue("@cta", tx_cuenta.Text);
+                    micon.Parameters.AddWithValue("@tel1", tx_telef.Text);
                     micon.Parameters.AddWithValue("@vap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
                     micon.Parameters.AddWithValue("@asd", Program.vg_user);
                     micon.Parameters.AddWithValue("@ipl", lib.iplan());

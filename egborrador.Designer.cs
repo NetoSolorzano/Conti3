@@ -119,6 +119,7 @@
             this.Tx_rucprov = new Conti3.generalTextBox();
             this.generalEtiqueta9 = new Conti3.generalEtiqueta();
             this.tx_descrip = new System.Windows.Forms.RichTextBox();
+            this.bt_Pnuevo = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.pan_p.SuspendLayout();
@@ -449,7 +450,7 @@
             this.Bt_graba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(1033, 174);
+            this.Bt_graba.Location = new System.Drawing.Point(1034, 174);
             this.Bt_graba.Name = "Bt_graba";
             this.Bt_graba.Size = new System.Drawing.Size(66, 58);
             this.Bt_graba.TabIndex = 15;
@@ -686,12 +687,11 @@
             // 
             this.chk_datSimil.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chk_datSimil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_datSimil.Location = new System.Drawing.Point(485, 212);
+            this.chk_datSimil.Location = new System.Drawing.Point(552, 212);
             this.chk_datSimil.Name = "chk_datSimil";
-            this.chk_datSimil.Size = new System.Drawing.Size(197, 22);
+            this.chk_datSimil.Size = new System.Drawing.Size(138, 22);
             this.chk_datSimil.TabIndex = 21;
             this.chk_datSimil.Text = "Datos similares";
-            this.chk_datSimil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk_datSimil.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -790,7 +790,7 @@
             this.generalEtiqueta1.ForeColor = System.Drawing.Color.Blue;
             this.generalEtiqueta1.Location = new System.Drawing.Point(6, 172);
             this.generalEtiqueta1.Name = "generalEtiqueta1";
-            this.generalEtiqueta1.Size = new System.Drawing.Size(123, 19);
+            this.generalEtiqueta1.Size = new System.Drawing.Size(87, 19);
             this.generalEtiqueta1.TabIndex = 674;
             this.generalEtiqueta1.Text = "Proveedor";
             // 
@@ -941,7 +941,7 @@
             // 
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(719, 107);
+            this.label7.Location = new System.Drawing.Point(720, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(377, 2);
             this.label7.TabIndex = 687;
@@ -951,7 +951,7 @@
             this.label8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Enabled = false;
-            this.label8.Location = new System.Drawing.Point(718, 41);
+            this.label8.Location = new System.Drawing.Point(719, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(2, 67);
             this.label8.TabIndex = 686;
@@ -970,7 +970,7 @@
             // 
             this.label10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label10.Location = new System.Drawing.Point(719, 39);
+            this.label10.Location = new System.Drawing.Point(720, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(379, 2);
             this.label10.TabIndex = 684;
@@ -978,7 +978,7 @@
             // tx_ctaGiro
             // 
             this.tx_ctaGiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_ctaGiro.Location = new System.Drawing.Point(720, 66);
+            this.tx_ctaGiro.Location = new System.Drawing.Point(721, 66);
             this.tx_ctaGiro.Name = "tx_ctaGiro";
             this.tx_ctaGiro.Size = new System.Drawing.Size(377, 22);
             this.tx_ctaGiro.TabIndex = 23;
@@ -990,7 +990,7 @@
             this.eti_nomCtaGiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
             this.eti_nomCtaGiro.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_nomCtaGiro.ForeColor = System.Drawing.Color.Blue;
-            this.eti_nomCtaGiro.Location = new System.Drawing.Point(721, 90);
+            this.eti_nomCtaGiro.Location = new System.Drawing.Point(722, 90);
             this.eti_nomCtaGiro.Name = "eti_nomCtaGiro";
             this.eti_nomCtaGiro.Size = new System.Drawing.Size(375, 17);
             this.eti_nomCtaGiro.TabIndex = 683;
@@ -999,7 +999,7 @@
             // 
             this.chk_giroC.AutoSize = true;
             this.chk_giroC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_giroC.Location = new System.Drawing.Point(723, 43);
+            this.chk_giroC.Location = new System.Drawing.Point(724, 43);
             this.chk_giroC.Name = "chk_giroC";
             this.chk_giroC.Size = new System.Drawing.Size(305, 22);
             this.chk_giroC.TabIndex = 22;
@@ -1022,7 +1022,7 @@
             this.cmb_asoc.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmb_asoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_asoc.FormattingEnabled = true;
-            this.cmb_asoc.Location = new System.Drawing.Point(720, 140);
+            this.cmb_asoc.Location = new System.Drawing.Point(721, 140);
             this.cmb_asoc.Name = "cmb_asoc";
             this.cmb_asoc.Size = new System.Drawing.Size(377, 26);
             this.cmb_asoc.TabIndex = 25;
@@ -1032,7 +1032,7 @@
             // 
             this.chk_asoc.AutoSize = true;
             this.chk_asoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_asoc.Location = new System.Drawing.Point(723, 117);
+            this.chk_asoc.Location = new System.Drawing.Point(724, 117);
             this.chk_asoc.Name = "chk_asoc";
             this.chk_asoc.Size = new System.Drawing.Size(100, 22);
             this.chk_asoc.TabIndex = 24;
@@ -1063,7 +1063,7 @@
             // 
             this.label13.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(719, 114);
+            this.label13.Location = new System.Drawing.Point(720, 114);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(378, 2);
             this.label13.TabIndex = 692;
@@ -1072,7 +1072,7 @@
             // 
             this.label14.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label14.Location = new System.Drawing.Point(720, 165);
+            this.label14.Location = new System.Drawing.Point(721, 165);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(376, 2);
             this.label14.TabIndex = 694;
@@ -1082,7 +1082,7 @@
             this.label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label15.Enabled = false;
-            this.label15.Location = new System.Drawing.Point(718, 114);
+            this.label15.Location = new System.Drawing.Point(719, 114);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(2, 52);
             this.label15.TabIndex = 695;
@@ -1108,6 +1108,7 @@
             this.tx_ctaban.Name = "tx_ctaban";
             this.tx_ctaban.Size = new System.Drawing.Size(254, 19);
             this.tx_ctaban.TabIndex = 12;
+            this.tx_ctaban.Leave += new System.EventHandler(this.tx_ctaban_Leave);
             // 
             // Tx_rucprov
             // 
@@ -1119,6 +1120,7 @@
             this.Tx_rucprov.Name = "Tx_rucprov";
             this.Tx_rucprov.Size = new System.Drawing.Size(219, 19);
             this.Tx_rucprov.TabIndex = 11;
+            this.Tx_rucprov.Leave += new System.EventHandler(this.Tx_rucprov_Leave);
             // 
             // generalEtiqueta9
             // 
@@ -1142,12 +1144,24 @@
             this.tx_descrip.Text = "";
             this.tx_descrip.Enter += new System.EventHandler(this.tx_descrip_Enter);
             // 
+            // bt_Pnuevo
+            // 
+            this.bt_Pnuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Pnuevo.Location = new System.Drawing.Point(88, 170);
+            this.bt_Pnuevo.Name = "bt_Pnuevo";
+            this.bt_Pnuevo.Size = new System.Drawing.Size(42, 23);
+            this.bt_Pnuevo.TabIndex = 699;
+            this.bt_Pnuevo.Text = "Nuevo";
+            this.bt_Pnuevo.UseVisualStyleBackColor = true;
+            this.bt_Pnuevo.Click += new System.EventHandler(this.bt_Pnuevo_Click);
+            // 
             // egborrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(1107, 422);
+            this.Controls.Add(this.bt_Pnuevo);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.linV1);
             this.Controls.Add(this.Tx_rucprov);
@@ -1319,5 +1333,6 @@
         private generalTextBox Tx_rucprov;
         private generalEtiqueta generalEtiqueta9;
         private System.Windows.Forms.RichTextBox tx_descrip;
+        private System.Windows.Forms.Button bt_Pnuevo;
     }
 }

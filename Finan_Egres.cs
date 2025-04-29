@@ -2276,7 +2276,7 @@ namespace Conti3
                         //dia,ImportoDU,ImportoSU,idanagrafica,IDConto,IDCategoria,CTA_GIRO,codimon,nombmon,TCMonOri,DET_CUENTA,DET_EGRESO,tipodesgiro,CodGiro
                         dr["CASA"] = _casa;
                         dr["ANNO"] = tx_anno.Text;
-                        dr["ID_MOVIM"] = _corre;
+                        dr["ID_MOVIN"] = _corre;
                         dr["FECHA"] = fecOp;
                         dr["CUENTA"] = Ocajd.nombre;
                         dr["EGRESO"] = OcatEg.nombre.ToUpper();
@@ -2595,7 +2595,7 @@ namespace Conti3
                     for (int i = dgv.Rows.Count - 1; i >= 0; i--)
                     {
                         DataRow dr = dgv.Rows[i];
-                        if (dr["ANNO"].ToString() == year && dr["ID_MOVIM"].ToString() == CDerecha(idmov, 6))  // (year + CDerecha(idmov, 6)))
+                        if (dr["ANNO"].ToString() == year && dr["ID_MOVIN"].ToString() == CDerecha(idmov, 6))  // (year + CDerecha(idmov, 6)))
                         {
                             if (dr["CodGiro"].ToString().Trim() != "")
                             {

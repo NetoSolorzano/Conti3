@@ -344,13 +344,13 @@ namespace Conti3
                     OcatEg.nombre = fila[0]["EGRESO"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["EGRESO"].Value.ToString();
                     OcatEg.largo = fila[0]["DET_EGRESO"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["DET_EGRESO"].Value.ToString();
                     Omone.codigo = fila[0]["codimon"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["codimon"].Value.ToString();
-                    Omone.siglas = fila[0]["MONEDA"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["MONEDA"].Value.ToString();
+                    Omone.siglas = fila[0]["MON"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["MON"].Value.ToString();
                     Omone.nombre = fila[0]["nombmon"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["nombmon"].Value.ToString();
                     Omonto.codMOrige = fila[0]["codimon"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["codimon"].Value.ToString();
                     Omonto.monOrige = decimal.Parse(fila[0]["MONTO"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["MONTO"].Value.ToString());
                     Omonto.tipCOri = decimal.Parse(fila[0]["TCMonOri"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
                     Omonto.monDolar = decimal.Parse(fila[0]["ImportoDU"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoDU"].Value.ToString());
-                    Omonto.tipCDol = decimal.Parse(fila[0]["TIP_CAMBIO"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TIP_CAMBIO"].Value.ToString());
+                    Omonto.tipCDol = decimal.Parse(fila[0]["T_C"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["T_C"].Value.ToString());
                     Omonto.monSoles = decimal.Parse(fila[0]["ImportoSU"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoSU"].Value.ToString());
                     tipca = decimal.Parse(fila[0]["TCMonOri"].ToString());   // decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
                     Ocajd.codigo = fila[0]["IDConto"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["IDConto"].Value.ToString();
@@ -394,13 +394,13 @@ namespace Conti3
                     OcatEg.nombre = retu[4];   // fila[0]["EGRESO"].ToString();
                     OcatEg.largo = retu[25];   // fila[0]["DET_EGRESO"].ToString();
                     Omone.codigo = retu[21];   // fila[0]["codimon"].ToString();
-                    Omone.siglas = retu[5];   // fila[0]["MONEDA"].ToString();
+                    Omone.siglas = retu[5];   // fila[0]["MON"].ToString();
                     Omone.nombre = retu[22];   // fila[0]["nombmon"].ToString();
                     Omonto.codMOrige = retu[21];   // fila[0]["codimon"].ToString();
                     Omonto.monOrige = decimal.Parse(retu[6]);  // fila[0]["MONTO"].ToString()
                     Omonto.tipCOri = decimal.Parse(retu[23]);   // fila[0]["TCMonOri"].ToString()
                     Omonto.monDolar = decimal.Parse(retu[16]);  // fila[0]["ImportoDU"].ToString()
-                    Omonto.tipCDol = decimal.Parse(retu[8]);   // fila[0]["TIP_CAMBIO"].ToString()
+                    Omonto.tipCDol = decimal.Parse(retu[8]);   // fila[0]["T_C"].ToString()
                     Omonto.monSoles = decimal.Parse(retu[17]);  // fila[0]["ImportoSU"].ToString()
                     tipca = decimal.Parse(retu[23]);    // fila[0]["TCMonOri"].ToString()
                     Ocajd.codigo = retu[19];   // fila[0]["IDConto"].ToString();
@@ -694,13 +694,13 @@ namespace Conti3
                     OcatEg.nombre = advancedDataGridView1.Rows[e.RowIndex].Cells["EGRESO"].Value.ToString();
                     OcatEg.largo = advancedDataGridView1.Rows[e.RowIndex].Cells["DET_EGRESO"].Value.ToString();
                     Omone.codigo = advancedDataGridView1.Rows[e.RowIndex].Cells["codimon"].Value.ToString();
-                    Omone.siglas = advancedDataGridView1.Rows[e.RowIndex].Cells["MONEDA"].Value.ToString();
+                    Omone.siglas = advancedDataGridView1.Rows[e.RowIndex].Cells["MON"].Value.ToString();
                     Omone.nombre = advancedDataGridView1.Rows[e.RowIndex].Cells["nombmon"].Value.ToString();
                     Omonto.codMOrige = advancedDataGridView1.Rows[e.RowIndex].Cells["codimon"].Value.ToString();
                     Omonto.monOrige = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["MONTO"].Value.ToString());
                     Omonto.tipCOri = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
                     Omonto.monDolar = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoDU"].Value.ToString());
-                    Omonto.tipCDol = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TIP_CAMBIO"].Value.ToString());
+                    Omonto.tipCDol = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["T_C"].Value.ToString());
                     Omonto.monSoles = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoSU"].Value.ToString());
                     tipca = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
                     Ocajd.codigo = advancedDataGridView1.Rows[e.RowIndex].Cells["IDConto"].Value.ToString();
@@ -760,10 +760,10 @@ namespace Conti3
                 fila["FECHA"] = fecOp;
                 fila["DET_CUENTA"] = Ocajd.nombre;     // nombre cuenta destino
                 fila["EGRESO"] = OcatEg.nombre;     // nombre categoria egreso
-                fila["MONEDA"] = Omone.siglas;      // siglas moneda origen
+                fila["MON"] = Omone.siglas;      // siglas moneda origen
                 fila["MONTO"] = Omonto.monOrige;    // valor origen
                 fila["DESCRIPCION"] = tx_descrip.Text;
-                fila["TIP_CAMBIO"] = Omonto.tipCOri; // decimal.Parse(tx_tipcam.Text);
+                fila["T_C"] = Omonto.tipCOri; // decimal.Parse(tx_tipcam.Text);
                 fila["OPERADOR"] = Program.vg_user;
                 fila["dia"] = DateTime.Now;
                 // fila["APROBADOR"] = Program.vg_user;
@@ -913,10 +913,10 @@ namespace Conti3
                     dr["FECHA"] = fecOp;
                     dr["CUENTA"] = Ocajd.nombre;
                     dr["EGRESO"] = OcatEg.nombre;
-                    dr["MONEDA"] = Omone.siglas;
+                    dr["MON"] = Omone.siglas;
                     dr["MONTO"] = Omonto.monOrige;
                     dr["DESCRIPCION"] = tx_descrip.Text;
-                    dr["TIP_CAMBIO"] = Omonto.tipCOri; //  decimal.Parse(tx_tipcam.Text);
+                    dr["T_C"] = Omonto.tipCOri; //  decimal.Parse(tx_tipcam.Text);
                     dr["OPERADOR"] = Opreli.Operador;
                     //dr["dia"] = ;
                     dr["APROBADOR"] = "";   // Opreli.Aprobador;    | el aprobador y fecha de proceso
@@ -1236,36 +1236,50 @@ namespace Conti3
             {
                 if (e.KeyChar == (char)13 || e.KeyChar == (char)09)
                 {
-                    if (Tx_nomProv.Text.Trim() != "")
-                    {
-                        DataRow[] row;
-                        {
-                            row = dtpro.Select("nombre='" + Tx_nomProv.Text.Trim() + "'");
-                        }
-                        if (row.Length > 0)
-                        {
-                            tx_dat_provee.Text = row[0][0].ToString();     // idanagrafica
-                            eti_nomprovee.Text = Tx_nomProv.Text.Trim(); // 31/08/2024 ya no usamos
-                            tx_ctaban.Text = row[0][3].ToString();
-                            Tx_rucprov.Text = row[0][2].ToString();
-                            Oprove.nombre = Tx_nomProv.Text;
-                            Oprove.codigo = tx_dat_provee.Text;
-                            Oprove.ruc = Tx_rucprov.Text;
-                            Oprove.cuenta = tx_ctaban.Text;
-                        }
-                        else
-                        {
-                            Tx_nomProv.Clear();
-                            tx_dat_provee.Clear();
-                            eti_nomprovee.Text = "";
-                            MessageBox.Show("No existe el proveedor");
-                        }
-                    }
+                    // este segmento lo pase al leave()
                 }
             }
         }
         private void Tx_nomProv_Leave(object sender, EventArgs e)
         {
+            if (Tx_nomProv.Text.Trim() != "" && (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION"))
+            {
+                DataRow[] row;
+                {
+                    row = dtpro.Select("nombre='" + Tx_nomProv.Text.Trim() + "'");
+                }
+                if (row.Length > 0)
+                {
+                    tx_dat_provee.Text = row[0][0].ToString();     // idanagrafica
+                    eti_nomprovee.Text = Tx_nomProv.Text.Trim(); // 31/08/2024 ya no usamos
+                    tx_ctaban.Text = row[0][3].ToString();
+                    Tx_rucprov.Text = row[0][2].ToString();
+                    Oprove.nombre = Tx_nomProv.Text;
+                    Oprove.codigo = tx_dat_provee.Text;
+                    Oprove.ruc = Tx_rucprov.Text;
+                    Oprove.cuenta = tx_ctaban.Text;
+                }
+                else
+                {
+                    Tx_nomProv.Clear();
+                    tx_dat_provee.Clear();
+                    Oprove.nombre = "";
+                    Oprove.codigo = "";
+                    Oprove.ruc = "";
+                    Oprove.cuenta = "";
+                    eti_nomprovee.Text = "";
+                    tx_ctaban.Text = "";
+                    Tx_rucprov.Text = "";
+                    var aaa = MessageBox.Show("No existe el proveedor" + Environment.NewLine +
+                        "Desea crearlo ahora?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (aaa == DialogResult.Yes)
+                    {
+                        // llama a ayuda1
+                        bt_Pnuevo_Click(null, null);
+                    }
+                }
+            }
+            /*
             if (Tx_modo.Text != "" && Tx_nomProv.Text.Trim() == "")
             {
                 eti_nomprovee.Text = "";
@@ -1277,6 +1291,24 @@ namespace Conti3
                 Oprove.ruc = "";
                 Oprove.cuenta = "";
             }
+            if (Tx_modo.Text != "" && Tx_nomProv.Text.Trim() != "" && Oprove.codigo == "")
+            {
+                var aaa = MessageBox.Show("No existe el proveedor" + Environment.NewLine +
+                                "Desea crearlo ahora?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (aaa == DialogResult.Yes)
+                {
+                    bt_Pnuevo_Click(null, null);
+                }
+                else
+                {
+                    Tx_nomProv.Text = "";
+                    eti_nomprovee.Text = "";
+                    tx_dat_provee.Text = "";
+                    Tx_rucprov.Text = "";
+                    tx_ctaban.Text = "";
+                }
+            }
+            */
         }
         private void chk_giroC_CheckedChanged(object sender, EventArgs e)
         {
@@ -1365,6 +1397,20 @@ namespace Conti3
                 // quitamos el sonido DING al dar enter en un textbox
                 e.Handled = true;
                 e.SuppressKeyPress = true;
+            }
+        }
+        private void Tx_rucprov_Leave(object sender, EventArgs e)
+        {
+            if ("NUEVO,EDICION".Contains(Tx_modo.Text) && Tx_rucprov.Text != "")
+            {
+                Oprove.ruc = Tx_rucprov.Text;
+            }
+        }
+        private void tx_ctaban_Leave(object sender, EventArgs e)
+        {
+            if ("NUEVO,EDICION".Contains(Tx_modo.Text) && tx_ctaban.Text != "")
+            {
+                Oprove.cuenta = tx_ctaban.Text;
             }
         }
         #endregion
@@ -1668,7 +1714,45 @@ namespace Conti3
         }
         #endregion
 
-        #region grabaciones
+        #region grabaciones botones
+        private void bt_Pnuevo_Click(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text == "NUEVO" && bt_Pnuevo.Enabled == true)
+            {
+                string para1 = "provee";
+                string para2 = "";
+                string para3 = "";
+                string para4 = "";    // todos | activos
+                ayuda1 ayu1 = new ayuda1(para1, para2, para3, para4);
+                var result = ayu1.ShowDialog();
+                if (result == DialogResult.Cancel)
+                {
+                    if (!string.IsNullOrEmpty(ayu1.ReturnValue1))
+                    {
+                        tx_dat_provee.Text = ayu1.ReturnValue0;
+                        Tx_nomProv.Text = ayu1.ReturnValue1;
+                        eti_nomprovee.Text = ayu1.ReturnValue1;
+                        Tx_rucprov.Text = ayu1.ReturnValueA[2];
+                        tx_ctaban.Text = ayu1.ReturnValueA[3];
+                        Oprove.codigo = ayu1.ReturnValueA[0];
+                        Oprove.nombre = ayu1.ReturnValueA[1];
+                        Oprove.ruc = ayu1.ReturnValueA[2];
+                        Oprove.cuenta = ayu1.ReturnValueA[3];
+                        // idanagrafica,trim(upper(ragionesociale)) AS nombre,RUC,cuenta
+                        DataRow dr = dtpro.NewRow();
+                        dr[0] = Oprove.codigo;
+                        dr[1] = Oprove.nombre.Replace("\r\n", string.Empty);
+                        dr[2] = Oprove.ruc;
+                        dr[3] = Oprove.cuenta;
+                        dtpro.Rows.Add(dr);
+                        dtpro.AcceptChanges();
+                        lista_prov.Add(Oprove.nombre);
+                        Tx_nomProv.Values = lista_prov.ToArray();
+                        SendKeys.Send("{Tab}");
+                    }
+                }
+            }
+        }
         private void Bt_graba_Enter(object sender, EventArgs e)
         {
             Bt_graba.BackColor = Color.DarkSeaGreen;
@@ -1742,6 +1826,27 @@ namespace Conti3
                     {
                         MessageBox.Show("Cuenta de Giro no completa", "Error, Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         tx_ctaGiro.Select();
+                        return;
+                    }
+                }
+                // 28/04/2025  validaciones para proveedor
+                if (Tx_nomProv.Text == "")
+                {
+                    var aq = MessageBox.Show("No tiene dato de proveedor" + Environment.NewLine +
+                        "Desea ingresarlo?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (aq == DialogResult.Yes)
+                    {
+                        Tx_nomProv.Focus();
+                        return;
+                    }
+                }
+                if (Tx_nomProv.Text != "" && (Tx_rucprov.Text.Trim() == "" || tx_ctaban.Text.Trim() == ""))
+                {
+                    var aq = MessageBox.Show("Debería completar los datos del proveedor" + Environment.NewLine +
+                        "Desea completar Ruc y/o Cuenta?","Confirme por favor",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (aq == DialogResult.Yes)
+                    {
+                        Tx_rucprov.Focus();
                         return;
                     }
                 }
@@ -1825,11 +1930,11 @@ namespace Conti3
                                     OcatEg.nombre = row.Cells["EGRESO"].Value.ToString();
                                     OcatEg.codigo = row.Cells["IDCategoria"].Value.ToString();
                                     Omone.codigo = row.Cells["codimon"].Value.ToString();
-                                    Omone.siglas = row.Cells["MONEDA"].Value.ToString();
+                                    Omone.siglas = row.Cells["MON"].Value.ToString();
                                     Omone.nombre = row.Cells["nombmon"].Value.ToString();
-                                    Omonto.tipCOri = decimal.Parse(row.Cells["TIP_CAMBIO"].Value.ToString());
+                                    Omonto.tipCOri = decimal.Parse(row.Cells["T_C"].Value.ToString());
                                     //Omonto.monEuros = decimal.Parse(row.Cells[].Value.ToString());
-                                    Omonto.tipCDol = decimal.Parse(row.Cells["TIP_CAMBIO"].Value.ToString());
+                                    Omonto.tipCDol = decimal.Parse(row.Cells["T_C"].Value.ToString());
                                     Omonto.monDolar = decimal.Parse(row.Cells["ImportoDU"].Value.ToString());
                                     Omonto.monOrige = decimal.Parse(row.Cells["MONTO"].Value.ToString());
                                     Omonto.codMOrige = row.Cells["codimon"].Value.ToString();
@@ -1847,19 +1952,19 @@ namespace Conti3
                                     string yea = row.Cells["ANNO"].Value.ToString(); // DateTime.Now.Year.ToString();  // año real en que se genera el egreso
                                     string correE = oFEgres.correlativo(conn, (row.Cells["tipoE"].Value.ToString() == "OMG") ? "MCA" : "MCO", int.Parse(yea));
                                     // OJO que el tipo de cambio que se esta usando en la aprobación es de la fecha de creación !!!  
-                                    Oegresos.creaEgreso((row.Cells["tipoE"].Value.ToString() == "OMG") ? "omg" : "personal", fecOp, OcatEg, Omone, Omonto, decimal.Parse(row.Cells["TIP_CAMBIO"].Value.ToString()),
+                                    Oegresos.creaEgreso((row.Cells["tipoE"].Value.ToString() == "OMG") ? "omg" : "personal", fecOp, OcatEg, Omone, Omonto, decimal.Parse(row.Cells["T_C"].Value.ToString()),
                                                 Ocajd, Oprove, descr, correE, Ogiro, yea);
                                     Oegresos.grabaEgreso(conn);
                                     // 
                                     Opreli.creaPrelim((row.Cells["tipoE"].Value.ToString() == "OMG") ? "omg" : "personal", row.Cells["FECHA"].Value.ToString(),
-                                        OcatEg, Omone, Omonto, decimal.Parse(row.Cells["TIP_CAMBIO"].Value.ToString()),
+                                        OcatEg, Omone, Omonto, decimal.Parse(row.Cells["T_C"].Value.ToString()),
                                         Ocajd, Oprove, descr, corre, Ogiro, "", Program.vg_user);
                                     Opreli.actuaPrelim(conn, yea, corre);
                                     // si tiene giro, lo genera
                                     if (Ogiro.idcod != null && Ogiro.idcod != "")   // chk_giroC.CheckState == CheckState.Checked
                                     {
                                         //oFEgres.oper_giro(conn, Ogiro, (row.Cells["tipoE"].Value.ToString() == "OMG") ? "cassaomg" : "cassaconti", OcatEg, fecOp, Omone, Omonto, decimal.Parse(tx_tipcam.Text), descr, Ocajd.codigo);
-                                        oFEgres.oper_giro(conn, Ogiro, (row.Cells["tipoE"].Value.ToString() == "OMG") ? "cassaomg" : "cassaconti", OcatEg, fecOp, Omone, Omonto, decimal.Parse(row.Cells["TIP_CAMBIO"].Value.ToString()), descr, Ocajd.codigo, row.Cells["ANNO"].Value.ToString());
+                                        oFEgres.oper_giro(conn, Ogiro, (row.Cells["tipoE"].Value.ToString() == "OMG") ? "cassaomg" : "cassaconti", OcatEg, fecOp, Omone, Omonto, decimal.Parse(row.Cells["T_C"].Value.ToString()), descr, Ocajd.codigo, row.Cells["ANNO"].Value.ToString());
                                     }
                                 }
                                 Oegresos.limpia();

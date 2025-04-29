@@ -183,3 +183,7 @@ Form Finan_egres, fondo amarillo en nueva inserción ...........................
 Form Finan_Ingres, fondo amarillo en nueva inserción ............................ 22/04/2025
 **** adecuaciones del aumento del 30% en los formularios ***********************************
 Form egborrador, agrandamiento del contenido un 30% aprox. ...................... 22/04/2025
+Form egborrador, si no existe el proveedor, pregunta crearlo .................... 28/04/2025
+Form egborrador, boton para crear proveedor ..................................... 28/04/2025
+Form ayuda1, agregar telefono a los datos solicitados ........................... 28/04/2025
+
