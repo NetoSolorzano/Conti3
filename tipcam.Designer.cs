@@ -342,20 +342,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(153, 20);
+            this.label2.Location = new System.Drawing.Point(141, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(37, 18);
             this.label2.TabIndex = 45;
             this.label2.Text = "Mes";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(32, 20);
+            this.label1.Location = new System.Drawing.Point(17, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(34, 18);
             this.label1.TabIndex = 44;
             this.label1.Text = "Año";
             // 
@@ -363,16 +365,16 @@
             // 
             this.dtp_mes.Checked = false;
             this.dtp_mes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_mes.Location = new System.Drawing.Point(186, 16);
+            this.dtp_mes.Location = new System.Drawing.Point(181, 16);
             this.dtp_mes.Name = "dtp_mes";
-            this.dtp_mes.Size = new System.Drawing.Size(57, 20);
+            this.dtp_mes.Size = new System.Drawing.Size(71, 20);
             this.dtp_mes.TabIndex = 42;
             // 
             // dtp_yea
             // 
             this.dtp_yea.Checked = false;
             this.dtp_yea.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_yea.Location = new System.Drawing.Point(64, 16);
+            this.dtp_yea.Location = new System.Drawing.Point(55, 16);
             this.dtp_yea.Name = "dtp_yea";
             this.dtp_yea.Size = new System.Drawing.Size(68, 20);
             this.dtp_yea.TabIndex = 41;
@@ -400,7 +402,7 @@
             // bt_agr
             // 
             this.bt_agr.Image = global::Conti3.Properties.Resources.process24;
-            this.bt_agr.Location = new System.Drawing.Point(256, 10);
+            this.bt_agr.Location = new System.Drawing.Point(279, 10);
             this.bt_agr.Name = "bt_agr";
             this.bt_agr.Size = new System.Drawing.Size(34, 32);
             this.bt_agr.TabIndex = 43;

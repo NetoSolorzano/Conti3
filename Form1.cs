@@ -13,7 +13,7 @@ namespace Conti3
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             InitializeComponent();
             this.BackColor = Color.FromArgb(8,253,254,243);  // brillo,rojo,verde,azul rgba(253, 254, 243, 0.8)
-            this.Text = "Conti3 V.3 - 2024";
+            this.Text = "Conti3 V.3 - 2025";
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             //
 

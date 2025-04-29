@@ -128,10 +128,10 @@ namespace Conti3
         }
         private void grilla()                   // arma la grilla
         {
-            Font tiplg = new Font("Arial", 7, FontStyle.Bold);
+            Font tiplg = new Font("Arial", 10, FontStyle.Regular);  // new Font("Arial", 7, FontStyle.Bold);
             advancedDataGridView1.Font = tiplg;
             advancedDataGridView1.DefaultCellStyle.Font = tiplg;
-            advancedDataGridView1.RowTemplate.Height = 15;
+            advancedDataGridView1.RowTemplate.Height = 18;      //  = 15
             advancedDataGridView1.DataSource = dtm;
             // codigo proveedor 
             advancedDataGridView1.Columns[0].Visible = true;
