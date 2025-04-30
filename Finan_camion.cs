@@ -329,7 +329,7 @@ namespace Conti3
             Tx_combus.Text = 0.ToString("#0.00");
             Tx_viati.Text = 0.ToString("#0.00");
             Tx_rptos.Text = 0.ToString("#0.00");
-            Tx_rptos.Font = new Font("Verdana", 8, FontStyle.Regular); // este es el font normal
+            Tx_rptos.Font = new Font("Verdana", 11, FontStyle.Regular); // este es el font normal
             Tx_rptos.ForeColor = colno;                                // con el color normal
             Tx_varios.Text = 0.ToString("#0.00");
             Tx_honor.Text = 0.ToString("#0.00");
@@ -866,7 +866,7 @@ namespace Conti3
             { 
                 tx_dat_rptosS.Text = Tx_rptos.Text;
                 sumador();
-                Tx_rptos.Font = new Font("Verdana", 8, FontStyle.Regular); // este es el font normal
+                Tx_rptos.Font = new Font("Verdana", 11, FontStyle.Regular); // este es el font normal
                 Tx_rptos.ForeColor = colno;                                // con el color normal
             }
         }
