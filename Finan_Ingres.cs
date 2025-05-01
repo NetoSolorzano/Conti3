@@ -216,6 +216,7 @@ namespace Conti3
             tx_ctaGiro.MaxLength = 50;  // 20
             tx_ctaGiro.CharacterCasing = CharacterCasing.Upper;
             tx_descrip.MaxLength = 100;
+            tx_descrip.Font = new Font(conf.nombreFont, conf.tamañoFont);
             tx_idOper.MaxLength = 15;
         }                                               // inicializa ancho de campos y upper case
         private void datsimil()

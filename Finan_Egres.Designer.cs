@@ -615,7 +615,7 @@
             this.panelGeneral4.ForeColor = System.Drawing.Color.Blue;
             this.panelGeneral4.Location = new System.Drawing.Point(389, 33);
             this.panelGeneral4.Name = "panelGeneral4";
-            this.panelGeneral4.Size = new System.Drawing.Size(337, 23);
+            this.panelGeneral4.Size = new System.Drawing.Size(336, 23);
             this.panelGeneral4.TabIndex = 1;
             // 
             // chk_datSimil
@@ -885,9 +885,9 @@
             // 
             // tx_ctaGiro
             // 
-            this.tx_ctaGiro.Location = new System.Drawing.Point(732, 57);
+            this.tx_ctaGiro.Location = new System.Drawing.Point(733, 59);
             this.tx_ctaGiro.Name = "tx_ctaGiro";
-            this.tx_ctaGiro.Size = new System.Drawing.Size(375, 20);
+            this.tx_ctaGiro.Size = new System.Drawing.Size(374, 20);
             this.tx_ctaGiro.TabIndex = 12;
             this.tx_ctaGiro.Values = null;
             this.tx_ctaGiro.Enter += new System.EventHandler(this.TextBox_Enter);
@@ -898,17 +898,19 @@
             this.eti_nomCtaGiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
             this.eti_nomCtaGiro.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_nomCtaGiro.ForeColor = System.Drawing.Color.Blue;
-            this.eti_nomCtaGiro.Location = new System.Drawing.Point(734, 79);
+            this.eti_nomCtaGiro.Location = new System.Drawing.Point(734, 82);
             this.eti_nomCtaGiro.Name = "eti_nomCtaGiro";
-            this.eti_nomCtaGiro.Size = new System.Drawing.Size(372, 15);
+            this.eti_nomCtaGiro.Size = new System.Drawing.Size(372, 19);
             this.eti_nomCtaGiro.TabIndex = 342;
+            this.eti_nomCtaGiro.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // chk_giroC
             // 
             this.chk_giroC.AutoSize = true;
-            this.chk_giroC.Location = new System.Drawing.Point(736, 38);
+            this.chk_giroC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_giroC.Location = new System.Drawing.Point(734, 37);
             this.chk_giroC.Name = "chk_giroC";
-            this.chk_giroC.Size = new System.Drawing.Size(225, 17);
+            this.chk_giroC.Size = new System.Drawing.Size(276, 20);
             this.chk_giroC.TabIndex = 11;
             this.chk_giroC.Text = "Ingreso automático a otra cuenta personal";
             this.chk_giroC.UseVisualStyleBackColor = true;
@@ -921,7 +923,7 @@
             this.label5.Enabled = false;
             this.label5.Location = new System.Drawing.Point(1107, 36);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(2, 60);
+            this.label5.Size = new System.Drawing.Size(2, 65);
             this.label5.TabIndex = 349;
             // 
             // label2
@@ -940,14 +942,14 @@
             this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(731, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(2, 60);
+            this.label3.Size = new System.Drawing.Size(2, 65);
             this.label3.TabIndex = 350;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(731, 95);
+            this.label4.Location = new System.Drawing.Point(731, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(378, 2);
             this.label4.TabIndex = 351;
@@ -1007,12 +1009,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1118, 445);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.Tx_nomProv);
             this.Controls.Add(this.tx_prov);
             this.Controls.Add(this.tx_anno);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tx_ctaGiro);
