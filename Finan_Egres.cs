@@ -417,6 +417,7 @@ namespace Conti3
             tx_ctaGiro.MaxLength = 50;  // (descrizionerid=20)(descrizione=50)
             tx_ctaGiro.CharacterCasing = CharacterCasing.Upper;
             tx_descrip.MaxLength = 100;
+            tx_descrip.Font = new System.Drawing.Font(conf.nombreFont, conf.tamañoFont);
             tx_idOper.MaxLength = 15;
             Tx_nomProv.MaxLength = 50;
             Tx_nomProv.CharacterCasing = CharacterCasing.Upper;
