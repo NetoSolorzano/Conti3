@@ -415,7 +415,7 @@
             this.bt_prev.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_prev.Font = new System.Drawing.Font("Arial", 11F);
             this.bt_prev.Image = global::Conti3.Properties.Resources.print_preview_24;
-            this.bt_prev.Location = new System.Drawing.Point(902, 36);
+            this.bt_prev.Location = new System.Drawing.Point(937, 36);
             this.bt_prev.Name = "bt_prev";
             this.bt_prev.Size = new System.Drawing.Size(62, 56);
             this.bt_prev.TabIndex = 8;
@@ -428,7 +428,7 @@
             this.bt_genera.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_genera.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_genera.Image = global::Conti3.Properties.Resources.execution32;
-            this.bt_genera.Location = new System.Drawing.Point(820, 33);
+            this.bt_genera.Location = new System.Drawing.Point(855, 33);
             this.bt_genera.Name = "bt_genera";
             this.bt_genera.Size = new System.Drawing.Size(66, 62);
             this.bt_genera.TabIndex = 7;
@@ -439,7 +439,7 @@
             // 
             this.Tx_ctaDest.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Tx_ctaDest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tx_ctaDest.Location = new System.Drawing.Point(366, 59);
+            this.Tx_ctaDest.Location = new System.Drawing.Point(407, 59);
             this.Tx_ctaDest.Name = "Tx_ctaDest";
             this.Tx_ctaDest.Size = new System.Drawing.Size(155, 20);
             this.Tx_ctaDest.TabIndex = 2;
@@ -452,7 +452,7 @@
             // chk_desAct
             // 
             this.chk_desAct.AutoSize = true;
-            this.chk_desAct.Location = new System.Drawing.Point(524, 62);
+            this.chk_desAct.Location = new System.Drawing.Point(565, 62);
             this.chk_desAct.Name = "chk_desAct";
             this.chk_desAct.Size = new System.Drawing.Size(58, 17);
             this.chk_desAct.TabIndex = 133;
@@ -463,11 +463,11 @@
             // generalEtiqueta5
             // 
             this.generalEtiqueta5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 8F);
+            this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta5.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta5.Location = new System.Drawing.Point(584, 85);
+            this.generalEtiqueta5.Location = new System.Drawing.Point(625, 85);
             this.generalEtiqueta5.Name = "generalEtiqueta5";
-            this.generalEtiqueta5.Size = new System.Drawing.Size(127, 18);
+            this.generalEtiqueta5.Size = new System.Drawing.Size(133, 18);
             this.generalEtiqueta5.TabIndex = 141;
             this.generalEtiqueta5.Text = "Moneda del reporte";
             this.generalEtiqueta5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -476,7 +476,7 @@
             // 
             this.cmb_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_moneda.FormattingEnabled = true;
-            this.cmb_moneda.Location = new System.Drawing.Point(715, 84);
+            this.cmb_moneda.Location = new System.Drawing.Point(763, 84);
             this.cmb_moneda.Name = "cmb_moneda";
             this.cmb_moneda.Size = new System.Drawing.Size(80, 21);
             this.cmb_moneda.TabIndex = 6;
@@ -485,11 +485,11 @@
             // generalEtiqueta4
             // 
             this.generalEtiqueta4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.generalEtiqueta4.Font = new System.Drawing.Font("Verdana", 8F);
+            this.generalEtiqueta4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta4.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta4.Location = new System.Drawing.Point(584, 60);
+            this.generalEtiqueta4.Location = new System.Drawing.Point(625, 60);
             this.generalEtiqueta4.Name = "generalEtiqueta4";
-            this.generalEtiqueta4.Size = new System.Drawing.Size(127, 18);
+            this.generalEtiqueta4.Size = new System.Drawing.Size(133, 18);
             this.generalEtiqueta4.TabIndex = 140;
             this.generalEtiqueta4.Text = "Fin de periodo";
             this.generalEtiqueta4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -498,11 +498,12 @@
             // 
             this.Tx_fecha2.BeepOnError = true;
             this.Tx_fecha2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tx_fecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_fecha2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.Tx_fecha2.Location = new System.Drawing.Point(715, 63);
+            this.Tx_fecha2.Location = new System.Drawing.Point(763, 63);
             this.Tx_fecha2.Mask = "00/00/0000";
             this.Tx_fecha2.Name = "Tx_fecha2";
-            this.Tx_fecha2.Size = new System.Drawing.Size(80, 13);
+            this.Tx_fecha2.Size = new System.Drawing.Size(80, 14);
             this.Tx_fecha2.TabIndex = 5;
             this.Tx_fecha2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tx_fecha2.ValidatingType = typeof(System.DateTime);
@@ -512,11 +513,11 @@
             // generalEtiqueta3
             // 
             this.generalEtiqueta3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.generalEtiqueta3.Font = new System.Drawing.Font("Verdana", 8F);
+            this.generalEtiqueta3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta3.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta3.Location = new System.Drawing.Point(584, 34);
+            this.generalEtiqueta3.Location = new System.Drawing.Point(625, 34);
             this.generalEtiqueta3.Name = "generalEtiqueta3";
-            this.generalEtiqueta3.Size = new System.Drawing.Size(127, 18);
+            this.generalEtiqueta3.Size = new System.Drawing.Size(133, 18);
             this.generalEtiqueta3.TabIndex = 139;
             this.generalEtiqueta3.Text = "Inicio de periodo";
             this.generalEtiqueta3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -525,11 +526,12 @@
             // 
             this.Tx_fecha1.BeepOnError = true;
             this.Tx_fecha1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tx_fecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_fecha1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.Tx_fecha1.Location = new System.Drawing.Point(715, 37);
+            this.Tx_fecha1.Location = new System.Drawing.Point(763, 37);
             this.Tx_fecha1.Mask = "00/00/0000";
             this.Tx_fecha1.Name = "Tx_fecha1";
-            this.Tx_fecha1.Size = new System.Drawing.Size(80, 13);
+            this.Tx_fecha1.Size = new System.Drawing.Size(80, 14);
             this.Tx_fecha1.TabIndex = 4;
             this.Tx_fecha1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tx_fecha1.ValidatingType = typeof(System.DateTime);
@@ -539,9 +541,9 @@
             // generalEtiqueta6
             // 
             this.generalEtiqueta6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.generalEtiqueta6.Font = new System.Drawing.Font("Verdana", 8F);
+            this.generalEtiqueta6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta6.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta6.Location = new System.Drawing.Point(234, 110);
+            this.generalEtiqueta6.Location = new System.Drawing.Point(275, 110);
             this.generalEtiqueta6.Name = "generalEtiqueta6";
             this.generalEtiqueta6.Size = new System.Drawing.Size(130, 18);
             this.generalEtiqueta6.TabIndex = 138;
@@ -553,7 +555,7 @@
             // 
             this.cmb_prov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_prov.FormattingEnabled = true;
-            this.cmb_prov.Location = new System.Drawing.Point(366, 109);
+            this.cmb_prov.Location = new System.Drawing.Point(407, 109);
             this.cmb_prov.Name = "cmb_prov";
             this.cmb_prov.Size = new System.Drawing.Size(155, 21);
             this.cmb_prov.TabIndex = 129;
@@ -562,9 +564,9 @@
             // eti_categ
             // 
             this.eti_categ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.eti_categ.Font = new System.Drawing.Font("Verdana", 8F);
+            this.eti_categ.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_categ.ForeColor = System.Drawing.Color.Black;
-            this.eti_categ.Location = new System.Drawing.Point(234, 85);
+            this.eti_categ.Location = new System.Drawing.Point(266, 85);
             this.eti_categ.Name = "eti_categ";
             this.eti_categ.Size = new System.Drawing.Size(130, 18);
             this.eti_categ.TabIndex = 137;
@@ -575,11 +577,11 @@
             // generalEtiqueta1
             // 
             this.generalEtiqueta1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.generalEtiqueta1.Font = new System.Drawing.Font("Verdana", 8F);
+            this.generalEtiqueta1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta1.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta1.Location = new System.Drawing.Point(234, 59);
+            this.generalEtiqueta1.Location = new System.Drawing.Point(266, 59);
             this.generalEtiqueta1.Name = "generalEtiqueta1";
-            this.generalEtiqueta1.Size = new System.Drawing.Size(130, 19);
+            this.generalEtiqueta1.Size = new System.Drawing.Size(140, 19);
             this.generalEtiqueta1.TabIndex = 136;
             this.generalEtiqueta1.Text = "Seleccione el destino";
             this.generalEtiqueta1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -587,9 +589,9 @@
             // eti_sede
             // 
             this.eti_sede.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
-            this.eti_sede.Font = new System.Drawing.Font("Verdana", 8F);
+            this.eti_sede.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_sede.ForeColor = System.Drawing.Color.Black;
-            this.eti_sede.Location = new System.Drawing.Point(234, 34);
+            this.eti_sede.Location = new System.Drawing.Point(266, 34);
             this.eti_sede.Name = "eti_sede";
             this.eti_sede.Size = new System.Drawing.Size(130, 18);
             this.eti_sede.TabIndex = 135;
@@ -600,7 +602,7 @@
             // 
             this.cmb_sede.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_sede.FormattingEnabled = true;
-            this.cmb_sede.Location = new System.Drawing.Point(366, 33);
+            this.cmb_sede.Location = new System.Drawing.Point(407, 33);
             this.cmb_sede.Name = "cmb_sede";
             this.cmb_sede.Size = new System.Drawing.Size(155, 21);
             this.cmb_sede.TabIndex = 1;
@@ -610,7 +612,7 @@
             // 
             this.Tx_catEgre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Tx_catEgre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tx_catEgre.Location = new System.Drawing.Point(366, 84);
+            this.Tx_catEgre.Location = new System.Drawing.Point(407, 84);
             this.Tx_catEgre.Name = "Tx_catEgre";
             this.Tx_catEgre.Size = new System.Drawing.Size(155, 20);
             this.Tx_catEgre.TabIndex = 3;
@@ -632,18 +634,18 @@
             this.panelGeneral1.ForeColor = System.Drawing.Color.Black;
             this.panelGeneral1.Location = new System.Drawing.Point(3, 30);
             this.panelGeneral1.Name = "panelGeneral1";
-            this.panelGeneral1.Size = new System.Drawing.Size(216, 103);
+            this.panelGeneral1.Size = new System.Drawing.Size(251, 103);
             this.panelGeneral1.TabIndex = 0;
             // 
             // rb_gasCam
             // 
             this.rb_gasCam.AutoSize = true;
             this.rb_gasCam.BackColor = System.Drawing.Color.White;
-            this.rb_gasCam.Font = new System.Drawing.Font("Verdana", 8F);
+            this.rb_gasCam.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_gasCam.ForeColor = System.Drawing.Color.Black;
             this.rb_gasCam.Location = new System.Drawing.Point(6, 75);
             this.rb_gasCam.Name = "rb_gasCam";
-            this.rb_gasCam.Size = new System.Drawing.Size(125, 17);
+            this.rb_gasCam.Size = new System.Drawing.Size(135, 18);
             this.rb_gasCam.TabIndex = 129;
             this.rb_gasCam.TabStop = true;
             this.rb_gasCam.Text = "Gastos Camiones";
@@ -654,11 +656,11 @@
             // 
             this.rb_globOmg.AutoSize = true;
             this.rb_globOmg.BackColor = System.Drawing.Color.White;
-            this.rb_globOmg.Font = new System.Drawing.Font("Verdana", 8F);
+            this.rb_globOmg.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_globOmg.ForeColor = System.Drawing.Color.Black;
             this.rb_globOmg.Location = new System.Drawing.Point(6, 52);
             this.rb_globOmg.Name = "rb_globOmg";
-            this.rb_globOmg.Size = new System.Drawing.Size(134, 17);
+            this.rb_globOmg.Size = new System.Drawing.Size(142, 18);
             this.rb_globOmg.TabIndex = 128;
             this.rb_globOmg.TabStop = true;
             this.rb_globOmg.Text = "Global - Casa OMG";
@@ -669,11 +671,11 @@
             // 
             this.rb_movCaja.AutoSize = true;
             this.rb_movCaja.BackColor = System.Drawing.Color.White;
-            this.rb_movCaja.Font = new System.Drawing.Font("Verdana", 8F);
+            this.rb_movCaja.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_movCaja.ForeColor = System.Drawing.Color.Black;
             this.rb_movCaja.Location = new System.Drawing.Point(6, 6);
             this.rb_movCaja.Name = "rb_movCaja";
-            this.rb_movCaja.Size = new System.Drawing.Size(203, 17);
+            this.rb_movCaja.Size = new System.Drawing.Size(219, 18);
             this.rb_movCaja.TabIndex = 127;
             this.rb_movCaja.TabStop = true;
             this.rb_movCaja.Text = "Movimiento por caja - Personal";
@@ -684,11 +686,11 @@
             // 
             this.rb_ctaPers.AutoSize = true;
             this.rb_ctaPers.BackColor = System.Drawing.Color.White;
-            this.rb_ctaPers.Font = new System.Drawing.Font("Verdana", 8F);
+            this.rb_ctaPers.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_ctaPers.ForeColor = System.Drawing.Color.Black;
             this.rb_ctaPers.Location = new System.Drawing.Point(6, 29);
             this.rb_ctaPers.Name = "rb_ctaPers";
-            this.rb_ctaPers.Size = new System.Drawing.Size(192, 17);
+            this.rb_ctaPers.Size = new System.Drawing.Size(211, 18);
             this.rb_ctaPers.TabIndex = 126;
             this.rb_ctaPers.TabStop = true;
             this.rb_ctaPers.Text = "Resumen cuentas personales";
@@ -699,9 +701,9 @@
             // 
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(229, 30);
+            this.label1.Location = new System.Drawing.Point(264, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(577, 2);
+            this.label1.Size = new System.Drawing.Size(582, 2);
             this.label1.TabIndex = 145;
             // 
             // linV2
@@ -709,7 +711,7 @@
             this.linV2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.linV2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.linV2.Enabled = false;
-            this.linV2.Location = new System.Drawing.Point(804, 30);
+            this.linV2.Location = new System.Drawing.Point(845, 30);
             this.linV2.Name = "linV2";
             this.linV2.Size = new System.Drawing.Size(2, 77);
             this.linV2.TabIndex = 144;
@@ -718,34 +720,34 @@
             // 
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(229, 56);
+            this.label2.Location = new System.Drawing.Point(264, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(577, 2);
+            this.label2.Size = new System.Drawing.Size(582, 2);
             this.label2.TabIndex = 146;
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Location = new System.Drawing.Point(229, 81);
+            this.label3.Location = new System.Drawing.Point(264, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(577, 2);
+            this.label3.Size = new System.Drawing.Size(582, 2);
             this.label3.TabIndex = 147;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(229, 106);
+            this.label4.Location = new System.Drawing.Point(264, 106);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(577, 2);
+            this.label4.Size = new System.Drawing.Size(582, 2);
             this.label4.TabIndex = 148;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(228, 132);
+            this.label5.Location = new System.Drawing.Point(269, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(577, 2);
             this.label5.TabIndex = 149;
@@ -756,7 +758,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Enabled = false;
-            this.label6.Location = new System.Drawing.Point(229, 30);
+            this.label6.Location = new System.Drawing.Point(263, 30);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(2, 77);
             this.label6.TabIndex = 150;
@@ -766,7 +768,7 @@
             this.label7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Enabled = false;
-            this.label7.Location = new System.Drawing.Point(578, 31);
+            this.label7.Location = new System.Drawing.Point(619, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(2, 77);
             this.label7.TabIndex = 151;
@@ -780,7 +782,7 @@
             this.pan_selM.Controls.Add(this.rb_nin);
             this.pan_selM.Controls.Add(this.rb_tos);
             this.pan_selM.ForeColor = System.Drawing.Color.Black;
-            this.pan_selM.Location = new System.Drawing.Point(820, 99);
+            this.pan_selM.Location = new System.Drawing.Point(855, 99);
             this.pan_selM.Name = "pan_selM";
             this.pan_selM.Size = new System.Drawing.Size(144, 35);
             this.pan_selM.TabIndex = 681;

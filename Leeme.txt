@@ -191,4 +191,6 @@ Form provee, agrandamiento del contenido un 30% aprox. .........................
 Form tipcam, agrandamiento del contenido un 30% aprox. .......................... 29/04/2025
 Form Finan_camion, agrandamiento del contenido un 30% aprox. .................... 29/04/2025
 Form Finan_egres, agrandamiento del contenido un 30% aprox. ..................... 01/05/2025
-Form Finan_Ingres, agrandamiento del contenido un 30% aprox. .................... 
+Form Finan_Ingres, agrandamiento del contenido un 30% aprox. .................... 01/05/2025
+Form Finan_reps1, agrandamiento del contenido un 15% aprox. ..................... 01/05/2025
+Form usuarweb, agrandamiento del contenido un 30% aprox. ........................ 01/05/2025

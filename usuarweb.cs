@@ -23,6 +23,7 @@ namespace Conti3
         Finan_Egres OFegre = new Finan_Egres();
         ccolores OColores = new ccolores();
         cajDestino Ocajd = new cajDestino();
+        publicoConf conf = new publicoConf();
         // string de conexion
         //static string serv = ConfigurationManager.AppSettings["serv"].ToString();
         static string port = ConfigurationManager.AppSettings["port"].ToString();
@@ -37,8 +38,6 @@ namespace Conti3
         public usuarweb()
         {
             InitializeComponent();
-            //dt_ctaPer.Columns.Add("idcodice");
-            //dt_ctaPer.Columns.Add("descrizione");
         }
         private void usuarweb_KeyDown(object sender, KeyEventArgs e)
         {
@@ -84,12 +83,56 @@ namespace Conti3
         }
         private void init()
         {
+            Font nfont = new Font(conf.nombreFont, conf.tamañoFont);
+            int X_ini = 56;         // eje x inicial
+            int Y_ini = 25;         // eje Y inicial 
+            int altoG = 19;
+            int anchG = 90;
+            int anchT = 120;
+            int espac = 15;          // espacio vertical
+            lb_codigo.Location = new Point(X_ini, Y_ini);
+            lb_codigo.Font = nfont;
+            tx_codigo.Location = new Point(162, Y_ini-4);
+            tx_codigo.Size = new Size(anchT,altoG);
+            tx_codigo.Font = nfont;
             tx_codigo.CharacterCasing = CharacterCasing.Upper;
             tx_codigo.MaxLength = 10;
+            gb_codigo.Location = new Point(X_ini, Y_ini+altoG);
+            gb_codigo.Size = new Size(anchG + anchT + 15, 2);
+            //
+            Y_ini = Y_ini + espac + altoG;
+            lb_clave.Location = new Point(X_ini, Y_ini);
+            lb_clave.Font = nfont;
+            tx_pass.Location = new Point(162, Y_ini - 4);
+            tx_pass.Size = new Size(anchT, altoG);
+            tx_pass.Font = nfont;
             tx_pass.MaxLength = 10;
-            tx_usweb.CharacterCasing = CharacterCasing.Upper;
+            gb_pass.Location = new Point(X_ini, Y_ini + altoG);
+            gb_pass.Size = new Size(anchG + anchT + 15, 2);
+            //
+            Y_ini = Y_ini + espac + altoG;
+            lb_nombre.Location = new Point(X_ini, Y_ini);
+            lb_nombre.Font = nfont;
+            tx_usweb.Location = new Point(162, Y_ini - 4);
+            tx_usweb.Size = new Size(400,altoG);
+            tx_usweb.Font = nfont;
             tx_usweb.MaxLength = 50;
+            tx_usweb.CharacterCasing = CharacterCasing.Upper;
+            gb_nombre.Location = new Point(X_ini, Y_ini + altoG);
+            gb_nombre.Size = new Size(anchG + 400 + 15, 2);
+            //
+            Y_ini = Y_ini + espac + altoG;
+            lb_cuenta.Location = new Point(X_ini, Y_ini);
+            lb_cuenta.Font = nfont;
+            Tx_ctaDes.Location = new Point(162, Y_ini);
+            Tx_ctaDes.Size = new Size(400, altoG);
+            Tx_ctaDes.Font = nfont;
             Tx_ctaDes.CharacterCasing = CharacterCasing.Upper;
+            gb_cuenta.Location = new Point(X_ini, Y_ini + altoG);
+            gb_cuenta.Size = new Size(anchG + 400 + 15, 2);
+            //
+            checkBox1.Font = nfont;
+            //
             jalainfo();
             Bt_add.Image = Properties.Resources.new_tab20;
             Bt_edit.Image = Properties.Resources.edit20;

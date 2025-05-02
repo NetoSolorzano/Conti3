@@ -344,7 +344,7 @@
             this.Bt_graba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(805, 75);
+            this.Bt_graba.Location = new System.Drawing.Point(815, 75);
             this.Bt_graba.Name = "Bt_graba";
             this.Bt_graba.Size = new System.Drawing.Size(62, 62);
             this.Bt_graba.TabIndex = 9;

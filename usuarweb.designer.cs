@@ -59,19 +59,19 @@
             this.tabuser = new System.Windows.Forms.TabPage();
             this.Tx_ctaDes = new Conti3.AutoCompleteTextBox();
             this.tx_dat_cuenta = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_cuenta = new System.Windows.Forms.Label();
             this.tx_rind = new System.Windows.Forms.TextBox();
             this.tx_idr = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.lb_nombre = new System.Windows.Forms.Label();
+            this.lb_clave = new System.Windows.Forms.Label();
+            this.lb_codigo = new System.Windows.Forms.Label();
+            this.gb_cuenta = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gb_nombre = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gb_pass = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.gb_codigo = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tx_usweb = new System.Windows.Forms.TextBox();
@@ -83,10 +83,10 @@
             this.tabgrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.tabuser.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox11.SuspendLayout();
+            this.gb_cuenta.SuspendLayout();
+            this.gb_nombre.SuspendLayout();
+            this.gb_pass.SuspendLayout();
+            this.gb_codigo.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -117,7 +117,7 @@
             this.toolStripSeparator10,
             this.Bt_fin,
             this.toolStripSeparator11});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 326);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 417);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(590, 35);
             this.toolStrip1.TabIndex = 33;
@@ -345,7 +345,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(590, 322);
+            this.tabControl1.Size = new System.Drawing.Size(590, 413);
             this.tabControl1.TabIndex = 159;
             // 
             // tabgrilla
@@ -386,16 +386,16 @@
             this.tabuser.BackColor = System.Drawing.Color.Teal;
             this.tabuser.Controls.Add(this.Tx_ctaDes);
             this.tabuser.Controls.Add(this.tx_dat_cuenta);
-            this.tabuser.Controls.Add(this.label3);
+            this.tabuser.Controls.Add(this.lb_cuenta);
             this.tabuser.Controls.Add(this.tx_rind);
             this.tabuser.Controls.Add(this.tx_idr);
-            this.tabuser.Controls.Add(this.label2);
-            this.tabuser.Controls.Add(this.label1);
-            this.tabuser.Controls.Add(this.label7);
-            this.tabuser.Controls.Add(this.groupBox9);
-            this.tabuser.Controls.Add(this.groupBox3);
-            this.tabuser.Controls.Add(this.groupBox1);
-            this.tabuser.Controls.Add(this.groupBox11);
+            this.tabuser.Controls.Add(this.lb_nombre);
+            this.tabuser.Controls.Add(this.lb_clave);
+            this.tabuser.Controls.Add(this.lb_codigo);
+            this.tabuser.Controls.Add(this.gb_cuenta);
+            this.tabuser.Controls.Add(this.gb_nombre);
+            this.tabuser.Controls.Add(this.gb_pass);
+            this.tabuser.Controls.Add(this.gb_codigo);
             this.tabuser.Controls.Add(this.checkBox1);
             this.tabuser.Controls.Add(this.tx_usweb);
             this.tabuser.Controls.Add(this.tx_pass);
@@ -405,7 +405,7 @@
             this.tabuser.Location = new System.Drawing.Point(4, 22);
             this.tabuser.Name = "tabuser";
             this.tabuser.Padding = new System.Windows.Forms.Padding(3);
-            this.tabuser.Size = new System.Drawing.Size(582, 296);
+            this.tabuser.Size = new System.Drawing.Size(582, 387);
             this.tabuser.TabIndex = 1;
             this.tabuser.Text = "Registro";
             // 
@@ -413,7 +413,7 @@
             // 
             this.Tx_ctaDes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_ctaDes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tx_ctaDes.Location = new System.Drawing.Point(143, 97);
+            this.Tx_ctaDes.Location = new System.Drawing.Point(162, 97);
             this.Tx_ctaDes.Name = "Tx_ctaDes";
             this.Tx_ctaDes.Size = new System.Drawing.Size(245, 14);
             this.Tx_ctaDes.TabIndex = 4;
@@ -426,23 +426,24 @@
             // tx_dat_cuenta
             // 
             this.tx_dat_cuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_dat_cuenta.Location = new System.Drawing.Point(390, 94);
+            this.tx_dat_cuenta.Location = new System.Drawing.Point(490, 130);
             this.tx_dat_cuenta.Name = "tx_dat_cuenta";
             this.tx_dat_cuenta.ReadOnly = true;
             this.tx_dat_cuenta.Size = new System.Drawing.Size(67, 20);
             this.tx_dat_cuenta.TabIndex = 191;
             this.tx_dat_cuenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tx_dat_cuenta.Visible = false;
             // 
-            // label3
+            // lb_cuenta
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(56, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 190;
-            this.label3.Text = "Cuenta Personal";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_cuenta.AutoSize = true;
+            this.lb_cuenta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lb_cuenta.Location = new System.Drawing.Point(56, 96);
+            this.lb_cuenta.Name = "lb_cuenta";
+            this.lb_cuenta.Size = new System.Drawing.Size(68, 13);
+            this.lb_cuenta.TabIndex = 190;
+            this.lb_cuenta.Text = "Cuenta Pers.";
+            this.lb_cuenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tx_rind
             // 
@@ -460,47 +461,47 @@
             this.tx_idr.TabIndex = 185;
             this.tx_idr.Visible = false;
             // 
-            // label2
+            // lb_nombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(56, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 179;
-            this.label2.Text = "Nombre";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_nombre.AutoSize = true;
+            this.lb_nombre.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lb_nombre.Location = new System.Drawing.Point(56, 73);
+            this.lb_nombre.Name = "lb_nombre";
+            this.lb_nombre.Size = new System.Drawing.Size(44, 13);
+            this.lb_nombre.TabIndex = 179;
+            this.lb_nombre.Text = "Nombre";
+            this.lb_nombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lb_clave
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(56, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 178;
-            this.label1.Text = "Contraseña";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lb_clave.AutoSize = true;
+            this.lb_clave.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lb_clave.Location = new System.Drawing.Point(56, 49);
+            this.lb_clave.Name = "lb_clave";
+            this.lb_clave.Size = new System.Drawing.Size(61, 13);
+            this.lb_clave.TabIndex = 178;
+            this.lb_clave.Text = "Contraseña";
+            this.lb_clave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lb_codigo
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(56, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 13);
-            this.label7.TabIndex = 177;
-            this.label7.Text = "Código";
+            this.lb_codigo.AutoSize = true;
+            this.lb_codigo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lb_codigo.Location = new System.Drawing.Point(56, 25);
+            this.lb_codigo.Name = "lb_codigo";
+            this.lb_codigo.Size = new System.Drawing.Size(40, 13);
+            this.lb_codigo.TabIndex = 177;
+            this.lb_codigo.Text = "Código";
             // 
-            // groupBox9
+            // gb_cuenta
             // 
-            this.groupBox9.BackColor = System.Drawing.Color.White;
-            this.groupBox9.Controls.Add(this.groupBox10);
-            this.groupBox9.Location = new System.Drawing.Point(57, 111);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(330, 1);
-            this.groupBox9.TabIndex = 176;
-            this.groupBox9.TabStop = false;
+            this.gb_cuenta.BackColor = System.Drawing.Color.White;
+            this.gb_cuenta.Controls.Add(this.groupBox10);
+            this.gb_cuenta.Location = new System.Drawing.Point(57, 111);
+            this.gb_cuenta.Name = "gb_cuenta";
+            this.gb_cuenta.Size = new System.Drawing.Size(350, 1);
+            this.gb_cuenta.TabIndex = 176;
+            this.gb_cuenta.TabStop = false;
             // 
             // groupBox10
             // 
@@ -510,15 +511,15 @@
             this.groupBox10.TabIndex = 113;
             this.groupBox10.TabStop = false;
             // 
-            // groupBox3
+            // gb_nombre
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Location = new System.Drawing.Point(57, 88);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(479, 1);
-            this.groupBox3.TabIndex = 173;
-            this.groupBox3.TabStop = false;
+            this.gb_nombre.BackColor = System.Drawing.Color.White;
+            this.gb_nombre.Controls.Add(this.groupBox4);
+            this.gb_nombre.Location = new System.Drawing.Point(57, 88);
+            this.gb_nombre.Name = "gb_nombre";
+            this.gb_nombre.Size = new System.Drawing.Size(499, 1);
+            this.gb_nombre.TabIndex = 173;
+            this.gb_nombre.TabStop = false;
             // 
             // groupBox4
             // 
@@ -528,15 +529,15 @@
             this.groupBox4.TabIndex = 113;
             this.groupBox4.TabStop = false;
             // 
-            // groupBox1
+            // gb_pass
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(57, 64);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(180, 1);
-            this.groupBox1.TabIndex = 172;
-            this.groupBox1.TabStop = false;
+            this.gb_pass.BackColor = System.Drawing.Color.White;
+            this.gb_pass.Controls.Add(this.groupBox2);
+            this.gb_pass.Location = new System.Drawing.Point(57, 64);
+            this.gb_pass.Name = "gb_pass";
+            this.gb_pass.Size = new System.Drawing.Size(200, 1);
+            this.gb_pass.TabIndex = 172;
+            this.gb_pass.TabStop = false;
             // 
             // groupBox2
             // 
@@ -546,16 +547,16 @@
             this.groupBox2.TabIndex = 113;
             this.groupBox2.TabStop = false;
             // 
-            // groupBox11
+            // gb_codigo
             // 
-            this.groupBox11.BackColor = System.Drawing.Color.White;
-            this.groupBox11.Controls.Add(this.groupBox12);
-            this.groupBox11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox11.Location = new System.Drawing.Point(57, 40);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(180, 1);
-            this.groupBox11.TabIndex = 171;
-            this.groupBox11.TabStop = false;
+            this.gb_codigo.BackColor = System.Drawing.Color.White;
+            this.gb_codigo.Controls.Add(this.groupBox12);
+            this.gb_codigo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gb_codigo.Location = new System.Drawing.Point(57, 40);
+            this.gb_codigo.Name = "gb_codigo";
+            this.gb_codigo.Size = new System.Drawing.Size(200, 1);
+            this.gb_codigo.TabIndex = 171;
+            this.gb_codigo.TabStop = false;
             // 
             // groupBox12
             // 
@@ -569,7 +570,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkBox1.Location = new System.Drawing.Point(255, 26);
+            this.checkBox1.Location = new System.Drawing.Point(294, 26);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(132, 17);
             this.checkBox1.TabIndex = 7;
@@ -580,7 +581,7 @@
             // 
             this.tx_usweb.BackColor = System.Drawing.SystemColors.Window;
             this.tx_usweb.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_usweb.Location = new System.Drawing.Point(142, 71);
+            this.tx_usweb.Location = new System.Drawing.Point(162, 71);
             this.tx_usweb.Name = "tx_usweb";
             this.tx_usweb.Size = new System.Drawing.Size(395, 18);
             this.tx_usweb.TabIndex = 3;
@@ -590,7 +591,7 @@
             // 
             this.tx_pass.BackColor = System.Drawing.SystemColors.Window;
             this.tx_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_pass.Location = new System.Drawing.Point(142, 47);
+            this.tx_pass.Location = new System.Drawing.Point(162, 47);
             this.tx_pass.Name = "tx_pass";
             this.tx_pass.PasswordChar = '*';
             this.tx_pass.Size = new System.Drawing.Size(96, 18);
@@ -602,7 +603,7 @@
             // 
             this.tx_codigo.BackColor = System.Drawing.SystemColors.Window;
             this.tx_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_codigo.Location = new System.Drawing.Point(142, 23);
+            this.tx_codigo.Location = new System.Drawing.Point(162, 24);
             this.tx_codigo.MaxLength = 10;
             this.tx_codigo.Name = "tx_codigo";
             this.tx_codigo.Size = new System.Drawing.Size(96, 18);
@@ -626,7 +627,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(590, 361);
+            this.ClientSize = new System.Drawing.Size(590, 452);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -648,10 +649,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.tabuser.ResumeLayout(false);
             this.tabuser.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
+            this.gb_cuenta.ResumeLayout(false);
+            this.gb_nombre.ResumeLayout(false);
+            this.gb_pass.ResumeLayout(false);
+            this.gb_codigo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -682,16 +683,16 @@
         private System.Windows.Forms.TabPage tabgrilla;
         private System.Windows.Forms.TabPage tabuser;
         private System.Windows.Forms.TextBox tx_idr;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label lb_nombre;
+        private System.Windows.Forms.Label lb_clave;
+        private System.Windows.Forms.Label lb_codigo;
+        private System.Windows.Forms.GroupBox gb_cuenta;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gb_nombre;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gb_pass;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox gb_codigo;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox tx_usweb;
@@ -701,7 +702,7 @@
         private ADGV.AdvancedDataGridView advancedDataGridView1;
         private System.Windows.Forms.TextBox tx_rind;
         private System.Windows.Forms.ToolStripButton Bt_ver;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_cuenta;
         private System.Windows.Forms.TextBox tx_dat_cuenta;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
