@@ -20,6 +20,8 @@ namespace Conti3
         private giroConto giroC;        // giroConto
         private string operador;        // nombre de usuario que digito el registro preliminar
         private string aprobador;       // usuario con provilegios que aprueba
+        private int pagado;             // 0=no pagado, 1=pagado o transferido
+
         libreria lib = new libreria();
         public preliminares() 
         {
@@ -39,9 +41,11 @@ namespace Conti3
         public giroConto GiroC { get => giroC; set => giroC = value; }
         public string Operador { get => operador; set => operador = value; }
         public string Aprobador { get => aprobador; set => aprobador = value; }
+        public int Pagado { get => pagado; set => pagado = value; }
 
-        public void creaPrelim(string _tipMovPrin, string _fechOper, catEgresos _catEgreso, monedas _moneda, montos _monto, decimal _tipCamb,
-            cajDestino _cajaDes, provees _proveedor, string _descrip, string _IdMovim, giroConto _giro, string _operad, string _aprobador)
+        public void creaPrelim(string _tipMovPrin, string _fechOper, catEgresos _catEgreso, monedas _moneda, montos _monto,
+             decimal _tipCamb, cajDestino _cajaDes, provees _proveedor, string _descrip, string _IdMovim, giroConto _giro,
+             string _operad, string _aprobador, int _pagado)
         {
             tipMovPrin = _tipMovPrin;
             fechOper = _fechOper;
@@ -56,6 +60,7 @@ namespace Conti3
             giroC = _giro;
             operador = _operad;
             aprobador = _aprobador;
+            pagado = _pagado;
         }
 
         public void limpia()
@@ -73,6 +78,7 @@ namespace Conti3
             giroC = null;
             operador = "";
             aprobador = "";
+            pagado = 0;
         }
 
         public void grabaPrelim(MySqlConnection conn)
@@ -83,11 +89,11 @@ namespace Conti3
                 tabla = "cassaprelim";
                 consulta = "insert into " + tabla + " (IDBanco,Anno,IDMovimento,DataMovimento,IDConto,IDCategoria,ImportoDU,ImportoSU," +
                                     "Cambio,Descrizione,IDGiroConto,monori,ctaori,ctades,idanagrafica,tipodesgiro,CodGiro," +
-                                    "valorOrig,codimon,nombmon,tcMonOri,digitador,tipoE," +
+                                    "valorOrig,codimon,nombmon,tcMonOri,digitador,tipoE,pagado," +
                                     "verApp,userc,fechc,diriplan4,diripwan4,netbname) values (" +
                                     "@IDB,@Ann,@IDM,@DMo,@IDCo,@IDCa,@IDU,@ISU," +
                                     "@Cam,@Des,@IDG,@mon,@ctao,@ctad,@idan,@tidgiro,@codGiro," +
-                                    "@vOrig,@cmon,@nmon,@tcMO,@digit,@tipe," +
+                                    "@vOrig,@cmon,@nmon,@tcMO,@digit,@tipe,@paga," +
                                     "@veap,@asd,now(),@dipl,@dipw,@nbna)";
             }
             using (MySqlCommand micon = new MySqlCommand(consulta, conn))
@@ -126,6 +132,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@digit", Operador);
                 micon.Parameters.AddWithValue("@tipe", (tipMovPrin == "omg") ? "OMG" : "PER");
                 //micon.Parameters.AddWithValue("@aprob", ); cuando se grea por primera vez, no hay aprobador
+                micon.Parameters.AddWithValue("@paga", pagado);
                 micon.Parameters.AddWithValue("@veap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
                 micon.Parameters.AddWithValue("@asd", Program.vg_user);
                 micon.Parameters.AddWithValue("@dipl", lib.iplan());
@@ -143,7 +150,7 @@ namespace Conti3
                 consulta = "update " + tabla + " set IDBanco=@IDB,Anno=@Ann,DataMovimento=@DMo,IDConto=@IDCo,IDCategoria=@IDCa," +
                     "ImportoDU=@IDU,ImportoSU=@ISU,Cambio=@Cam,Descrizione=@Des,IDGiroConto=@IDG,monori=@mon,ctaori=@ctao,ctades=@ctad," +
                     "digitador=@digit,aprobador=@aprob,idanagrafica=@idan,tipodesgiro=@tidgiro,CodGiro=@codGiro," +
-                    "valorOrig=@vOrig,codimon=@cmon,nombmon=@nmon,tcMonOri=@tcMO,tipoE=@tipe," +
+                    "valorOrig=@vOrig,codimon=@cmon,nombmon=@nmon,tcMonOri=@tcMO,tipoE=@tipe,pagado=@paga," +
                     "verApp=@veap,userm=@asd,fechm=now(),diriplan4=@dipl,diripwan4=@dipw,netbname=@nbna " +
                     "where anno=@year and idmovimento=@corre";  // tipoE=@tipe and 
             }
@@ -174,6 +181,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@tcMO", monto.tipCOri);
                 micon.Parameters.AddWithValue("@year", year);
                 micon.Parameters.AddWithValue("@corre", corre);
+                micon.Parameters.AddWithValue("@paga", pagado);
                 micon.Parameters.AddWithValue("@veap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
                 micon.Parameters.AddWithValue("@asd", Program.vg_user);
                 micon.Parameters.AddWithValue("@dipl", lib.iplan());
@@ -185,7 +193,7 @@ namespace Conti3
 
         public void actuaPrelim(MySqlConnection conn, string year, string corre)
         {
-            string actua = "update cassaprelim set aprobador=@apro,fecproc=now()," +
+            string actua = "update cassaprelim set aprobador=@apro,fecproc=now(),pagado=@paga," +
                 "verApp=@veap,diriplan4=@dipl,diripwan4=@dipw,netbname=@nbna " +
                 "where anno=@Ann and idmovimento=@idm";
             using (MySqlCommand micon = new MySqlCommand(actua, conn))
@@ -193,6 +201,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@Ann", year);
                 micon.Parameters.AddWithValue("@idm", corre);
                 micon.Parameters.AddWithValue("@apro", Aprobador);
+                micon.Parameters.AddWithValue("@paga", pagado);
                 micon.Parameters.AddWithValue("@veap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
                 //micon.Parameters.AddWithValue("@asd", Program.vg_user); -> no se actualiza porque corresponde al posible usuario que edito
                 // campo fechm -> no se actualiza porque corresponde a la posible fecha de edicion del registro preliminar

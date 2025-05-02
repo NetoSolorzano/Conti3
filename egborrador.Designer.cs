@@ -120,6 +120,7 @@
             this.generalEtiqueta9 = new Conti3.generalEtiqueta();
             this.tx_descrip = new System.Windows.Forms.RichTextBox();
             this.bt_Pnuevo = new System.Windows.Forms.Button();
+            this.chk_pagado = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.pan_p.SuspendLayout();
@@ -818,7 +819,7 @@
             this.eti_nomprovee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eti_nomprovee.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_nomprovee.ForeColor = System.Drawing.Color.Blue;
-            this.eti_nomprovee.Location = new System.Drawing.Point(783, 218);
+            this.eti_nomprovee.Location = new System.Drawing.Point(974, 192);
             this.eti_nomprovee.Name = "eti_nomprovee";
             this.eti_nomprovee.Size = new System.Drawing.Size(41, 15);
             this.eti_nomprovee.TabIndex = 677;
@@ -831,7 +832,7 @@
             this.tx_dat_provee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_dat_provee.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_dat_provee.ForeColor = System.Drawing.Color.Blue;
-            this.tx_dat_provee.Location = new System.Drawing.Point(732, 189);
+            this.tx_dat_provee.Location = new System.Drawing.Point(923, 163);
             this.tx_dat_provee.Name = "tx_dat_provee";
             this.tx_dat_provee.Size = new System.Drawing.Size(62, 21);
             this.tx_dat_provee.TabIndex = 678;
@@ -1009,7 +1010,7 @@
             // 
             // tx_dat_giro
             // 
-            this.tx_dat_giro.Location = new System.Drawing.Point(783, 192);
+            this.tx_dat_giro.Location = new System.Drawing.Point(974, 166);
             this.tx_dat_giro.Name = "tx_dat_giro";
             this.tx_dat_giro.Size = new System.Drawing.Size(57, 20);
             this.tx_dat_giro.TabIndex = 688;
@@ -1042,7 +1043,7 @@
             // 
             // tx_dat_asoc
             // 
-            this.tx_dat_asoc.Location = new System.Drawing.Point(732, 204);
+            this.tx_dat_asoc.Location = new System.Drawing.Point(923, 178);
             this.tx_dat_asoc.Name = "tx_dat_asoc";
             this.tx_dat_asoc.Size = new System.Drawing.Size(62, 20);
             this.tx_dat_asoc.TabIndex = 691;
@@ -1155,12 +1156,24 @@
             this.bt_Pnuevo.UseVisualStyleBackColor = true;
             this.bt_Pnuevo.Click += new System.EventHandler(this.bt_Pnuevo_Click);
             // 
+            // chk_pagado
+            // 
+            this.chk_pagado.AutoSize = true;
+            this.chk_pagado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_pagado.Location = new System.Drawing.Point(724, 189);
+            this.chk_pagado.Name = "chk_pagado";
+            this.chk_pagado.Size = new System.Drawing.Size(78, 22);
+            this.chk_pagado.TabIndex = 700;
+            this.chk_pagado.Text = "Pagado";
+            this.chk_pagado.UseVisualStyleBackColor = true;
+            // 
             // egborrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(1107, 422);
+            this.Controls.Add(this.chk_pagado);
             this.Controls.Add(this.bt_Pnuevo);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.linV1);
@@ -1334,5 +1347,6 @@
         private generalEtiqueta generalEtiqueta9;
         private System.Windows.Forms.RichTextBox tx_descrip;
         private System.Windows.Forms.Button bt_Pnuevo;
+        private System.Windows.Forms.CheckBox chk_pagado;
     }
 }

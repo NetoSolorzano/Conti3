@@ -205,6 +205,7 @@ namespace Conti3
                 tx_dat_giro.Text = "";     // idcodice de la cuenta
                 eti_nomCtaGiro.Text = "";  // nombre largo de la cuenta
             }
+            chk_pagado.Checked = (Opreli.Pagado == 1) ? true : false;
         }                                                   // muestra en el formulario los objetos de la clase Egresos
         private void CargaFormatos(MySqlConnection conn)
         {
@@ -331,6 +332,7 @@ namespace Conti3
             string idmov = "";              // id del movimiento
             string opera = "";              // operador, la que ó el que registra
             string aprob = "";              // usuario aprobador
+            int pagad = 0;                  // 
             bool exito;
             // 1ro buscamos el registro si esta en la grilla
             DataRow[] fila = dt_grilla.Select("ID_MOVIM=" + oFEgres.CDerecha("00000" + _idop, 6));
@@ -369,6 +371,7 @@ namespace Conti3
                     Ogiro.idcod = fila[0]["IDGiroConto"].ToString();     // advancedDataGridView1.Rows[e.RowIndex].Cells["IDGiroConto"].Value.ToString();
                     opera = fila[0]["OPERADOR"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["OPERADOR"].Value.ToString();
                     aprob = fila[0]["APROBADOR"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["APROBADOR"].Value.ToString();
+                    pagad = int.Parse(fila[0]["pagado"].ToString());   // pagado 
                 }
             }
             else
@@ -387,8 +390,8 @@ namespace Conti3
                     //   0     1       2       3        4       5     6      7            8         9        10
                     // dia,APROBADOR,FEC_PROCESO,GIRO_CTA,IDGiroConto,ImportoDU,ImportoSU,idanagrafica,IDConto,IDCategoria,
                     //  11     12        13         14         15         16        17         18         19       20
-                    // codimon,nombmon,TCMonOri,CUENTA,DET_EGRESO,CodGiro,CTA_DESTINO,CTA_GIRO,CASA,tipoE,RUC,cuentaB
-                    //    21      22       23     24       25        26       27         28     29    30   31   32
+                    // codimon,nombmon,TCMonOri,CUENTA,DET_EGRESO,CodGiro,CTA_DESTINO,CTA_GIRO,CASA,tipoE,RUC,cuentaB,pagado
+                    //    21      22       23     24       25        26       27         28     29    30   31   32      33
                     fecOp = retu[2];   // fila[0]["fecha"].ToString();
                     OcatEg.codigo = retu[20];   // fila[0]["IDCategoria"].ToString();
                     OcatEg.nombre = retu[4];   // fila[0]["EGRESO"].ToString();
@@ -419,11 +422,12 @@ namespace Conti3
                     Ogiro.idcod = retu[15];   // fila[0]["IDGiroConto"].ToString();
                     opera = retu[10];   // fila[0]["OPERADOR"].ToString(); 
                     aprob = retu[12];   // fila[0]["APROBADOR"].ToString();
+                    pagad = int.Parse(retu[33]);
                 }
             }
             if (exito == true)
             {
-                Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, tipca, Ocajd, Oprove, descr, idmov, Ogiro, opera, "");
+                Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, tipca, Ocajd, Oprove, descr, idmov, Ogiro, opera, "", pagad);
                 // si ya fue aprobado el registro, ya no se puede editar o borrar 28/12/2024
                 if ("EDICION,BORRAR,VALIDACION".Contains(Tx_modo.Text))
                 {
@@ -619,6 +623,7 @@ namespace Conti3
             cmb_asoc.SelectedIndex = -1;    // 27-01-2025
             chk_giroC.Checked = false;
             chk_asoc.Checked = false;
+            chk_pagado.Checked = false;
             tx_dat_asoc.Text = "";
         }
         private void escribe(string quien)  // pones los campos necesarios en readonly = false
@@ -638,6 +643,7 @@ namespace Conti3
             Bt_graba.Enabled = true;
             chk_giroC.Enabled = true;
             chk_datSimil.Enabled = true;
+            chk_pagado.Enabled = true;
         }
         private void sololee(string quien)  //    // T=todos los campos, "" ó "C" campos comunes
         {
@@ -657,6 +663,7 @@ namespace Conti3
             Bt_graba.Enabled = false;
             chk_giroC.Enabled = false;
             chk_datSimil.Enabled = false;
+            chk_pagado.Enabled = false;
         }
         #endregion
 
@@ -665,6 +672,8 @@ namespace Conti3
         {
             limpiaTE();
             limpiaObj("no");
+            
+            // me quede acá 02/05/2025 -> poniendo codigo para check pagado, todo lo que esta arriba de esto ya esta
 
             // CASA,ANNO,ID_MOVIM,FECHA,DET_CUENTA,EGRESO,MONEDA,MONTO,
             // DESCRIPCION,TIP_CAMBIO,PROVEEDOR,OPERADOR,dia,APROBADOR,FEC_PROCESO,
