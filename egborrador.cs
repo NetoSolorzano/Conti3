@@ -537,6 +537,7 @@ namespace Conti3
                 if (row.Cells["pagado"].Value != null && row.Cells["pagado"].Value.ToString() == "1")
                 {
                     row.Cells["Chk_PAG"].Value = 1;
+                    row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
                 }
             }
         }                                               // marca check de PAGO en la grilla
@@ -552,7 +553,7 @@ namespace Conti3
                     micon.ExecuteNonQuery();
                 }
             }
-        }                   // actualiza marca en tabla
+        }                               // actualiza marca en tabla
 
         #region marcación de checks de grilla
         private void marcaSelec(string modo)
@@ -701,7 +702,7 @@ namespace Conti3
             // ImportoDU,ImportoSU,a.idanagrafica,a.IDConto,a.IDCategoria,
             // a.codimon,a.nombmon,a.TCMonOri,CUENTA,DET_EGRESO,a.CodGiro,
             // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB,pagado
-            if (true)    // Tx_modo.Text != "NUEVO"
+            if (e.RowIndex > -1)    // Tx_modo.Text != "NUEVO"
             {
                 string fecOp = "";              // fecha de operacion
                 decimal tipca = 0;              // tip cambio del monto origen
@@ -940,14 +941,14 @@ namespace Conti3
                     {
                         advancedDataGridView1.Columns[i].ReadOnly = true;    // acá ponemos todas las columnas en readonly menos la ultima con check
                     }
-                    advancedDataGridView1.Columns["Chk_PAG"].ReadOnly = false;
+                    advancedDataGridView1.Columns["Chk_PAG"].ReadOnly = true;  // false 06/05/2025 no se puede cambiar 
                     // si el registro ya fue pagado, le pone el check
                     for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
                     {
                         if (advancedDataGridView1.Rows[i].Cells["pagado"].Value.ToString() != "0")   // si ya fue aprobado no debe dejar marcar
                         {
-                            //advancedDataGridView1.Rows[i].Cells["Chk_PAG"].ReadOnly = true;
-                            advancedDataGridView1.Rows[i].Cells["Chk_PAG"].Value = 1;  // <-- no estoy seguro .. 
+                            advancedDataGridView1.Rows[i].Cells["Chk_PAG"].Value = 1;
+                            advancedDataGridView1.Rows[i].DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
                         }
                     }
                 }
@@ -2163,31 +2164,5 @@ namespace Conti3
         }
         #endregion
 
-        private void advancedDataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            // no debe ser este evento
-            
-        }
-
-        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0 && "NUEVO,EDICION".Contains(Tx_modo.Text) && ususvalid.Contains(Program.vg_user))
-            {
-                if (advancedDataGridView1.CurrentCell.FormattedValue.ToString() == "True")
-                {
-                    // actualiza la grilla, campo "pagado"
-                    //dt_grilla.Rows[e.RowIndex]["pagado"] = 0; // me quede acá
-                    // actualiza campo en grilla y en tabla
-                    actuatabl(int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString()), 0);
-                }
-                else
-                {
-                    // actualiza la grilla, campo "pagado"
-                    //dt_grilla.Rows[e.RowIndex]["pagado"] = 1;
-                    // actualiza campo en grilla y en tabla
-                    actuatabl(int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString()), 1);
-                }
-            }
-        }
     }
 }

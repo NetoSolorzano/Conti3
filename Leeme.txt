@@ -197,4 +197,4 @@ Form usuarweb, agrandamiento del contenido un 30% aprox. .......................
 Tabla cassaprelim, agregar campo "pagado" tinyint ............................... 02/05/2025
 Clase preliminares, agregar campo "pagado" ...................................... 02/05/2025
 P.A. ConPrel_cassa, agregar campo "pagado" (en base real) ....................... 02/05/2025
-Form egborrador, agregar checks en grilla para filas ya pagadas o transferidas .. 
+Form egborrador, agregar checks en grilla para filas ya pagadas o transferidas .. 06/05/2025
