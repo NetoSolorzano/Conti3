@@ -194,7 +194,7 @@ Form Finan_egres, agrandamiento del contenido un 30% aprox. ....................
 Form Finan_Ingres, agrandamiento del contenido un 30% aprox. .................... 01/05/2025
 Form Finan_reps1, agrandamiento del contenido un 15% aprox. ..................... 01/05/2025
 Form usuarweb, agrandamiento del contenido un 30% aprox. ........................ 01/05/2025
-Form egborrador, agregar checks en grilla para filas ya pagadas o transferidas .. 
 Tabla cassaprelim, agregar campo "pagado" tinyint ............................... 02/05/2025
 Clase preliminares, agregar campo "pagado" ...................................... 02/05/2025
-P.A. prelims, agregar campo "pagado" ............................................
+P.A. ConPrel_cassa, agregar campo "pagado" (en base real) ....................... 02/05/2025
+Form egborrador, agregar checks en grilla para filas ya pagadas o transferidas .. 

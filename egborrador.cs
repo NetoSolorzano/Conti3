@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Windows.Forms;
 //using static Google.Protobuf.Collections.MapField<TKey, TValue>;
@@ -529,7 +530,30 @@ namespace Conti3
             Oprove.cuenta = tx_ctaban;
             Oprove.ruc = Tx_rucprov;
         }       // actualiza datos en proveedor
-        
+        private void actuapago()
+        {
+            foreach (DataGridViewRow row in advancedDataGridView1.Rows)
+            {
+                if (row.Cells["pagado"].Value != null && row.Cells["pagado"].Value.ToString() == "1")
+                {
+                    row.Cells["Chk_PAG"].Value = 1;
+                }
+            }
+        }                                               // marca check de PAGO en la grilla
+        private void actuatabl(int idt, int vuc)
+        {
+            using (MySqlConnection conn = new MySqlConnection(DB_CONN_STR))
+            {
+                conn.Open();
+                using (MySqlCommand micon = new MySqlCommand("update cassaprelim set pagado=@vuc where id=@idt", conn))
+                {
+                    micon.Parameters.AddWithValue("@idt", idt);
+                    micon.Parameters.AddWithValue("@vuc", vuc);
+                    micon.ExecuteNonQuery();
+                }
+            }
+        }                   // actualiza marca en tabla
+
         #region marcación de checks de grilla
         private void marcaSelec(string modo)
         {
@@ -672,14 +696,11 @@ namespace Conti3
         {
             limpiaTE();
             limpiaObj("no");
-            
-            // me quede acá 02/05/2025 -> poniendo codigo para check pagado, todo lo que esta arriba de esto ya esta
-
             // CASA,ANNO,ID_MOVIM,FECHA,DET_CUENTA,EGRESO,MONEDA,MONTO,
             // DESCRIPCION,TIP_CAMBIO,PROVEEDOR,OPERADOR,dia,APROBADOR,FEC_PROCESO,
             // ImportoDU,ImportoSU,a.idanagrafica,a.IDConto,a.IDCategoria,
             // a.codimon,a.nombmon,a.TCMonOri,CUENTA,DET_EGRESO,a.CodGiro,
-            // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB
+            // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB,pagado
             if (true)    // Tx_modo.Text != "NUEVO"
             {
                 string fecOp = "";              // fecha de operacion
@@ -688,6 +709,7 @@ namespace Conti3
                 string idmov = "";              // id del movimiento
                 string opera = "";              // operador, la que ó el que registra
                 string aprob = "";              // usuario aprobador
+                int pagad = 0;                  // marca de pagado 0=sin pago, 1=pagado o transferido
                 if (true)
                 {
                     if (advancedDataGridView1.Rows[e.RowIndex].Cells["tipoE"].Value.ToString() == "OMG")
@@ -728,8 +750,9 @@ namespace Conti3
                     Ogiro.idcod = advancedDataGridView1.Rows[e.RowIndex].Cells["IDGiroConto"].Value.ToString();
                     opera = advancedDataGridView1.Rows[e.RowIndex].Cells["OPERADOR"].Value.ToString();
                     aprob = advancedDataGridView1.Rows[e.RowIndex].Cells["APROBADOR"].Value.ToString();
+                    pagad = int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["pagado"].Value.ToString());
                 }
-                Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, tipca, Ocajd, Oprove, descr, idmov, Ogiro, opera, "");
+                Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, tipca, Ocajd, Oprove, descr, idmov, Ogiro, opera, "", pagad);
                 // si ya fue aprobado el registro, ya no se puede editar 28/12/2024
                 if ("EDICION,BORRAR,VALIDACION".Contains(Tx_modo.Text))
                 {
@@ -756,8 +779,7 @@ namespace Conti3
             // DESCRIPCION,TIP_CAMBIO,PROVEEDOR,OPERADOR,dia,APROBADOR,FEC_PROCESO,
             // ImportoDU,ImportoSU,a.idanagrafica,a.IDConto,a.IDCategoria,
             // a.codimon,a.nombmon,a.TCMonOri,CUENTA,DET_EGRESO,a.CodGiro,
-            // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB
-
+            // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB,pagado
             DataRow fila = dt_grilla.NewRow();
             string fecOp = selecFecha1.Value.Date.ToShortDateString();
             advancedDataGridView1.Rows[0].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;  // 22/04/2025
@@ -797,11 +819,17 @@ namespace Conti3
                 fila["CTA_DESTINO"] = Ogiro.largo;
                 fila["CTA_GIRO"] = Ogiro.ctades;
                 fila["GIRO_CTA"] = Ogiro.tipodes;
-                fila["tipoE"] = (rb_omg.Checked == true) ? "OMG" : "PER"; 
+                fila["tipoE"] = (rb_omg.Checked == true) ? "OMG" : "PER";
+                fila["pagado"] = (chk_pagado.CheckState == CheckState.Checked) ? 1 : 0;
             }
             dt_grilla.Rows.InsertAt(fila, 0);
             advancedDataGridView1.CurrentCell = advancedDataGridView1.Rows[0].Cells[0];
             advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
+            if ("NUEVO,EDICION".Contains(Tx_modo.Text))
+            {
+                // marcamos el CHK_PAG
+                actuapago();
+            }
         }                                           // INSERTA en la grilla el registro nuevo despues de grabar en la B.D.
         private void jalaGrilla(int dAtras, string ntabla)
         {
@@ -900,6 +928,29 @@ namespace Conti3
                         }
                     }
                 }
+                if ("NUEVO,EDICION".Contains(Tx_modo.Text) && ususvalid.Contains(Program.vg_user))
+                {
+                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                    chk.Name = "Chk_PAG";
+                    chk.HeaderText = "PAGO";
+                    chk.Width = 60;
+                    advancedDataGridView1.Columns.Insert(0, chk);
+                    advancedDataGridView1.ReadOnly = false;
+                    for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+                    {
+                        advancedDataGridView1.Columns[i].ReadOnly = true;    // acá ponemos todas las columnas en readonly menos la ultima con check
+                    }
+                    advancedDataGridView1.Columns["Chk_PAG"].ReadOnly = false;
+                    // si el registro ya fue pagado, le pone el check
+                    for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
+                    {
+                        if (advancedDataGridView1.Rows[i].Cells["pagado"].Value.ToString() != "0")   // si ya fue aprobado no debe dejar marcar
+                        {
+                            //advancedDataGridView1.Rows[i].Cells["Chk_PAG"].ReadOnly = true;
+                            advancedDataGridView1.Rows[i].Cells["Chk_PAG"].Value = 1;  // <-- no estoy seguro .. 
+                        }
+                    }
+                }
             }
         }                 // ajusta el ancho de las columnas y muestra hasta el limite
         public void actFilaEnDataI(DataTable dt, string _casa, string _corre)
@@ -908,8 +959,7 @@ namespace Conti3
             // DESCRIPCION,TIP_CAMBIO,PROVEEDOR,OPERADOR,dia,APROBADOR,FEC_PROCESO,
             // ImportoDU,ImportoSU,a.idanagrafica,a.IDConto,a.IDCategoria,
             // a.codimon,a.nombmon,a.TCMonOri,CUENTA,DET_EGRESO,a.CodGiro,
-            // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB
-
+            // GIRO_CTA,a.IDGiroConto,CTA_DESTINO,CTA_GIRO,RUC,cuentaB,pagado
             string fecOp = selecFecha1.Value.Date.ToShortDateString();
             for (int i = dt.Rows.Count - 1; i >= 0; i--)
             {
@@ -950,10 +1000,16 @@ namespace Conti3
                     dr["CTA_GIRO"] = Ogiro.ctades;
                     dr["GIRO_CTA"] = Ogiro.tipodes;
                     dr["tipoE"] = (rb_omg.Checked == true) ? "OMG" : "PER";
+                    dr["pagado"] = (chk_pagado.CheckState == CheckState.Checked) ? 1 : 0;
                 }
                 dr.AcceptChanges();
             }
             dt.AcceptChanges();
+            if ("NUEVO,EDICION".Contains(Tx_modo.Text))
+            {
+                // marcamos el CHK_PAG 
+                actuapago();
+            }
         }                // ACTUALIZA la grilla despues de haber actualizado la tabla
         private void advancedDataGridView1_SortStringChanged(object sender, EventArgs e)
         {
@@ -1360,6 +1416,10 @@ namespace Conti3
                 Ogiro.tipodes = "";
                 Ogiro.idcod = "";
             }
+        }
+        private void chk_pagado_CheckedChanged(object sender, EventArgs e)
+        {
+            // hacemos algo de esto cuando grabamos
         }
         private void tx_ctaGiro_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1961,13 +2021,14 @@ namespace Conti3
                                     string yea = row.Cells["ANNO"].Value.ToString(); // DateTime.Now.Year.ToString();  // año real en que se genera el egreso
                                     string correE = oFEgres.correlativo(conn, (row.Cells["tipoE"].Value.ToString() == "OMG") ? "MCA" : "MCO", int.Parse(yea));
                                     // OJO que el tipo de cambio que se esta usando en la aprobación es de la fecha de creación !!!  
+                                    int pagad = int.Parse(row.Cells["pagado"].Value.ToString());
                                     Oegresos.creaEgreso((row.Cells["tipoE"].Value.ToString() == "OMG") ? "omg" : "personal", fecOp, OcatEg, Omone, Omonto, decimal.Parse(row.Cells["T_C"].Value.ToString()),
                                                 Ocajd, Oprove, descr, correE, Ogiro, yea);
                                     Oegresos.grabaEgreso(conn);
                                     // 
                                     Opreli.creaPrelim((row.Cells["tipoE"].Value.ToString() == "OMG") ? "omg" : "personal", row.Cells["FECHA"].Value.ToString(),
                                         OcatEg, Omone, Omonto, decimal.Parse(row.Cells["T_C"].Value.ToString()),
-                                        Ocajd, Oprove, descr, corre, Ogiro, "", Program.vg_user);
+                                        Ocajd, Oprove, descr, corre, Ogiro, "", Program.vg_user, pagad);
                                     Opreli.actuaPrelim(conn, yea, corre);
                                     // si tiene giro, lo genera
                                     if (Ogiro.idcod != null && Ogiro.idcod != "")   // chk_giroC.CheckState == CheckState.Checked
@@ -2028,10 +2089,11 @@ namespace Conti3
                         corre = oFEgres.correlativo(conn, "MCP", int.Parse(tx_anno.Text));
                         if (corre != "error" && corre != "")
                         {
+                            int pagad = (chk_pagado.CheckState == CheckState.Checked) ? 1 : 0; 
                             try
                             {
                                 Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, decimal.Parse(tx_tipcam.Text),
-                                        Ocajd, Oprove, tx_descrip.Text, corre, Ogiro, Program.vg_user, "");
+                                        Ocajd, Oprove, tx_descrip.Text, corre, Ogiro, Program.vg_user, "", pagad);
                                 Opreli.grabaPrelim(conn);
                             }
                             catch (Exception ex)
@@ -2087,10 +2149,10 @@ namespace Conti3
                             string fecOp = Tx_fecha.Text;    // selecFecha1.Value.Date.ToShortDateString();
                             decimal tipCam = 0;
                             decimal.TryParse(tx_tipcam.Text, out tipCam);
-                            //string corre = tx_anno.Text + tx_idOper.Text;
+                            int pagad = (chk_pagado.CheckState == CheckState.Checked) ? 1 : 0;
                             string corre = oFEgres.CDerecha("000000000000000" + tx_idOper.Text, 15);
                             Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, decimal.Parse(tx_tipcam.Text),
-                                Ocajd, Oprove, tx_descrip.Text, corre, Ogiro, Program.vg_user, "");
+                                Ocajd, Oprove, tx_descrip.Text, corre, Ogiro, Program.vg_user, "", pagad);
                             Opreli.EditaPrelim(conn, tx_anno.Text, corre);
                             //
                             actFilaEnDataI(dt_grilla, "LIM", tx_idOper.Text);
@@ -2101,5 +2163,31 @@ namespace Conti3
         }
         #endregion
 
+        private void advancedDataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // no debe ser este evento
+            
+        }
+
+        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && "NUEVO,EDICION".Contains(Tx_modo.Text) && ususvalid.Contains(Program.vg_user))
+            {
+                if (advancedDataGridView1.CurrentCell.FormattedValue.ToString() == "True")
+                {
+                    // actualiza la grilla, campo "pagado"
+                    //dt_grilla.Rows[e.RowIndex]["pagado"] = 0; // me quede acá
+                    // actualiza campo en grilla y en tabla
+                    actuatabl(int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString()), 0);
+                }
+                else
+                {
+                    // actualiza la grilla, campo "pagado"
+                    //dt_grilla.Rows[e.RowIndex]["pagado"] = 1;
+                    // actualiza campo en grilla y en tabla
+                    actuatabl(int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString()), 1);
+                }
+            }
+        }
     }
 }

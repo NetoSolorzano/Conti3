@@ -442,7 +442,9 @@
             this.advancedDataGridView1.TimeFilter = false;
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
             this.advancedDataGridView1.FilterStringChanged += new System.EventHandler(this.advancedDataGridView1_FilterStringChanged);
+            this.advancedDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.advancedDataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellValueChanged);
             // 
             // Bt_graba
             // 
@@ -688,9 +690,9 @@
             // 
             this.chk_datSimil.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chk_datSimil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_datSimil.Location = new System.Drawing.Point(552, 212);
+            this.chk_datSimil.Location = new System.Drawing.Point(510, 212);
             this.chk_datSimil.Name = "chk_datSimil";
-            this.chk_datSimil.Size = new System.Drawing.Size(138, 22);
+            this.chk_datSimil.Size = new System.Drawing.Size(194, 22);
             this.chk_datSimil.TabIndex = 21;
             this.chk_datSimil.Text = "Datos similares";
             this.chk_datSimil.UseVisualStyleBackColor = true;
@@ -1166,6 +1168,7 @@
             this.chk_pagado.TabIndex = 700;
             this.chk_pagado.Text = "Pagado";
             this.chk_pagado.UseVisualStyleBackColor = true;
+            this.chk_pagado.CheckedChanged += new System.EventHandler(this.chk_pagado_CheckedChanged);
             // 
             // egborrador
             // 
