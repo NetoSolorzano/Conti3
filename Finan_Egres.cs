@@ -558,6 +558,19 @@ namespace Conti3
             }
             return retorna;
         }
+        private int marcados()
+        {
+            int retorna = 0;
+            for (int i = 0; i < advancedDataGridView1.Rows.Count -1; i++)
+            {
+                if (advancedDataGridView1.Rows[i].Cells["Chk_B"].FormattedValue.ToString() == "True" &&
+                    advancedDataGridView1.Rows[i].Cells["ID_MOVIM"].FormattedValue.ToString() != "")
+                {
+                    retorna = retorna + 1;  
+                }
+            }
+            return retorna;
+        }                                   // cuenta las filas marcadas para borrar ...SOLO EN MODO ANULAR
 
         #region Botones de comando
         public void toolboton(MySqlConnection conn)
@@ -641,6 +654,10 @@ namespace Conti3
                     rb_pers.Checked = true;
                     rb_pers_Click(null, null);
                 }
+                else
+                {
+                    armaGrilla(advancedDataGridView1, limCols);
+                }
                 limpiaObj();
                 limpiaTE();
                 selecFecha1.Enabled = true;
@@ -665,6 +682,10 @@ namespace Conti3
                 {
                     rb_pers.Checked = true;
                     rb_pers_Click(null, null);
+                }
+                else
+                {
+                    armaGrilla(advancedDataGridView1, limCols);
                 }
                 limpiaObj();
                 limpiaTE();
@@ -696,6 +717,10 @@ namespace Conti3
                 rb_pers.Checked = true;
                 rb_pers_Click(null, null);
             }
+            else
+            {
+                armaGrilla(advancedDataGridView1, limCols);
+            }
             limpiaObj();
             limpiaTE();
             sololee("");
@@ -716,6 +741,10 @@ namespace Conti3
             {
                 rb_pers.Checked = true;
                 rb_pers_Click(null, null);
+            }
+            else
+            {
+                armaGrilla(advancedDataGridView1, limCols);
             }
             limpiaObj();
             limpiaTE();
@@ -2064,12 +2093,37 @@ namespace Conti3
                 }
                 if (b < dgv_.Width) dgv_.Width = b - 20;
                 dgv_.ReadOnly = true;
+                //
+                if (Tx_modo.Text == "BORRAR")
+                {
+                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                    chk.Name = "Chk_B";
+                    chk.HeaderText = "BORRA";
+                    chk.Width = 60;
+                    advancedDataGridView1.Columns.Insert(0, chk);
+                    advancedDataGridView1.ReadOnly = false;
+                    for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+                    {
+                        advancedDataGridView1.Columns[i].ReadOnly = true;    // acá ponemos todas las columnas en readonly menos la ultima con check
+                    }
+                    advancedDataGridView1.Columns["Chk_B"].ReadOnly = false;
+                }
+                else
+                {
+                    for (int i = 0; i < dgv_.Columns.Count; i++)
+                    {
+                        if (advancedDataGridView1.Columns[i].Name == "Chk_B")
+                        {
+                            advancedDataGridView1.Columns.Remove("Chk_B");
+                        }
+                    }
+                }
             }
             else
             {
-
+                // no hacemos nada
             }
-        }                 // ajusta el ancho de las columnas y muestra hasta el limite
+        }
         private void advancedadvancedDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (true)    // 24/01/2025  .... (Tx_modo.Text != "NUEVO")
@@ -2456,19 +2510,33 @@ namespace Conti3
             if (Tx_modo.Text == "BORRAR")
             {
                 // validamos que exista registro que borrar
-                if (tx_idOper.Text == "")
+                int marcas = marcados();
+                if (tx_idOper.Text == "" && marcas == 0)
                 {
                     MessageBox.Show("No hay registro que borrar!", "Identificador en blanco", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
-                var aaa = MessageBox.Show("Confirma que desea BORRAR el Egreso?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var aaa = MessageBox.Show("Confirma que desea BORRAR?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (aaa == DialogResult.Yes)
                 {
                     string tabla = "";
                     if (rb_omg.Checked == true) tabla = "cassaomg";
                     else tabla = "cassaconti";
                     dt_grillaE.TableName = "dt_grillaE";
-                    graba_borrar(tabla, selecFecha1.Value.Year.ToString(), "000000000" + CDerecha(tx_idOper.Text, 6), dt_grillaE);
+                    if (tx_idOper.Text != "")
+                    {
+                        graba_borrar(tabla, selecFecha1.Value.Year.ToString(), "000000000" + CDerecha(tx_idOper.Text, 6), dt_grillaE);
+                    }
+                    for (int i=0; i<advancedDataGridView1.Rows.Count-1; i++)
+                    {
+                        if (advancedDataGridView1.Rows[i].Cells["Chk_B"].FormattedValue.ToString() == "True" &&
+                            advancedDataGridView1.Rows[i].Cells["ID_MOVIM"].FormattedValue.ToString() != "")
+                        {
+                            string anno = advancedDataGridView1.Rows[i].Cells["ANNO"].Value.ToString();
+                            string idmo = "000000000" + advancedDataGridView1.Rows[i].Cells["ID_MOVIM"].Value.ToString();
+                            graba_borrar(tabla, anno, idmo, dt_grillaE);
+                        }
+                    }
                     limpiaObj();
                     limpiaTE();
                 }
@@ -2596,7 +2664,7 @@ namespace Conti3
                     for (int i = dgv.Rows.Count - 1; i >= 0; i--)
                     {
                         DataRow dr = dgv.Rows[i];
-                        if (dr["ANNO"].ToString() == year && dr["ID_MOVIN"].ToString() == CDerecha(idmov, 6))  // (year + CDerecha(idmov, 6)))
+                        if (dr["ANNO"].ToString() == year && dr["ID_MOVIM"].ToString() == CDerecha(idmov, 6))  // (year + CDerecha(idmov, 6)))
                         {
                             if (dr["CodGiro"].ToString().Trim() != "")
                             {
