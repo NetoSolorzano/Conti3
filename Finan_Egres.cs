@@ -63,6 +63,8 @@ namespace Conti3
             // color de boton Bt_graba
             Bt_graba.BackColor = ColorTranslator.FromHtml(OColores.Fondo_boton_graba);
             Bt_graba.Image = null;
+            tx_diasA.Text = diasAtroya.ToString();
+            bt_refresh.Image = Conti3.Properties.Resources.arrow_repeat36;
         }
         private void Finan_Egres_KeyDown(object sender, KeyEventArgs e)
         {
@@ -421,6 +423,7 @@ namespace Conti3
             tx_idOper.MaxLength = 15;
             Tx_nomProv.MaxLength = 50;
             Tx_nomProv.CharacterCasing = CharacterCasing.Upper;
+            tx_diasA.MaxLength = 3;
         }                                               // inicializa ancho de campos y upper case
         private void datsimil()
         {
@@ -917,7 +920,7 @@ namespace Conti3
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS OMG";
                 pan_p.Tag = "omg";
                 limpiaTE();
-                jalaGrilla(diasAtroya, "cassaomg");  // muestra datos de un dias atras hasta hoy
+                jalaGrilla(int.Parse(tx_diasA.Text), "cassaomg");  // diasAtroya, "cassaomg"   10/05/2025
                 Tx_ctaDes.Values = lista_DES.ToArray();
                 tx_ctaGiro.Values = lista_CON.ToArray();   // lista_DES.ToArray();
             }
@@ -937,7 +940,7 @@ namespace Conti3
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS PERSONALES";
                 pan_p.Tag = "personal";
                 limpiaTE();
-                jalaGrilla(diasAtroya, "cassaconti");  // muestra datos de un dias atras hasta hoy
+                jalaGrilla(int.Parse(tx_diasA.Text), "cassaconti");  // (diasAtroya, "cassaconti")   10/05/2025
                 Tx_ctaDes.Values = lista_CON.ToArray();
                 tx_ctaGiro.Values = lista_CON.ToArray();
             }

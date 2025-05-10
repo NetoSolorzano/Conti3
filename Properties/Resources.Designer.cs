@@ -103,6 +103,16 @@ namespace Conti3.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_repeat36 {
+            get {
+                object obj = ResourceManager.GetObject("arrow_repeat36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_right20 {
             get {
                 object obj = ResourceManager.GetObject("arrow_right20", resourceCulture);

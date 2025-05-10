@@ -108,6 +108,9 @@
             this.tx_prov = new Conti3.generalTextBox();
             this.Tx_nomProv = new Conti3.AutoCompleteTextBox();
             this.tx_descrip = new System.Windows.Forms.RichTextBox();
+            this.tx_diasA = new Conti3.generalTextBox();
+            this.generalEtiqueta5 = new Conti3.generalEtiqueta();
+            this.bt_refresh = new Conti3.generalBoton();
             this.toolStrip1.SuspendLayout();
             this.pan_p.SuspendLayout();
             this.panelGeneral4.SuspendLayout();
@@ -1004,12 +1007,52 @@
             this.tx_descrip.Text = "";
             this.tx_descrip.Enter += new System.EventHandler(this.tx_descrip_Enter);
             // 
+            // tx_diasA
+            // 
+            this.tx_diasA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tx_diasA.BackColor = System.Drawing.Color.White;
+            this.tx_diasA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tx_diasA.Font = new System.Drawing.Font("Verdana", 11F);
+            this.tx_diasA.ForeColor = System.Drawing.Color.Black;
+            this.tx_diasA.Location = new System.Drawing.Point(988, 180);
+            this.tx_diasA.Name = "tx_diasA";
+            this.tx_diasA.Size = new System.Drawing.Size(42, 25);
+            this.tx_diasA.TabIndex = 352;
+            this.tx_diasA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // generalEtiqueta5
+            // 
+            this.generalEtiqueta5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalEtiqueta5.AutoSize = true;
+            this.generalEtiqueta5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
+            this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generalEtiqueta5.ForeColor = System.Drawing.Color.Black;
+            this.generalEtiqueta5.Location = new System.Drawing.Point(1032, 185);
+            this.generalEtiqueta5.Name = "generalEtiqueta5";
+            this.generalEtiqueta5.Size = new System.Drawing.Size(74, 16);
+            this.generalEtiqueta5.TabIndex = 353;
+            this.generalEtiqueta5.Text = "Días Atras";
+            // 
+            // bt_refresh
+            // 
+            this.bt_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_refresh.BackColor = System.Drawing.SystemColors.Control;
+            this.bt_refresh.Font = new System.Drawing.Font("Arial", 11F);
+            this.bt_refresh.Location = new System.Drawing.Point(955, 178);
+            this.bt_refresh.Name = "bt_refresh";
+            this.bt_refresh.Size = new System.Drawing.Size(32, 28);
+            this.bt_refresh.TabIndex = 354;
+            this.bt_refresh.UseVisualStyleBackColor = false;
+            // 
             // Finan_Egres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1118, 445);
+            this.Controls.Add(this.bt_refresh);
+            this.Controls.Add(this.generalEtiqueta5);
+            this.Controls.Add(this.tx_diasA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.Tx_nomProv);
@@ -1158,6 +1201,9 @@
         private generalTextBox tx_prov;
         private AutoCompleteTextBox Tx_nomProv;
         private System.Windows.Forms.RichTextBox tx_descrip;
+        private generalEtiqueta generalEtiqueta5;
+        private generalTextBox tx_diasA;
+        private generalBoton bt_refresh;
         //private Zuby.ADGV.AdvancedDataGridView advancedDataGridView1;
     }
 }
