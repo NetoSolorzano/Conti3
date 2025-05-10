@@ -191,7 +191,7 @@ namespace Conti3
             tx_idOper.MaxLength = 15;
             Tx_ctaDes.CharacterCasing = CharacterCasing.Upper;
             Tx_ctaDes.MaxLength = 50;   // 50
-            tx_descrip.MaxLength = 100;
+            tx_descrip.MaxLength = 93;  // 09/05/2025
         }                                               // inicializa ancho de campos y upper case
         private void sumador()
         {

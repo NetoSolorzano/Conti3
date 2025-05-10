@@ -416,7 +416,7 @@ namespace Conti3
             Tx_ctaDes.CharacterCasing = CharacterCasing.Upper;
             tx_ctaGiro.MaxLength = 50;  // (descrizionerid=20)(descrizione=50)
             tx_ctaGiro.CharacterCasing = CharacterCasing.Upper;
-            tx_descrip.MaxLength = 100;
+            tx_descrip.MaxLength = 93;  // 09/05/2025
             tx_descrip.Font = new System.Drawing.Font(conf.nombreFont, conf.tamañoFont);
             tx_idOper.MaxLength = 15;
             Tx_nomProv.MaxLength = 50;
@@ -658,6 +658,10 @@ namespace Conti3
                 {
                     armaGrilla(advancedDataGridView1, limCols);
                 }
+                for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
+                {
+                    advancedDataGridView1.Rows[i].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
+                }
                 limpiaObj();
                 limpiaTE();
                 selecFecha1.Enabled = true;
@@ -686,6 +690,10 @@ namespace Conti3
                 else
                 {
                     armaGrilla(advancedDataGridView1, limCols);
+                }
+                for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
+                {
+                    advancedDataGridView1.Rows[i].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
                 }
                 limpiaObj();
                 limpiaTE();
@@ -721,6 +729,10 @@ namespace Conti3
             {
                 armaGrilla(advancedDataGridView1, limCols);
             }
+            for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
+            {
+                advancedDataGridView1.Rows[i].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
+            }
             limpiaObj();
             limpiaTE();
             sololee("");
@@ -745,6 +757,10 @@ namespace Conti3
             else
             {
                 armaGrilla(advancedDataGridView1, limCols);
+            }
+            for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
+            {
+                advancedDataGridView1.Rows[i].DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
             }
             limpiaObj();
             limpiaTE();
@@ -890,6 +906,14 @@ namespace Conti3
         {
             if (rb_omg.Checked == true)
             {
+                for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+                {
+                    if (advancedDataGridView1.Columns[i].Name == "Chk_B")
+                    {
+                        advancedDataGridView1.Columns.Remove("Chk_B");
+                    }
+                }
+
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS OMG";
                 pan_p.Tag = "omg";
                 limpiaTE();
@@ -902,6 +926,14 @@ namespace Conti3
         {
             if (rb_pers.Checked == true)
             {
+                for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+                {
+                    if (advancedDataGridView1.Columns[i].Name == "Chk_B")
+                    {
+                        advancedDataGridView1.Columns.Remove("Chk_B");
+                    }
+                }
+
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS PERSONALES";
                 pan_p.Tag = "personal";
                 limpiaTE();
@@ -2373,6 +2405,23 @@ namespace Conti3
             DataTable dtg = (DataTable)advancedDataGridView1.DataSource;
             dtg.DefaultView.RowFilter = advancedDataGridView1.FilterString;
         }
+        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                advancedDataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                if ((bool)advancedDataGridView1.CurrentCell.Value == true)
+                {
+                    // ponemos en resaltado la fila
+                    advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);
+                }
+                else
+                {
+                    // quitamos el resaltado de la fila
+                    advancedDataGridView1.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Window;
+                }
+            }
+        }   // color amarillo para la fila si tiene el checkbox chequed
         #endregion
 
         #region botones Grabar, nuevo prov.

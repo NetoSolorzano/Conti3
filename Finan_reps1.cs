@@ -161,7 +161,7 @@ namespace Conti3
                 if (conn.State == ConnectionState.Open)
                 {
                     // monedas
-                    DataRow[] depar = Program.dt_definic.Select("idtabella='MON' and numero=1 AND idcodice<>'MON003'");
+                    DataRow[] depar = Program.dt_definic.Select("idtabella='MON' and numero=1 AND idcodice<>'MON003'","idcodice desc");
                     cmb_moneda.DataSource = depar.CopyToDataTable();
                     cmb_moneda.DisplayMember = "descrizionerid";
                     cmb_moneda.ValueMember = "idcodice";

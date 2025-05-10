@@ -198,4 +198,6 @@ Tabla cassaprelim, agregar campo "pagado" tinyint ..............................
 Clase preliminares, agregar campo "pagado" ...................................... 02/05/2025
 P.A. ConPrel_cassa, agregar campo "pagado" (en base real) ....................... 02/05/2025
 Form egborrador, agregar checks en grilla para filas ya pagadas o transferidas .. 06/05/2025
-Form Finan_egres, agregar checks de borrado en grilla, modo ANULACION ........... 
+Form Finan_egres, agregar checks de borrado en grilla, modo ANULACION ........... 09/05/2025
+Form Finan_reps1, poner dolar como moneda por defecto ........................... 09/05/2025
+

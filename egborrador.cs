@@ -316,7 +316,7 @@ namespace Conti3
             Tx_ctaDes.CharacterCasing = CharacterCasing.Upper;
             Tx_ctaDes.MaxLength = 50;
             Tx_nomProv.MaxLength = 50;
-            tx_descrip.MaxLength = 100;
+            tx_descrip.MaxLength = 93;  // 09/05/2025
             tx_ctaban.MaxLength = 20;   // cuenta bancaria 
             Tx_rucprov.MaxLength = 11;  // ruc
             //
