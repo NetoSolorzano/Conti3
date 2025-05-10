@@ -1096,7 +1096,8 @@ namespace Conti3
                                                     double valor = 0;
                                                     //if (String.IsNullOrEmpty(Omonto.monDolar.ToString())) valor = dr.GetDouble(2);
                                                     //else valor = dr.GetDouble(2) - (double)Omonto.monDolar;
-                                                    valor = dr.GetDouble(2);        // saldo final en soles
+                                                    //valor = dr.GetDouble(2);        // saldo final en soles
+                                                    valor = dr.GetDouble(3) * dr.GetDouble(4);        // saldo final en dolares convertido a SOLES 10/05/2025
                                                     if (Omone.codigo == "MON001") valor = valor - (double)Omonto.monOrige;
                                                     if (Omone.codigo == "MON002") valor = valor - (double)(Omonto.monOrige * Omonto.tipCOri);
                                                     if (Omone.codigo == "MON003") valor = valor - (double)(Omonto.monOrige * Omonto.tipCOri);
@@ -2363,7 +2364,7 @@ namespace Conti3
                         //dia,ImportoDU,ImportoSU,idanagrafica,IDConto,IDCategoria,CTA_GIRO,codimon,nombmon,TCMonOri,DET_CUENTA,DET_EGRESO,tipodesgiro,CodGiro
                         dr["CASA"] = _casa;
                         dr["ANNO"] = tx_anno.Text;
-                        dr["ID_MOVIN"] = _corre;
+                        dr["ID_MOVIM"] = _corre;
                         dr["FECHA"] = fecOp;
                         dr["CUENTA"] = Ocajd.nombre;
                         dr["EGRESO"] = OcatEg.nombre.ToUpper();
@@ -2407,7 +2408,7 @@ namespace Conti3
         }
         private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            if (Tx_modo.Text == "BORRAR" && e.ColumnIndex == 0 && e.RowIndex >= 0)
             {
                 advancedDataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
                 if ((bool)advancedDataGridView1.CurrentCell.Value == true)
