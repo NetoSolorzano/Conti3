@@ -1037,12 +1037,14 @@
             // 
             this.bt_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bt_refresh.BackColor = System.Drawing.SystemColors.Control;
+            this.bt_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_refresh.Font = new System.Drawing.Font("Arial", 11F);
-            this.bt_refresh.Location = new System.Drawing.Point(955, 178);
+            this.bt_refresh.Location = new System.Drawing.Point(961, 180);
             this.bt_refresh.Name = "bt_refresh";
-            this.bt_refresh.Size = new System.Drawing.Size(32, 28);
+            this.bt_refresh.Size = new System.Drawing.Size(25, 25);
             this.bt_refresh.TabIndex = 354;
             this.bt_refresh.UseVisualStyleBackColor = false;
+            this.bt_refresh.Click += new System.EventHandler(this.bt_refresh_Click);
             // 
             // Finan_Egres
             // 

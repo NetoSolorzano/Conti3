@@ -127,6 +127,9 @@
   <data name="arrow_left20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_left [#347].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_repeat15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_repeat15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrow_repeat36" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_repeat [#236].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

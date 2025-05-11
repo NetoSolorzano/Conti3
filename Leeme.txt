@@ -201,4 +201,4 @@ Form egborrador, agregar checks en grilla para filas ya pagadas o transferidas .
 Form Finan_egres, agregar checks de borrado en grilla, modo ANULACION ........... 09/05/2025
 Form Finan_reps1, poner dolar como moneda por defecto ........................... 09/05/2025
 Form Finan_egres, poner "tx_diasA" para modificar dias en la grilla ............. 10/05/2025
-Form Finan_egres, poner boton refresh para actualizar la grilla ................. 
+Form Finan_egres, poner boton refresh para actualizar la grilla ................. 10/05/2025

@@ -562,6 +562,7 @@
     <None Include="Resources\like20.png" />
     <None Include="Resources\plus_circle.ico" />
     <None Include="Resources\arrow_repeat [#236].png" />
+    <None Include="Resources\arrow_repeat15.png" />
     <Content Include="Resources\settings20.png" />
     <None Include="Resources\wifi40.png" />
     <None Include="Resources\truck_round20.png" />

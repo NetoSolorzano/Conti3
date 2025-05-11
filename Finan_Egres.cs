@@ -64,7 +64,7 @@ namespace Conti3
             Bt_graba.BackColor = ColorTranslator.FromHtml(OColores.Fondo_boton_graba);
             Bt_graba.Image = null;
             tx_diasA.Text = diasAtroya.ToString();
-            bt_refresh.Image = Conti3.Properties.Resources.arrow_repeat36;
+            bt_refresh.Image = Conti3.Properties.Resources.arrow_repeat15;
         }
         private void Finan_Egres_KeyDown(object sender, KeyEventArgs e)
         {
@@ -574,7 +574,16 @@ namespace Conti3
             }
             return retorna;
         }                                   // cuenta las filas marcadas para borrar ...SOLO EN MODO ANULAR
-
+        private void borramarca()
+        {
+            for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+            {
+                if (advancedDataGridView1.Columns[i].Name == "Chk_B")
+                {
+                    advancedDataGridView1.Columns.Remove("Chk_B");
+                }
+            }
+        }
         #region Botones de comando
         public void toolboton(MySqlConnection conn)
         {
@@ -909,13 +918,7 @@ namespace Conti3
         {
             if (rb_omg.Checked == true)
             {
-                for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
-                {
-                    if (advancedDataGridView1.Columns[i].Name == "Chk_B")
-                    {
-                        advancedDataGridView1.Columns.Remove("Chk_B");
-                    }
-                }
+                borramarca();       // borra columna borrado si lo hubiera
 
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS OMG";
                 pan_p.Tag = "omg";
@@ -929,13 +932,7 @@ namespace Conti3
         {
             if (rb_pers.Checked == true)
             {
-                for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
-                {
-                    if (advancedDataGridView1.Columns[i].Name == "Chk_B")
-                    {
-                        advancedDataGridView1.Columns.Remove("Chk_B");
-                    }
-                }
+                borramarca();
 
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS PERSONALES";
                 pan_p.Tag = "personal";
@@ -2146,13 +2143,7 @@ namespace Conti3
                 }
                 else
                 {
-                    for (int i = 0; i < dgv_.Columns.Count; i++)
-                    {
-                        if (advancedDataGridView1.Columns[i].Name == "Chk_B")
-                        {
-                            advancedDataGridView1.Columns.Remove("Chk_B");
-                        }
-                    }
+                    borramarca();
                 }
             }
             else
@@ -2813,6 +2804,14 @@ namespace Conti3
                 }
             }
         }
+        private void bt_refresh_Click(object sender, EventArgs e)
+        {
+            if(Tx_modo.Text != "")
+            {
+                borramarca();
+                jalaGrilla(int.Parse(tx_diasA.Text), (rb_omg.Checked == true) ? "cassaomg" : "cassaconti");
+            }
+        }
         #endregion
 
         public montos calc_monedas(ComboBox combo, decimal valOri, decimal tipCam)
@@ -3124,6 +3123,5 @@ namespace Conti3
             _desgiro.nombre = "";
             _desgiro.largo = "";
         }
-
     }
 }
