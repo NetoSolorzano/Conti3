@@ -96,6 +96,9 @@
             this.Tx_ctaDest = new Conti3.AutoCompleteTextBox();
             this.tx_anno = new Conti3.NumericTextBox();
             this.tx_descrip = new System.Windows.Forms.RichTextBox();
+            this.bt_refresh = new Conti3.generalBoton();
+            this.generalEtiqueta5 = new Conti3.generalEtiqueta();
+            this.tx_diasA = new Conti3.generalTextBox();
             this.panelGeneral4.SuspendLayout();
             this.pan_p.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -854,12 +857,54 @@
             this.tx_descrip.Text = "";
             this.tx_descrip.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tx_descrip_MouseClick);
             // 
+            // bt_refresh
+            // 
+            this.bt_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_refresh.BackColor = System.Drawing.SystemColors.Control;
+            this.bt_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_refresh.Font = new System.Drawing.Font("Arial", 11F);
+            this.bt_refresh.Location = new System.Drawing.Point(811, 158);
+            this.bt_refresh.Name = "bt_refresh";
+            this.bt_refresh.Size = new System.Drawing.Size(25, 25);
+            this.bt_refresh.TabIndex = 357;
+            this.bt_refresh.UseVisualStyleBackColor = false;
+            this.bt_refresh.Click += new System.EventHandler(this.bt_refresh_Click);
+            // 
+            // generalEtiqueta5
+            // 
+            this.generalEtiqueta5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalEtiqueta5.AutoSize = true;
+            this.generalEtiqueta5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
+            this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generalEtiqueta5.ForeColor = System.Drawing.Color.Black;
+            this.generalEtiqueta5.Location = new System.Drawing.Point(882, 163);
+            this.generalEtiqueta5.Name = "generalEtiqueta5";
+            this.generalEtiqueta5.Size = new System.Drawing.Size(74, 16);
+            this.generalEtiqueta5.TabIndex = 356;
+            this.generalEtiqueta5.Text = "Días Atras";
+            // 
+            // tx_diasA
+            // 
+            this.tx_diasA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tx_diasA.BackColor = System.Drawing.Color.White;
+            this.tx_diasA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tx_diasA.Font = new System.Drawing.Font("Verdana", 11F);
+            this.tx_diasA.ForeColor = System.Drawing.Color.Black;
+            this.tx_diasA.Location = new System.Drawing.Point(838, 158);
+            this.tx_diasA.Name = "tx_diasA";
+            this.tx_diasA.Size = new System.Drawing.Size(42, 25);
+            this.tx_diasA.TabIndex = 355;
+            this.tx_diasA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Finan_Ingres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(227)))), ((int)(((byte)(109)))));
             this.ClientSize = new System.Drawing.Size(959, 403);
+            this.Controls.Add(this.bt_refresh);
+            this.Controls.Add(this.generalEtiqueta5);
+            this.Controls.Add(this.tx_diasA);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.tx_anno);
             this.Controls.Add(this.Tx_ctaDest);
@@ -983,5 +1028,8 @@
         private AutoCompleteTextBox Tx_ctaDest;
         private NumericTextBox tx_anno;
         private System.Windows.Forms.RichTextBox tx_descrip;
+        private generalBoton bt_refresh;
+        private generalEtiqueta generalEtiqueta5;
+        private generalTextBox tx_diasA;
     }
 }

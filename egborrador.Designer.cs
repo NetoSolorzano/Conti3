@@ -890,9 +890,9 @@
             this.pan_selM.Controls.Add(this.rb_nin);
             this.pan_selM.Controls.Add(this.rb_tos);
             this.pan_selM.ForeColor = System.Drawing.Color.Black;
-            this.pan_selM.Location = new System.Drawing.Point(849, 200);
+            this.pan_selM.Location = new System.Drawing.Point(836, 201);
             this.pan_selM.Name = "pan_selM";
-            this.pan_selM.Size = new System.Drawing.Size(144, 35);
+            this.pan_selM.Size = new System.Drawing.Size(179, 38);
             this.pan_selM.TabIndex = 680;
             this.pan_selM.Visible = false;
             // 
@@ -902,7 +902,7 @@
             this.generalEtiqueta4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
             this.generalEtiqueta4.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
             this.generalEtiqueta4.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta4.Location = new System.Drawing.Point(32, 0);
+            this.generalEtiqueta4.Location = new System.Drawing.Point(46, 0);
             this.generalEtiqueta4.Name = "generalEtiqueta4";
             this.generalEtiqueta4.Size = new System.Drawing.Size(81, 13);
             this.generalEtiqueta4.TabIndex = 2;
@@ -914,7 +914,7 @@
             this.rb_nin.BackColor = System.Drawing.Color.White;
             this.rb_nin.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_nin.ForeColor = System.Drawing.Color.Black;
-            this.rb_nin.Location = new System.Drawing.Point(71, 15);
+            this.rb_nin.Location = new System.Drawing.Point(84, 15);
             this.rb_nin.Name = "rb_nin";
             this.rb_nin.Size = new System.Drawing.Size(64, 16);
             this.rb_nin.TabIndex = 1;

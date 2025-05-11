@@ -50,6 +50,8 @@ namespace Conti3
             // color de boton Bt_graba
             Bt_graba.BackColor = ColorTranslator.FromHtml(OColores.Fondo_boton_graba);   //  "#667d97"
             Bt_graba.Image = null;
+            tx_diasA.Text = diasAtroya.ToString();
+            bt_refresh.Image = Conti3.Properties.Resources.arrow_repeat15;
         }
         private void Finan_Ingres_KeyDown(object sender, KeyEventArgs e)
         {
@@ -181,6 +183,7 @@ namespace Conti3
             limCols = int.Parse(row[0]["valor"].ToString());
             row = Program.dt_enlaces.Select("formulario='" + nomForm + "' and campo='grillas' and param='col1rafila'");
             col1rafila = row[0]["valor"].ToString();              // color html de la 1ra fila en ingresos
+
         }
         private void initCampos()
         {
@@ -192,6 +195,7 @@ namespace Conti3
             Tx_ctaDes.CharacterCasing = CharacterCasing.Upper;
             Tx_ctaDes.MaxLength = 50;   // 50
             tx_descrip.MaxLength = 93;  // 09/05/2025
+            tx_diasA.MaxLength = 3;
         }                                               // inicializa ancho de campos y upper case
         private void sumador()
         {
@@ -980,7 +984,7 @@ namespace Conti3
             limpiaObj();
             limpiaTE();
             escribe("");
-            jalaGrilla(diasAtroya, "");
+            jalaGrilla(int.Parse(tx_diasA.Text), "");     // 
             selecFecha1.Enabled = true;
             Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
@@ -999,7 +1003,7 @@ namespace Conti3
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
-            jalaGrilla(diasAtroya, "");
+            jalaGrilla(int.Parse(tx_diasA.Text), "");
             tx_idOper.Focus();
         }
         private void Bt_anul_Click(object sender, EventArgs e)
@@ -1012,7 +1016,7 @@ namespace Conti3
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
-            jalaGrilla(diasAtroya, "");
+            jalaGrilla(int.Parse(tx_diasA.Text), "");
             tx_idOper.Focus();
         }
         private void Bt_ver_Click(object sender, EventArgs e)
@@ -1025,7 +1029,7 @@ namespace Conti3
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
-            jalaGrilla(diasAtroya, "");
+            jalaGrilla(int.Parse(tx_diasA.Text), "");
             tx_idOper.Focus();
         }
         private void Bt_print_Click(object sender, EventArgs e)
@@ -1297,6 +1301,12 @@ namespace Conti3
         {
 
         }
-
+        private void bt_refresh_Click(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text != "")
+            {
+                jalaGrilla(int.Parse(tx_diasA.Text), "");
+            }
+        }
     }
 }

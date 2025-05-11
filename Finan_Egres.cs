@@ -573,17 +573,18 @@ namespace Conti3
                 }
             }
             return retorna;
-        }                                   // cuenta las filas marcadas para borrar ...SOLO EN MODO ANULAR
-        private void borramarca()
+        }                                                   // cuenta las filas marcadas para borrar ...SOLO EN MODO ANULAR
+        public void borramarca(AdvancedDataGridView adg, string nomCol)
         {
-            for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+            for (int i = 0; i < adg.Columns.Count; i++)
             {
-                if (advancedDataGridView1.Columns[i].Name == "Chk_B")
+                if (adg.Columns[i].Name == nomCol)     // advancedDataGridView1.Columns[i].Name == "Chk_B"
                 {
-                    advancedDataGridView1.Columns.Remove("Chk_B");
+                    adg.Columns.Remove(nomCol);        // advancedDataGridView1.Columns.Remove("Chk_B")
                 }
             }
-        }
+        }          // borrado de columna Chk_Pag si hubiera 
+
         #region Botones de comando
         public void toolboton(MySqlConnection conn)
         {
@@ -918,7 +919,7 @@ namespace Conti3
         {
             if (rb_omg.Checked == true)
             {
-                borramarca();       // borra columna borrado si lo hubiera
+                borramarca(advancedDataGridView1, "Chk_B");       // borra columna borrado si lo hubiera
 
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS OMG";
                 pan_p.Tag = "omg";
@@ -932,7 +933,7 @@ namespace Conti3
         {
             if (rb_pers.Checked == true)
             {
-                borramarca();
+                borramarca(advancedDataGridView1, "Chk_B");
 
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS PERSONALES";
                 pan_p.Tag = "personal";
@@ -2143,7 +2144,7 @@ namespace Conti3
                 }
                 else
                 {
-                    borramarca();
+                    borramarca(advancedDataGridView1, "Chk_B");
                 }
             }
             else
@@ -2808,7 +2809,7 @@ namespace Conti3
         {
             if(Tx_modo.Text != "")
             {
-                borramarca();
+                borramarca(advancedDataGridView1, "Chk_B");
                 jalaGrilla(int.Parse(tx_diasA.Text), (rb_omg.Checked == true) ? "cassaomg" : "cassaconti");
             }
         }

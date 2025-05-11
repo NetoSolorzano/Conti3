@@ -202,3 +202,7 @@ Form Finan_egres, agregar checks de borrado en grilla, modo ANULACION ..........
 Form Finan_reps1, poner dolar como moneda por defecto ........................... 09/05/2025
 Form Finan_egres, poner "tx_diasA" para modificar dias en la grilla ............. 10/05/2025
 Form Finan_egres, poner boton refresh para actualizar la grilla ................. 10/05/2025
+Form Finan_Ingres, poner "tx_diasA" y poner boton refresh ....................... 11/05/2025
+Form Finan_camion, poner "tx_diasA" y poner boton refresh ....................... 11/05/2025
+P.A. ConPrel_cassa, re ordenamiento de campos para Federico ..................... 11/05/2025
+Form egborrador, adecuar tamaño

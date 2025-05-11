@@ -111,6 +111,9 @@
             this.tx_dat_rptosS = new System.Windows.Forms.TextBox();
             this.tx_anno = new Conti3.NumericTextBox();
             this.tx_descrip = new System.Windows.Forms.RichTextBox();
+            this.bt_refresh = new Conti3.generalBoton();
+            this.generalEtiqueta15 = new Conti3.generalEtiqueta();
+            this.tx_diasA = new Conti3.generalTextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.panelGeneral1.SuspendLayout();
@@ -974,7 +977,7 @@
             // 
             this.chk_datSimil.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chk_datSimil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_datSimil.Location = new System.Drawing.Point(455, 166);
+            this.chk_datSimil.Location = new System.Drawing.Point(513, 144);
             this.chk_datSimil.Name = "chk_datSimil";
             this.chk_datSimil.Size = new System.Drawing.Size(182, 19);
             this.chk_datSimil.TabIndex = 376;
@@ -1066,12 +1069,55 @@
             this.tx_descrip.Text = "";
             this.tx_descrip.Enter += new System.EventHandler(this.tx_descrip_Enter);
             // 
+            // bt_refresh
+            // 
+            this.bt_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_refresh.BackColor = System.Drawing.SystemColors.Control;
+            this.bt_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_refresh.Font = new System.Drawing.Font("Arial", 11F);
+            this.bt_refresh.Location = new System.Drawing.Point(556, 172);
+            this.bt_refresh.Name = "bt_refresh";
+            this.bt_refresh.Size = new System.Drawing.Size(25, 25);
+            this.bt_refresh.TabIndex = 670;
+            this.bt_refresh.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.bt_refresh.UseVisualStyleBackColor = false;
+            this.bt_refresh.Click += new System.EventHandler(this.bt_refresh_Click);
+            // 
+            // generalEtiqueta15
+            // 
+            this.generalEtiqueta15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generalEtiqueta15.AutoSize = true;
+            this.generalEtiqueta15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
+            this.generalEtiqueta15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generalEtiqueta15.ForeColor = System.Drawing.Color.Black;
+            this.generalEtiqueta15.Location = new System.Drawing.Point(623, 177);
+            this.generalEtiqueta15.Name = "generalEtiqueta15";
+            this.generalEtiqueta15.Size = new System.Drawing.Size(74, 16);
+            this.generalEtiqueta15.TabIndex = 669;
+            this.generalEtiqueta15.Text = "Días Atras";
+            // 
+            // tx_diasA
+            // 
+            this.tx_diasA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tx_diasA.BackColor = System.Drawing.Color.White;
+            this.tx_diasA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tx_diasA.Font = new System.Drawing.Font("Verdana", 11F);
+            this.tx_diasA.ForeColor = System.Drawing.Color.Black;
+            this.tx_diasA.Location = new System.Drawing.Point(581, 172);
+            this.tx_diasA.Name = "tx_diasA";
+            this.tx_diasA.Size = new System.Drawing.Size(42, 25);
+            this.tx_diasA.TabIndex = 668;
+            this.tx_diasA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Finan_camion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(1011, 422);
+            this.Controls.Add(this.bt_refresh);
+            this.Controls.Add(this.generalEtiqueta15);
+            this.Controls.Add(this.tx_diasA);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -1210,5 +1256,8 @@
         private System.Windows.Forms.Label label12;
         private NumericTextBox Tx_impues;
         private System.Windows.Forms.RichTextBox tx_descrip;
+        private generalBoton bt_refresh;
+        private generalEtiqueta generalEtiqueta15;
+        private generalTextBox tx_diasA;
     }
 }

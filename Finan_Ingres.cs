@@ -66,6 +66,8 @@ namespace Conti3
             //Bt_graba.BackColor = ColorTranslator.FromHtml("#667d97");
             Bt_graba.BackColor = ColorTranslator.FromHtml(OColores.Fondo_boton_graba);
             Bt_graba.Image = null;
+            tx_diasA.Text = diasAtroya.ToString();
+            bt_refresh.Image = Conti3.Properties.Resources.arrow_repeat15;
         }
         private void Finan_Ingres_KeyDown(object sender, KeyEventArgs e)
         {
@@ -218,6 +220,7 @@ namespace Conti3
             tx_descrip.MaxLength = 93;  // 09/05/2025
             tx_descrip.Font = new Font(conf.nombreFont, conf.tamañoFont);
             tx_idOper.MaxLength = 15;
+            tx_diasA.MaxLength = 3;
         }                                               // inicializa ancho de campos y upper case
         private void datsimil()
         {
@@ -613,7 +616,7 @@ namespace Conti3
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS OMG";
                 pan_p.Tag = "omg";
                 limpiaTE();
-                jalaGrilla(diasAtroya, "cassaomg");  // muestra datos de un dias atras hasta hoy
+                jalaGrilla(int.Parse(tx_diasA.Text), "cassaomg");  // jalaGrilla(diasAtroya, "cassaomg") 11/05/2025
                 Tx_ctaDest.Values = lista_DES.ToArray();
                 tx_ctaGiro.Values = lista_DES.ToArray();
             }
@@ -625,7 +628,7 @@ namespace Conti3
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS PERSONALES";
                 pan_p.Tag = "personal";
                 limpiaTE();
-                jalaGrilla(diasAtroya, "cassaconti");  // muestra datos de un dias atras hasta hoy
+                jalaGrilla(int.Parse(tx_diasA.Text), "cassaconti");  // jalaGrilla(diasAtroya, "cassaconti") 11/05/2025
                 Tx_ctaDest.Values = lista_CON.ToArray();
                 tx_ctaGiro.Values = lista_CON.ToArray();
             }
@@ -1561,6 +1564,13 @@ namespace Conti3
                     limpiaObj();
                     limpiaTE();
                 }
+            }
+        }
+        private void bt_refresh_Click(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text != "")
+            {
+                jalaGrilla(int.Parse(tx_diasA.Text), (rb_omg.Checked == true) ? "cassaomg" : "cassaconti");
             }
         }
         private void graba_nuevo()
