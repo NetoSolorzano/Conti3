@@ -1308,5 +1308,11 @@ namespace Conti3
                 jalaGrilla(int.Parse(tx_diasA.Text), "");
             }
         }
+
+        private void Finan_camion_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
     }
 }

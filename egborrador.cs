@@ -1902,21 +1902,20 @@ namespace Conti3
                 // 28/04/2025  validaciones para proveedor
                 if (Tx_nomProv.Text == "")
                 {
-                    var aq = MessageBox.Show("No tiene dato de proveedor" + Environment.NewLine +
-                        "Desea ingresarlo?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (aq == DialogResult.Yes)
+                    MessageBox.Show("No tiene dato de proveedor" + Environment.NewLine +
+                        "Debe ingresarlo", "Complete la información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     {
                         Tx_nomProv.Focus();
                         return;
                     }
                 }
-                if (Tx_nomProv.Text != "" && (Tx_rucprov.Text.Trim() == "" || tx_ctaban.Text.Trim() == ""))
+                // if (Tx_nomProv.Text != "" && (Tx_rucprov.Text.Trim() == "" || tx_ctaban.Text.Trim() == ""))
+                if (Tx_nomProv.Text != "" && (tx_ctaban.Text.Trim() == ""))
                 {
-                    var aq = MessageBox.Show("Debería completar los datos del proveedor" + Environment.NewLine +
-                        "Desea completar Ruc y/o Cuenta?","Confirme por favor",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (aq == DialogResult.Yes)
+                    MessageBox.Show("Debe completar los datos del proveedor" + Environment.NewLine +
+                        "falta la Cuenta bancaria", "Complete la información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     {
-                        Tx_rucprov.Focus();
+                        tx_ctaban.Focus();
                         return;
                     }
                 }
@@ -2163,6 +2162,12 @@ namespace Conti3
             }
         }
         #endregion
+
+        private void egborrador_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
 
     }
 }

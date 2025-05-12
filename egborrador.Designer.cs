@@ -179,6 +179,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(1107, 35);
             this.toolStrip1.TabIndex = 338;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.egborrador_Click);
             // 
             // toolStripSeparator2
             // 
@@ -443,6 +444,7 @@
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
             this.advancedDataGridView1.FilterStringChanged += new System.EventHandler(this.advancedDataGridView1_FilterStringChanged);
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.egborrador_Click);
             // 
             // Bt_graba
             // 
@@ -1132,7 +1134,7 @@
             this.generalEtiqueta9.Name = "generalEtiqueta9";
             this.generalEtiqueta9.Size = new System.Drawing.Size(123, 19);
             this.generalEtiqueta9.TabIndex = 698;
-            this.generalEtiqueta9.Text = "Ruc";
+            this.generalEtiqueta9.Text = "Ruc/DNI";
             // 
             // tx_descrip
             // 
@@ -1242,6 +1244,7 @@
             this.Name = "egborrador";
             this.Text = "VALIDACION";
             this.Load += new System.EventHandler(this.egborrador_Load);
+            this.Click += new System.EventHandler(this.egborrador_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.egborrador_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

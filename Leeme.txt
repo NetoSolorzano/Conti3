@@ -205,4 +205,9 @@ Form Finan_egres, poner boton refresh para actualizar la grilla ................
 Form Finan_Ingres, poner "tx_diasA" y poner boton refresh ....................... 11/05/2025
 Form Finan_camion, poner "tx_diasA" y poner boton refresh ....................... 11/05/2025
 P.A. ConPrel_cassa, re ordenamiento de campos para Federico ..................... 11/05/2025
-Form egborrador, adecuar tamaño
+Form egborrador, adecuar click form para ser activo y frontal ................... 11/05/2025 (click() en form, grilla y toolstrip)
+Form Finan_camion, adecuar click form para ser activo y frontal ................. 11/05/2025
+Form Finan_Ingres, adecuar click form para ser activo y frontal ................. 11/05/2025
+Form Finan_egres, adecuar click form para ser activo y frontal .................. 11/05/2025 
+Form egborrador, no debe permitir grabar sin proveedor y sin cuenta ............. 11/05/2025
+Form ayuda1, obligar cuenta bancaria y (1 telef o e-mail) ....................... 

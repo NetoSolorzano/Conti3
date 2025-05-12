@@ -1667,5 +1667,10 @@ namespace Conti3
             tx_descrip.Focus();
         }
 
+        private void Finan_Ingres_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
     }
 }

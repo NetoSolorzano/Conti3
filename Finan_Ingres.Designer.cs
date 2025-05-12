@@ -472,6 +472,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(959, 35);
             this.toolStrip1.TabIndex = 94;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.Finan_Ingres_Click);
             // 
             // toolStripSeparator2
             // 
@@ -766,6 +767,7 @@
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
             this.advancedDataGridView1.FilterStringChanged += new System.EventHandler(this.advancedDataGridView1_FilterStringChanged);
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.Finan_Ingres_Click);
             // 
             // tx_dat_giro
             // 
@@ -946,6 +948,7 @@
             this.MinimumSize = new System.Drawing.Size(848, 371);
             this.Name = "Finan_Ingres";
             this.Text = "INGRESOS";
+            this.Click += new System.EventHandler(this.Finan_Ingres_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Finan_Ingres_KeyDown);
             this.panelGeneral4.ResumeLayout(false);
             this.panelGeneral4.PerformLayout();

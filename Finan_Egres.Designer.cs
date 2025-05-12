@@ -154,6 +154,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(1118, 35);
             this.toolStrip1.TabIndex = 34;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.Finan_Egres_Click);
             // 
             // toolStripSeparator2
             // 
@@ -851,6 +852,7 @@
             this.advancedDataGridView1.FilterStringChanged += new System.EventHandler(this.advancedDataGridView1_FilterStringChanged);
             this.advancedDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedadvancedDataGridView1_CellDoubleClick);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.Finan_Egres_Click);
             // 
             // tx_dat_giro
             // 
@@ -1109,6 +1111,7 @@
             this.Name = "Finan_Egres";
             this.Tag = "";
             this.Text = "EGRESOS";
+            this.Click += new System.EventHandler(this.Finan_Egres_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Finan_Egres_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -3124,5 +3124,11 @@ namespace Conti3
             _desgiro.nombre = "";
             _desgiro.largo = "";
         }
+
+        private void Finan_Egres_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
     }
 }
