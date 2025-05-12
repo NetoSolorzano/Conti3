@@ -47,6 +47,9 @@
             this.generalEtiqueta2 = new Conti3.generalEtiqueta();
             this.generalEtiqueta3 = new Conti3.generalEtiqueta();
             this.tx_telef = new Conti3.generalTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.generalEtiqueta4 = new Conti3.generalEtiqueta();
+            this.tx_mail = new Conti3.generalTextBox();
             this.SuspendLayout();
             // 
             // Tx_codigo
@@ -68,10 +71,10 @@
             this.Tx_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_nombre.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_nombre.ForeColor = System.Drawing.Color.Black;
-            this.Tx_nombre.Location = new System.Drawing.Point(70, 37);
+            this.Tx_nombre.Location = new System.Drawing.Point(82, 37);
             this.Tx_nombre.Multiline = true;
             this.Tx_nombre.Name = "Tx_nombre";
-            this.Tx_nombre.Size = new System.Drawing.Size(337, 32);
+            this.Tx_nombre.Size = new System.Drawing.Size(325, 32);
             this.Tx_nombre.TabIndex = 2;
             // 
             // Bt_graba
@@ -80,10 +83,10 @@
             this.Bt_graba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(181, 129);
+            this.Bt_graba.Location = new System.Drawing.Point(181, 149);
             this.Bt_graba.Name = "Bt_graba";
             this.Bt_graba.Size = new System.Drawing.Size(62, 62);
-            this.Bt_graba.TabIndex = 6;
+            this.Bt_graba.TabIndex = 7;
             this.Bt_graba.UseVisualStyleBackColor = false;
             this.Bt_graba.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -143,7 +146,7 @@
             this.linV2.Enabled = false;
             this.linV2.Location = new System.Drawing.Point(408, 11);
             this.linV2.Name = "linV2";
-            this.linV2.Size = new System.Drawing.Size(2, 108);
+            this.linV2.Size = new System.Drawing.Size(2, 133);
             this.linV2.TabIndex = 401;
             // 
             // label3
@@ -153,14 +156,14 @@
             this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(10, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(2, 108);
+            this.label3.Size = new System.Drawing.Size(2, 133);
             this.label3.TabIndex = 402;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(10, 118);
+            this.label4.Location = new System.Drawing.Point(10, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(400, 2);
             this.label4.TabIndex = 403;
@@ -180,7 +183,7 @@
             this.tx_ruc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_ruc.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_ruc.ForeColor = System.Drawing.Color.Black;
-            this.tx_ruc.Location = new System.Drawing.Point(70, 99);
+            this.tx_ruc.Location = new System.Drawing.Point(82, 100);
             this.tx_ruc.Name = "tx_ruc";
             this.tx_ruc.Size = new System.Drawing.Size(115, 16);
             this.tx_ruc.TabIndex = 4;
@@ -191,9 +194,9 @@
             this.tx_cuenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_cuenta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_cuenta.ForeColor = System.Drawing.Color.Black;
-            this.tx_cuenta.Location = new System.Drawing.Point(70, 75);
+            this.tx_cuenta.Location = new System.Drawing.Point(82, 76);
             this.tx_cuenta.Name = "tx_cuenta";
-            this.tx_cuenta.Size = new System.Drawing.Size(224, 16);
+            this.tx_cuenta.Size = new System.Drawing.Size(326, 16);
             this.tx_cuenta.TabIndex = 3;
             // 
             // generalEtiqueta1
@@ -201,29 +204,29 @@
             this.generalEtiqueta1.BackColor = System.Drawing.Color.LightCyan;
             this.generalEtiqueta1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta1.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta1.Location = new System.Drawing.Point(14, 100);
+            this.generalEtiqueta1.Location = new System.Drawing.Point(12, 100);
             this.generalEtiqueta1.Name = "generalEtiqueta1";
-            this.generalEtiqueta1.Size = new System.Drawing.Size(55, 15);
+            this.generalEtiqueta1.Size = new System.Drawing.Size(63, 15);
             this.generalEtiqueta1.TabIndex = 407;
-            this.generalEtiqueta1.Text = "Ruc";
+            this.generalEtiqueta1.Text = "Ruc/Dni";
             // 
             // generalEtiqueta2
             // 
             this.generalEtiqueta2.BackColor = System.Drawing.Color.LightCyan;
             this.generalEtiqueta2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta2.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta2.Location = new System.Drawing.Point(14, 76);
+            this.generalEtiqueta2.Location = new System.Drawing.Point(12, 76);
             this.generalEtiqueta2.Name = "generalEtiqueta2";
-            this.generalEtiqueta2.Size = new System.Drawing.Size(55, 15);
+            this.generalEtiqueta2.Size = new System.Drawing.Size(68, 15);
             this.generalEtiqueta2.TabIndex = 408;
-            this.generalEtiqueta2.Text = "Cta. Bancaria";
+            this.generalEtiqueta2.Text = "Cta. Ban";
             // 
             // generalEtiqueta3
             // 
             this.generalEtiqueta3.BackColor = System.Drawing.Color.LightCyan;
             this.generalEtiqueta3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta3.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta3.Location = new System.Drawing.Point(209, 100);
+            this.generalEtiqueta3.Location = new System.Drawing.Point(206, 100);
             this.generalEtiqueta3.Name = "generalEtiqueta3";
             this.generalEtiqueta3.Size = new System.Drawing.Size(65, 15);
             this.generalEtiqueta3.TabIndex = 409;
@@ -235,10 +238,41 @@
             this.tx_telef.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_telef.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_telef.ForeColor = System.Drawing.Color.Black;
-            this.tx_telef.Location = new System.Drawing.Point(276, 99);
+            this.tx_telef.Location = new System.Drawing.Point(273, 99);
             this.tx_telef.Name = "tx_telef";
-            this.tx_telef.Size = new System.Drawing.Size(131, 16);
+            this.tx_telef.Size = new System.Drawing.Size(134, 16);
             this.tx_telef.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Location = new System.Drawing.Point(10, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(400, 2);
+            this.label7.TabIndex = 410;
+            // 
+            // generalEtiqueta4
+            // 
+            this.generalEtiqueta4.BackColor = System.Drawing.Color.LightCyan;
+            this.generalEtiqueta4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generalEtiqueta4.ForeColor = System.Drawing.Color.Blue;
+            this.generalEtiqueta4.Location = new System.Drawing.Point(12, 124);
+            this.generalEtiqueta4.Name = "generalEtiqueta4";
+            this.generalEtiqueta4.Size = new System.Drawing.Size(68, 15);
+            this.generalEtiqueta4.TabIndex = 411;
+            this.generalEtiqueta4.Text = "Correo E.";
+            // 
+            // tx_mail
+            // 
+            this.tx_mail.BackColor = System.Drawing.Color.White;
+            this.tx_mail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tx_mail.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tx_mail.ForeColor = System.Drawing.Color.Black;
+            this.tx_mail.Location = new System.Drawing.Point(82, 124);
+            this.tx_mail.Name = "tx_mail";
+            this.tx_mail.Size = new System.Drawing.Size(325, 16);
+            this.tx_mail.TabIndex = 6;
             // 
             // ayuda1
             // 
@@ -246,13 +280,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(420, 202);
+            this.ClientSize = new System.Drawing.Size(420, 217);
+            this.Controls.Add(this.tx_mail);
+            this.Controls.Add(this.generalEtiqueta4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.linV2);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.tx_telef);
             this.Controls.Add(this.generalEtiqueta3);
             this.Controls.Add(this.generalEtiqueta2);
             this.Controls.Add(this.generalEtiqueta1);
-            this.Controls.Add(this.linV2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.tx_cuenta);
             this.Controls.Add(this.tx_ruc);
             this.Controls.Add(this.label6);
@@ -297,5 +334,8 @@
         private generalEtiqueta generalEtiqueta2;
         private generalEtiqueta generalEtiqueta3;
         private generalTextBox tx_telef;
+        private System.Windows.Forms.Label label7;
+        private generalEtiqueta generalEtiqueta4;
+        private generalTextBox tx_mail;
     }
 }

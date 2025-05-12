@@ -1738,6 +1738,7 @@ namespace Conti3
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
+            jalaGrilla(diasAtroya, "");
             marcaSelec(Tx_modo.Text);
             rb_omg.Focus();
         }

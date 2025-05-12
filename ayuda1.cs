@@ -58,6 +58,7 @@ namespace Conti3
             tx_ruc.MaxLength = 11;
             tx_cuenta.MaxLength = 20;
             tx_telef.MaxLength = 15;
+            tx_mail.MaxLength = 50;
             //
             ReturnValueA = new string[4] { "", "", "", "" };
         }
@@ -76,15 +77,39 @@ namespace Conti3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Tx_nombre.Text != "")
+            // validaciones
+            if (Tx_nombre.Text.Trim() == "")
             {
-                // validaciones
+                MessageBox.Show("Debe ingresar el nombre","Atención",MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Tx_nombre.Focus();
+                return;
+            }
+            if (tx_cuenta.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar la cuenta bancaria", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tx_cuenta.Focus();
+                return;
+            }
+            if (tx_telef.Text.Trim() == "" && tx_mail.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el teléfono", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tx_telef.Focus();
+                return;
+            }
+            if (tx_mail.Text.Trim() == "" && tx_telef.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe ingresar el correo electrónico", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tx_mail.Focus();
+                return;
+            }
+
+            //if (Tx_nombre.Text != "")
+            {
                 string err1 = ""; string err2 = "";
                 using (MySqlConnection conn = new MySqlConnection(DB_CONN_STR))
                 {
                     conn.Open();
                     string uno = "select count(id) from anagrafiche where RagioneSociale=@nomb";
-                    string dos = "select RagioneSociale from anagrafiche where CodiceFiscale=@nruc";
                     using (MySqlCommand micon = new MySqlCommand(uno, conn)) 
                     {
                         micon.Parameters.AddWithValue("@nomb", Tx_nombre.Text);
@@ -96,21 +121,27 @@ namespace Conti3
                             }
                         }
                     }
-                    using (MySqlCommand micon = new MySqlCommand(dos, conn))
+                    string dos = "";
+                    if (tx_ruc.Text != "")
                     {
-                        micon.Parameters.AddWithValue("@nruc", tx_ruc.Text);
-                        using (MySqlDataReader dr = micon.ExecuteReader())
+                        dos = "select RagioneSociale from anagrafiche where CodiceFiscale=@nruc";
+                        using (MySqlCommand micon = new MySqlCommand(dos, conn))
                         {
-                            if (dr.HasRows)
+                            micon.Parameters.AddWithValue("@nruc", tx_ruc.Text);
+                            using (MySqlDataReader dr = micon.ExecuteReader())
                             {
-                                if (dr.Read())
+                                if (dr.HasRows)
                                 {
-                                    if (dr.GetString(0).Trim() != "") err2 = "El RUC ingresado ya existe" + Environment.NewLine + 
-                                            "correspode a: " + dr.GetString(0).Trim();
+                                    if (dr.Read())
+                                    {
+                                        if (dr.GetString(0).Trim() != "") err2 = "El RUC ingresado ya existe" + Environment.NewLine +
+                                                "correspode a: " + dr.GetString(0).Trim();
+                                    }
                                 }
                             }
                         }
                     }
+
                     if (err1 != "")
                     {
                         MessageBox.Show(err1,"Error!");
@@ -139,7 +170,6 @@ namespace Conti3
             }
             this.Close();
         }
-
         private void Tx_codigo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (Tx_codigo.Text != "")
@@ -189,9 +219,9 @@ namespace Conti3
                     Application.Exit();
                 }
                 string metela = "insert into anagrafiche " +
-                    "(RagioneSociale,IDCategoria,stato,CodiceFiscale,ContoCorrente,NumeroTel1," +
+                    "(RagioneSociale,IDCategoria,stato,CodiceFiscale,ContoCorrente,NumeroTel1,EMail," +
                     "verApp,userc,fechc,diriplan4,diripwan4,netbname) " +
-                    "values (@nomb,'FOR',1,@ruc,@cta,@tel1," +
+                    "values (@nomb,'FOR',1,@ruc,@cta,@tel1,@mail," +
                     "@vap,@asd,now(),@ipl,@ipw,@nbna)";
                 using (MySqlCommand micon = new MySqlCommand(metela, conn))
                 {
@@ -199,6 +229,7 @@ namespace Conti3
                     micon.Parameters.AddWithValue("@ruc", tx_ruc.Text);
                     micon.Parameters.AddWithValue("@cta", tx_cuenta.Text);
                     micon.Parameters.AddWithValue("@tel1", tx_telef.Text);
+                    micon.Parameters.AddWithValue("@mail", tx_mail.Text);
                     micon.Parameters.AddWithValue("@vap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
                     micon.Parameters.AddWithValue("@asd", Program.vg_user);
                     micon.Parameters.AddWithValue("@ipl", lib.iplan());

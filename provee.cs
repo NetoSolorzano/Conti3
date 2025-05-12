@@ -586,21 +586,9 @@ namespace Conti3
                 return;
             }
             errorProvider1.SetError(Tx_nombre, "");
-            /*  if (tx_estado.Text.Trim() == "")
-            {
-                errorProvider1.SetError(tx_estado, "Debe ingresar: " + Environment.NewLine +
-                    "1 para Activo " + Environment.NewLine +
-                    "0 para Inactivo");
-                tx_estado.Focus();
-                return;
-            }
-            errorProvider1.SetError(tx_estado, "");
-            */
             if (tx_tele1.Text.Trim() == "" && tx_tele2.Text.Trim() == "")
             {
-                var aa = MessageBox.Show("No estan registrados los teléfonos" + Environment.NewLine +
-                    "Es correcto eso?","Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (aa == DialogResult.No)
+                MessageBox.Show("Debe registrar al menos un teléfono","Corrija por favor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 {
                     tx_tele1.Focus();
                     return;
@@ -608,23 +596,22 @@ namespace Conti3
             }
             if (tx_ruc.Text == "" || tx_cuenta.Text == "")
             {
-                var aa = MessageBox.Show("No estan registrados el RUC y/o CUENTA" + Environment.NewLine +
-                    "Es correcto eso?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (aa == DialogResult.No)
+                MessageBox.Show("No estan registrados el RUC y/o CUENTA" + Environment.NewLine +
+                    "Debe ingresarlos", "Confirme por favor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 {
                     tx_ruc.Focus();
                     return;
                 }
             }
+
+            var aa = MessageBox.Show("Confirma que desea grabar?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (aa == DialogResult.No)
+            {
+                tx_correo.Focus();
+                return;
+            }
             using (MySqlConnection conn = new MySqlConnection(DB_CONN_STR))
             {
-                var aa = MessageBox.Show("Confirma que desea grabar?","Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                if (aa == DialogResult.No)
-                {
-                    tx_correo.Focus();
-                    return;
-                }
-
                 try
                 {
                     conn.Open();
@@ -639,55 +626,98 @@ namespace Conti3
                 {
                     if (Tx_modo.Text == "NUEVO")
                     {
-                        // inserta en tabla 
-                        string cins = "insert into anagrafiche " +
-                            "(ragionesociale,indirizzo1,numerotel1,numerotel2,email,stato,idcategoria," +
-                            "CodiceFiscale,ContoCorrente," +
-                            "verApp,userc,fechc,diriplan4,diripwan4,netbname) " +
-                            "values (@nom,@dir,@tel1,@tel2,@corr,@esta,'FOR'," +
-                            "@ruc,@cta," +
-                            "@vap,@asd,now(),@ipl,@ipw,@nbna)";
-                        using (MySqlCommand micon = new MySqlCommand(cins, conn))
+                        // validacion de ruc y nombre que no existan
+                        string err1 = "";
+                        string err2 = "";
+                        string uno = "select count(id) from anagrafiche where upper(RagioneSociale)=@nomb";
+                        using (MySqlCommand micon = new MySqlCommand(uno, conn))
                         {
-                            //micon.Parameters.AddWithValue("@ida", tx_idOper.Text.Trim()); // 20/10/2024 el id se autogenera en trigger tabla
-                            micon.Parameters.AddWithValue("@nom", Tx_nombre.Text.Trim());
-                            micon.Parameters.AddWithValue("@dir", Tx_direc.Text.Trim());
-                            micon.Parameters.AddWithValue("@tel1", tx_tele1.Text.Trim());
-                            micon.Parameters.AddWithValue("@tel2", tx_tele2.Text.Trim());
-                            micon.Parameters.AddWithValue("@corr", tx_correo.Text.Trim());
-                            micon.Parameters.AddWithValue("@esta", (chk_bloq.CheckState == CheckState.Checked)? "1" : "0"); // tx_estado.Text
-                            micon.Parameters.AddWithValue("@ruc", tx_ruc.Text);
-                            micon.Parameters.AddWithValue("@cta", tx_cuenta.Text);
-                            micon.Parameters.AddWithValue("@vap", verapp);
-                            micon.Parameters.AddWithValue("@asd", asd);
-                            micon.Parameters.AddWithValue("@ipl", lib.iplan());
-                            micon.Parameters.AddWithValue("@ipw", Conti3.Program.vg_ipwan);
-                            micon.Parameters.AddWithValue("@nbna", Environment.MachineName);
-                            micon.ExecuteNonQuery();
-                        }
-                        string ido = "";
-                        using (MySqlCommand micon = new MySqlCommand("select idanagrafica from anagrafiche where idcategoria='FOR' order by id desc limit 1",conn))
-                        {
+                            micon.Parameters.AddWithValue("@nomb", Tx_nombre.Text.Trim().ToUpper());
                             using (MySqlDataReader dr = micon.ExecuteReader())
                             {
                                 if (dr.Read())
                                 {
-                                    ido = dr.GetString(0);
+                                    if (dr.GetInt32(0) > 0) err1 = "El nombre del proveedor ya existe";
                                 }
                             }
                         }
-                        // inserta en grilla
-                        DataRow fila = dtm.NewRow();
-                        fila[0] = ido;  // tx_idOper.Text;
-                        fila[1] = Tx_nombre.Text;
-                        fila[2] = Tx_direc.Text;
-                        fila[3] = tx_tele1.Text;
-                        fila[4] = tx_tele2.Text;
-                        fila[5] = tx_correo.Text;
-                        fila[6] = (chk_bloq.CheckState == CheckState.Checked) ? "1" : "0";   // tx_estado.Text
-                        fila[7] = tx_ruc.Text;
-                        fila[8] = tx_cuenta.Text;
-                        dtm.Rows.InsertAt(fila, 0);
+                        string dos = "";
+                        if (tx_ruc.Text != "")
+                        {
+                            dos = "select RagioneSociale from anagrafiche where CodiceFiscale=@nruc";
+                            using (MySqlCommand micon = new MySqlCommand(dos, conn))
+                            {
+                                micon.Parameters.AddWithValue("@nruc", tx_ruc.Text);
+                                using (MySqlDataReader dr = micon.ExecuteReader())
+                                {
+                                    if (dr.HasRows)
+                                    {
+                                        if (dr.Read())
+                                        {
+                                            if (dr.GetString(0).Trim() != "") err2 = "El RUC ingresado ya existe" + Environment.NewLine +
+                                                    "correspode a: " + dr.GetString(0).Trim();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (err1 != "" || err2 != "")
+                        {
+                            if (err1 != "") MessageBox.Show(err1, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            if (err2 != "") MessageBox.Show(err2, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            // inserta en tabla 
+                            string cins = "insert into anagrafiche " +
+                                "(ragionesociale,indirizzo1,numerotel1,numerotel2,email,stato,idcategoria," +
+                                "CodiceFiscale,ContoCorrente," +
+                                "verApp,userc,fechc,diriplan4,diripwan4,netbname) " +
+                                "values (@nom,@dir,@tel1,@tel2,@corr,@esta,'FOR'," +
+                                "@ruc,@cta," +
+                                "@vap,@asd,now(),@ipl,@ipw,@nbna)";
+                            using (MySqlCommand micon = new MySqlCommand(cins, conn))
+                            {
+                                //micon.Parameters.AddWithValue("@ida", tx_idOper.Text.Trim()); // 20/10/2024 el id se autogenera en trigger tabla
+                                micon.Parameters.AddWithValue("@nom", Tx_nombre.Text.Trim());
+                                micon.Parameters.AddWithValue("@dir", Tx_direc.Text.Trim());
+                                micon.Parameters.AddWithValue("@tel1", tx_tele1.Text.Trim());
+                                micon.Parameters.AddWithValue("@tel2", tx_tele2.Text.Trim());
+                                micon.Parameters.AddWithValue("@corr", tx_correo.Text.Trim());
+                                micon.Parameters.AddWithValue("@esta", (chk_bloq.CheckState == CheckState.Checked) ? "1" : "0"); // tx_estado.Text
+                                micon.Parameters.AddWithValue("@ruc", tx_ruc.Text);
+                                micon.Parameters.AddWithValue("@cta", tx_cuenta.Text);
+                                micon.Parameters.AddWithValue("@vap", verapp);
+                                micon.Parameters.AddWithValue("@asd", asd);
+                                micon.Parameters.AddWithValue("@ipl", lib.iplan());
+                                micon.Parameters.AddWithValue("@ipw", Conti3.Program.vg_ipwan);
+                                micon.Parameters.AddWithValue("@nbna", Environment.MachineName);
+                                micon.ExecuteNonQuery();
+                            }
+                            string ido = "";
+                            using (MySqlCommand micon = new MySqlCommand("select idanagrafica from anagrafiche where idcategoria='FOR' order by id desc limit 1", conn))
+                            {
+                                using (MySqlDataReader dr = micon.ExecuteReader())
+                                {
+                                    if (dr.Read())
+                                    {
+                                        ido = dr.GetString(0);
+                                    }
+                                }
+                            }
+                            // inserta en grilla
+                            DataRow fila = dtm.NewRow();
+                            fila[0] = ido;  // tx_idOper.Text;
+                            fila[1] = Tx_nombre.Text;
+                            fila[2] = Tx_direc.Text;
+                            fila[3] = tx_tele1.Text;
+                            fila[4] = tx_tele2.Text;
+                            fila[5] = tx_correo.Text;
+                            fila[6] = (chk_bloq.CheckState == CheckState.Checked) ? "1" : "0";   // tx_estado.Text
+                            fila[7] = tx_ruc.Text;
+                            fila[8] = tx_cuenta.Text;
+                            dtm.Rows.InsertAt(fila, 0);
+                        }
                     }
                     if (Tx_modo.Text == "EDITAR")
                     {

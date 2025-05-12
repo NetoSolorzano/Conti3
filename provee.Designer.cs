@@ -674,7 +674,7 @@
             this.generalEtiqueta7.Name = "generalEtiqueta7";
             this.generalEtiqueta7.Size = new System.Drawing.Size(138, 17);
             this.generalEtiqueta7.TabIndex = 403;
-            this.generalEtiqueta7.Text = "Reg. Fiscal - Ruc";
+            this.generalEtiqueta7.Text = "Ruc / DNI";
             // 
             // label7
             // 
