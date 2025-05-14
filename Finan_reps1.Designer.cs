@@ -134,6 +134,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(1008, 35);
             this.toolStrip1.TabIndex = 96;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.Finan_reps1_Click);
             // 
             // toolStripSeparator2
             // 
@@ -408,6 +409,7 @@
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
             this.advancedDataGridView1.FilterStringChanged += new System.EventHandler(this.advancedDataGridView1_FilterStringChanged);
             this.advancedDataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellValueChanged);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.Finan_reps1_Click);
             // 
             // bt_prev
             // 
@@ -870,6 +872,7 @@
             this.Name = "Finan_reps1";
             this.Text = "REPORTES";
             this.Load += new System.EventHandler(this.Finan_reps1_Load);
+            this.Click += new System.EventHandler(this.Finan_reps1_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Finan_reps1_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

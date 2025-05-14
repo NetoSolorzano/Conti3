@@ -347,7 +347,7 @@
             this.Bt_graba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(815, 75);
+            this.Bt_graba.Location = new System.Drawing.Point(734, 75);
             this.Bt_graba.Name = "Bt_graba";
             this.Bt_graba.Size = new System.Drawing.Size(62, 62);
             this.Bt_graba.TabIndex = 9;
@@ -771,7 +771,7 @@
             // 
             // tx_dat_giro
             // 
-            this.tx_dat_giro.Location = new System.Drawing.Point(761, 51);
+            this.tx_dat_giro.Location = new System.Drawing.Point(908, 55);
             this.tx_dat_giro.Name = "tx_dat_giro";
             this.tx_dat_giro.Size = new System.Drawing.Size(44, 20);
             this.tx_dat_giro.TabIndex = 339;
@@ -780,7 +780,7 @@
             // tx_ctaGiro
             // 
             this.tx_ctaGiro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tx_ctaGiro.Location = new System.Drawing.Point(735, 58);
+            this.tx_ctaGiro.Location = new System.Drawing.Point(882, 62);
             this.tx_ctaGiro.Name = "tx_ctaGiro";
             this.tx_ctaGiro.Size = new System.Drawing.Size(32, 20);
             this.tx_ctaGiro.TabIndex = 11;
@@ -792,7 +792,7 @@
             this.eti_nomCtaGiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.eti_nomCtaGiro.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_nomCtaGiro.ForeColor = System.Drawing.Color.Blue;
-            this.eti_nomCtaGiro.Location = new System.Drawing.Point(735, 79);
+            this.eti_nomCtaGiro.Location = new System.Drawing.Point(882, 83);
             this.eti_nomCtaGiro.Name = "eti_nomCtaGiro";
             this.eti_nomCtaGiro.Size = new System.Drawing.Size(32, 15);
             this.eti_nomCtaGiro.TabIndex = 342;
@@ -865,7 +865,7 @@
             this.bt_refresh.BackColor = System.Drawing.SystemColors.Control;
             this.bt_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_refresh.Font = new System.Drawing.Font("Arial", 11F);
-            this.bt_refresh.Location = new System.Drawing.Point(811, 158);
+            this.bt_refresh.Location = new System.Drawing.Point(734, 158);
             this.bt_refresh.Name = "bt_refresh";
             this.bt_refresh.Size = new System.Drawing.Size(25, 25);
             this.bt_refresh.TabIndex = 357;
@@ -879,7 +879,7 @@
             this.generalEtiqueta5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
             this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta5.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta5.Location = new System.Drawing.Point(882, 163);
+            this.generalEtiqueta5.Location = new System.Drawing.Point(804, 163);
             this.generalEtiqueta5.Name = "generalEtiqueta5";
             this.generalEtiqueta5.Size = new System.Drawing.Size(74, 16);
             this.generalEtiqueta5.TabIndex = 356;
@@ -892,7 +892,7 @@
             this.tx_diasA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_diasA.Font = new System.Drawing.Font("Verdana", 11F);
             this.tx_diasA.ForeColor = System.Drawing.Color.Black;
-            this.tx_diasA.Location = new System.Drawing.Point(838, 158);
+            this.tx_diasA.Location = new System.Drawing.Point(760, 158);
             this.tx_diasA.Name = "tx_diasA";
             this.tx_diasA.Size = new System.Drawing.Size(42, 25);
             this.tx_diasA.TabIndex = 355;

@@ -469,7 +469,7 @@
             this.tx_provee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_provee.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_provee.ForeColor = System.Drawing.Color.Blue;
-            this.tx_provee.Location = new System.Drawing.Point(772, 174);
+            this.tx_provee.Location = new System.Drawing.Point(1018, 144);
             this.tx_provee.Name = "tx_provee";
             this.tx_provee.Size = new System.Drawing.Size(78, 21);
             this.tx_provee.TabIndex = 88;
@@ -656,7 +656,7 @@
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.ForeColor = System.Drawing.Color.White;
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(867, 114);
+            this.Bt_graba.Location = new System.Drawing.Point(732, 114);
             this.Bt_graba.Name = "Bt_graba";
             this.Bt_graba.Size = new System.Drawing.Size(62, 62);
             this.Bt_graba.TabIndex = 10;
@@ -808,7 +808,7 @@
             this.eti_nomprovee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eti_nomprovee.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eti_nomprovee.ForeColor = System.Drawing.Color.Blue;
-            this.eti_nomprovee.Location = new System.Drawing.Point(774, 139);
+            this.eti_nomprovee.Location = new System.Drawing.Point(1020, 109);
             this.eti_nomprovee.Name = "eti_nomprovee";
             this.eti_nomprovee.Size = new System.Drawing.Size(41, 15);
             this.eti_nomprovee.TabIndex = 16;
@@ -978,7 +978,7 @@
             this.tx_prov.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_prov.Font = new System.Drawing.Font("Verdana", 8F);
             this.tx_prov.ForeColor = System.Drawing.Color.Black;
-            this.tx_prov.Location = new System.Drawing.Point(773, 154);
+            this.tx_prov.Location = new System.Drawing.Point(1019, 124);
             this.tx_prov.Name = "tx_prov";
             this.tx_prov.Size = new System.Drawing.Size(63, 20);
             this.tx_prov.TabIndex = 8;
@@ -1016,7 +1016,7 @@
             this.tx_diasA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_diasA.Font = new System.Drawing.Font("Verdana", 11F);
             this.tx_diasA.ForeColor = System.Drawing.Color.Black;
-            this.tx_diasA.Location = new System.Drawing.Point(988, 180);
+            this.tx_diasA.Location = new System.Drawing.Point(834, 180);
             this.tx_diasA.Name = "tx_diasA";
             this.tx_diasA.Size = new System.Drawing.Size(42, 25);
             this.tx_diasA.TabIndex = 352;
@@ -1029,7 +1029,7 @@
             this.generalEtiqueta5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(243)))), ((int)(((byte)(219)))));
             this.generalEtiqueta5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta5.ForeColor = System.Drawing.Color.Black;
-            this.generalEtiqueta5.Location = new System.Drawing.Point(1032, 185);
+            this.generalEtiqueta5.Location = new System.Drawing.Point(878, 185);
             this.generalEtiqueta5.Name = "generalEtiqueta5";
             this.generalEtiqueta5.Size = new System.Drawing.Size(74, 16);
             this.generalEtiqueta5.TabIndex = 353;
@@ -1041,7 +1041,7 @@
             this.bt_refresh.BackColor = System.Drawing.SystemColors.Control;
             this.bt_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bt_refresh.Font = new System.Drawing.Font("Arial", 11F);
-            this.bt_refresh.Location = new System.Drawing.Point(961, 180);
+            this.bt_refresh.Location = new System.Drawing.Point(807, 180);
             this.bt_refresh.Name = "bt_refresh";
             this.bt_refresh.Size = new System.Drawing.Size(25, 25);
             this.bt_refresh.TabIndex = 354;

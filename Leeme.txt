@@ -213,4 +213,5 @@ Form egborrador, no debe permitir grabar sin proveedor y sin cuenta ............
 Form ayuda1, obligar cuenta bancaria y (1 telef o e-mail) ....................... 11/05/2025
 Form provee, obligar cuenta bancaria y 1 telef .................................. 11/05/2025
 Form provee, validar que no repita ruc o nombre en modo NUEVO ................... 11/05/2025
-
+Form Finan_reps1, adecuar click form para ser activo y frontal .................. 13/05/2025
+Form egborrador, cambiar el Ctrl-V por Ctrl-B ................................... 13/05/2025

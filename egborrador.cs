@@ -82,7 +82,7 @@ namespace Conti3
             if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.A) Bt_anul.PerformClick();
             if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.O) Bt_ver.PerformClick();
             if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.P) Bt_print.PerformClick();
-            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.V) Bt_aprob.PerformClick();
+            if (Control.ModifierKeys == Keys.Control && e.KeyCode == Keys.B) Bt_aprob.PerformClick();   // 13/05/2025
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

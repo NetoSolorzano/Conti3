@@ -316,7 +316,7 @@
             this.Bt_aprob.Name = "Bt_aprob";
             this.Bt_aprob.Size = new System.Drawing.Size(32, 32);
             this.Bt_aprob.Text = "Bt_close";
-            this.Bt_aprob.ToolTipText = "Aprueba (Ctrl V)";
+            this.Bt_aprob.ToolTipText = "Aprueba (Ctrl B)";
             this.Bt_aprob.Click += new System.EventHandler(this.Bt_aprob_Click);
             // 
             // toolStripSeparator4
