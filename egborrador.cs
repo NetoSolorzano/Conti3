@@ -322,6 +322,8 @@ namespace Conti3
             //
             cmb_asoc.SelectedIndex = -1;
             cmb_mon.SelectedIndex = -1;
+            if (ususvalid.Contains(Program.vg_user)) chk_pagado.Visible = true;
+            else chk_pagado.Visible = false;
         }                                               // inicializa ancho de campos y upper case
         private void jala_ultimo(string _idop)
         {
@@ -536,8 +538,11 @@ namespace Conti3
             {
                 if (row.Cells["pagado"].Value != null && row.Cells["pagado"].Value.ToString() == "1")
                 {
-                    row.Cells["Chk_PAG"].Value = 1;
-                    row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
+                    if (advancedDataGridView1.Columns.Contains("Chk_PAG"))
+                    {
+                        row.Cells["Chk_PAG"].Value = 1; // en edicion, doble click en fila, check en pagado y luego grabar ... error <-- 14/05/2025
+                        row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);   // 22/04/2025
+                    }
                 }
             }
         }                                               // marca check de PAGO en la grilla
@@ -1753,15 +1758,28 @@ namespace Conti3
             limpiaObj("todo");
             limpiaTE();
             chk_datSimil.Checked = false;
-            escribe("EDICION");
-            rb_omg.Checked = false;
-            rb_pers.Checked = false;
-            tx_anno.Text = DateTime.Now.Year.ToString();
-            tx_anno.ReadOnly = false;
-            tx_idOper.ReadOnly = false;
-            jalaGrilla(diasAtroya, "");
-            marcaSelec(Tx_modo.Text);
-            //rb_omg.Focus();
+            if (ususvalid.Contains(Program.vg_user))
+            {
+                escribe("EDICION");
+                rb_omg.Checked = false;
+                rb_pers.Checked = false;
+                tx_anno.Text = DateTime.Now.Year.ToString();
+                tx_anno.ReadOnly = false;
+                tx_idOper.ReadOnly = false;
+                jalaGrilla(diasAtroya, "");
+                marcaSelec(Tx_modo.Text);
+            }
+            else
+            {
+                sololee("");
+                rb_omg.Checked = false;
+                rb_pers.Checked = false;
+                tx_anno.Text = DateTime.Now.Year.ToString();
+                tx_anno.ReadOnly = false;
+                tx_idOper.ReadOnly = false;
+                jalaGrilla(diasAtroya, "");
+                marcaSelec(Tx_modo.Text);
+            }
         }
         private void Bt_ini_Click(object sender, EventArgs e)
         {
@@ -1920,6 +1938,11 @@ namespace Conti3
                         return;
                     }
                 }
+            }
+            if (Tx_modo.Text == "VALIDACION" && !ususvalid.Contains(Program.vg_user))
+            {
+                MessageBox.Show("No esta permitido efectuar esta operación","Enlace no configurado",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                return;
             }
             #endregion
 

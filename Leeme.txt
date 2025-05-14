@@ -215,3 +215,4 @@ Form provee, obligar cuenta bancaria y 1 telef .................................
 Form provee, validar que no repita ruc o nombre en modo NUEVO ................... 11/05/2025
 Form Finan_reps1, adecuar click form para ser activo y frontal .................. 13/05/2025
 Form egborrador, cambiar el Ctrl-V por Ctrl-B ................................... 13/05/2025
+Form egborrador, arreglo de error en edicion y otras adecuaciones ............... 14/05/2025

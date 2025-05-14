@@ -448,12 +448,11 @@
             // 
             // Bt_graba
             // 
-            this.Bt_graba.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_graba.BackColor = System.Drawing.Color.Tomato;
             this.Bt_graba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Bt_graba.Font = new System.Drawing.Font("Arial", 11F);
             this.Bt_graba.Image = global::Conti3.Properties.Resources.save_item40;
-            this.Bt_graba.Location = new System.Drawing.Point(1034, 174);
+            this.Bt_graba.Location = new System.Drawing.Point(720, 175);
             this.Bt_graba.Name = "Bt_graba";
             this.Bt_graba.Size = new System.Drawing.Size(66, 58);
             this.Bt_graba.TabIndex = 15;
@@ -1162,7 +1161,7 @@
             // 
             this.chk_pagado.AutoSize = true;
             this.chk_pagado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_pagado.Location = new System.Drawing.Point(724, 189);
+            this.chk_pagado.Location = new System.Drawing.Point(355, 212);
             this.chk_pagado.Name = "chk_pagado";
             this.chk_pagado.Size = new System.Drawing.Size(78, 22);
             this.chk_pagado.TabIndex = 700;
@@ -1176,7 +1175,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(1107, 422);
-            this.Controls.Add(this.chk_pagado);
             this.Controls.Add(this.bt_Pnuevo);
             this.Controls.Add(this.tx_descrip);
             this.Controls.Add(this.linV1);
@@ -1238,6 +1236,7 @@
             this.Controls.Add(this.eti_tituloForm);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.advancedDataGridView1);
+            this.Controls.Add(this.chk_pagado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(909, 400);
