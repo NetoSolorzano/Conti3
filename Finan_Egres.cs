@@ -1240,6 +1240,10 @@ namespace Conti3
                 }
             }
         }
+        private void tx_idOper_Leave(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text == "NUEVO") Tx_fecha.Focus();
+        }
         private void tx_monto_Validating(object sender, CancelEventArgs e)
         {
             decimal monti = 0; decimal cambi = 0;
@@ -1251,8 +1255,8 @@ namespace Conti3
                 Omonto.monOrige = monti;
                 if (Omone.codigo == codDol)
                 {
-                    Omonto.tipCDol = tcDia.tcD; // Omonto.tipCOri;
-                    Omonto.tipCOri = tcDia.tcD;
+                    Omonto.tipCDol = cambi; // tcDia.tcD;
+                    Omonto.tipCOri = cambi; // tcDia.tcD;
                     Omonto.monEuros = 0;
                     Omonto.monDolar = decimal.Parse(tx_monto.Text);
                     Omonto.monSoles = Omonto.monDolar * Omonto.tipCOri;
@@ -1260,8 +1264,8 @@ namespace Conti3
                 }
                 if (Omone.codigo == codSol)
                 {
-                    Omonto.tipCDol = tcDia.tcD;
-                    Omonto.tipCOri = tcDia.tcD;
+                    Omonto.tipCDol = cambi; // tcDia.tcD;
+                    Omonto.tipCOri = cambi; // tcDia.tcD;
                     Omonto.monEuros = 0;
                     Omonto.monSoles = decimal.Parse(tx_monto.Text); // Omonto.monDolar * Omonto.tipCOri;
                     Omonto.monDolar = Math.Round(Omonto.monSoles / Omonto.tipCDol, 2); // decimal.Parse(tx_monto.Text);
@@ -1284,7 +1288,7 @@ namespace Conti3
             decimal.TryParse(tx_monto.Text, out monti);
             decimal.TryParse(tx_tipcam.Text, out cambi);
             tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
-            if (Tx_modo.Text == "NUEVO" && monti > 0)
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && monti > 0)
             {
                 Omonto.monOrige = monti;
                 if (true)
@@ -1709,7 +1713,7 @@ namespace Conti3
         }
         private void tx_tipcam_Leave(object sender, EventArgs e)
         {
-            if (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION")
+            if (Tx_modo.Text == "NUEVO")    //  || Tx_modo.Text == "EDICION" ....   // 20/05/2025
             {
                 tx_idOper.Focus();
             }
@@ -2254,7 +2258,7 @@ namespace Conti3
                 fila["MONEDA"] = Omone.siglas;      // siglas moneda origen
                 fila["MONTO"] = Omonto.monOrige;    // valor origen
                 fila["DESCRIPCION"] = tx_descrip.Text;
-                fila["TIP_CAMBIO"] = Omonto.tipCOri; // decimal.Parse(tx_tipcam.Text);
+                fila["TIP_CAMBIO"] = decimal.Parse(tx_tipcam.Text); // Omonto.tipCOri;
                 fila["PROVEEDOR"] = Oprove.nombre;
                 fila["GIRO_CTA"] = Ogiro.tipodes;
                 fila["idgiroconto"] = Ogiro.idcod;
@@ -2288,7 +2292,7 @@ namespace Conti3
                 fila["MONEDA"] = Omone.siglas;
                 fila["MONTO"] = Omonto.monOrige;
                 fila["DESCRIPCION"] = tx_descrip.Text;
-                fila["TIP_CAMBIO"] = Omonto.tipCOri; //  decimal.Parse(tx_tipcam.Text);
+                fila["TIP_CAMBIO"] = decimal.Parse(tx_tipcam.Text); // Omonto.tipCOri; 
                 fila["PROVEEDOR"] = Oprove.nombre;
                 fila["GIRO_CTA"] = Ogiro.tipodes;
                 fila["IDGiroConto"] = Ogiro.idcod;
@@ -2335,7 +2339,7 @@ namespace Conti3
                         dr["MONEDA"] = Omone.siglas;      // siglas moneda origen
                         dr["MONTO"] = Omonto.monOrige;    // valor origen
                         dr["DESCRIPCION"] = tx_descrip.Text;
-                        dr["TIP_CAMBIO"] = Omonto.tipCOri; // decimal.Parse(tx_tipcam.Text);
+                        dr["TIP_CAMBIO"] = decimal.Parse(tx_tipcam.Text);  // Omonto.tipCOri;
                         dr["PROVEEDOR"] = Oprove.nombre;
                         dr["GIRO_CTA"] = Ogiro.tipodes;
                         dr["idgiroconto"] = Ogiro.idcod;
@@ -2369,7 +2373,7 @@ namespace Conti3
                         dr["MONEDA"] = Omone.siglas;
                         dr["MONTO"] = Omonto.monOrige;
                         dr["DESCRIPCION"] = tx_descrip.Text;
-                        dr["TIP_CAMBIO"] = Omonto.tipCOri; //  decimal.Parse(tx_tipcam.Text);
+                        dr["TIP_CAMBIO"] = decimal.Parse(tx_tipcam.Text);   // Omonto.tipCOri;
                         dr["PROVEEDOR"] = Oprove.nombre;
                         dr["GIRO_CTA"] = Ogiro.tipodes;
                         dr["IDGiroConto"] = Ogiro.idcod;
@@ -3154,5 +3158,6 @@ namespace Conti3
             this.Activate();
             this.BringToFront();
         }
+
     }
 }

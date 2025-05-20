@@ -783,7 +783,8 @@
             this.tx_idOper.Location = new System.Drawing.Point(216, 60);
             this.tx_idOper.Name = "tx_idOper";
             this.tx_idOper.Size = new System.Drawing.Size(97, 13);
-            this.tx_idOper.TabIndex = 2;
+            this.tx_idOper.TabIndex = 112;
+            this.tx_idOper.Leave += new System.EventHandler(this.tx_idOper_Leave);
             this.tx_idOper.Validating += new System.ComponentModel.CancelEventHandler(this.tx_idOper_Validating);
             // 
             // Tx_fecha
@@ -969,7 +970,7 @@
             this.tx_anno.Location = new System.Drawing.Point(144, 60);
             this.tx_anno.Name = "tx_anno";
             this.tx_anno.Size = new System.Drawing.Size(69, 13);
-            this.tx_anno.TabIndex = 11;
+            this.tx_anno.TabIndex = 111;
             this.tx_anno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tx_prov
