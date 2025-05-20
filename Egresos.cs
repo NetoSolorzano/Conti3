@@ -113,7 +113,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@IDU", monto.monDolar);      // importe en dolares salida 
                 micon.Parameters.AddWithValue("@ISU", monto.monSoles);      // importe en soles salida
                 //micon.Parameters.AddWithValue("@IEU", monto.monEuros);    // importe en euros salida 
-                micon.Parameters.AddWithValue("@Cam", monto.tipCOri);       // tipCamb
+                micon.Parameters.AddWithValue("@Cam", tipCamb);       // tipCamb   monto.tipCOri
                 micon.Parameters.AddWithValue("@Des", descrip);
                 micon.Parameters.AddWithValue("@mon", moneda.siglas);    // codigo de la moneda origen de la operación
                 micon.Parameters.AddWithValue("@ctao", ""); // esto va con el giroconto creo
@@ -175,7 +175,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@IDU", monto.monDolar);      // importe en dolares salida 
                 micon.Parameters.AddWithValue("@ISU", monto.monSoles);      // importe en soles salida
                 //micon.Parameters.AddWithValue("@IEU", monto.monEuros);    // importe en euros salida 
-                micon.Parameters.AddWithValue("@Cam", monto.tipCOri);       // tipCamb
+                micon.Parameters.AddWithValue("@Cam", tipCamb);       // tipCamb   monto.tipCOri
                 micon.Parameters.AddWithValue("@Des", descrip);
                 micon.Parameters.AddWithValue("@IDG", giroC.idcod);         // idgiroconto
                 micon.Parameters.AddWithValue("@mon", moneda.siglas);       // codigo de la moneda origen de la operación

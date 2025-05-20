@@ -2130,15 +2130,18 @@ namespace Conti3
                 //
                 if (Tx_modo.Text == "BORRAR")
                 {
-                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-                    chk.Name = "Chk_B";
-                    chk.HeaderText = "BORRA";
-                    chk.Width = 60;
-                    advancedDataGridView1.Columns.Insert(0, chk);
-                    advancedDataGridView1.ReadOnly = false;
-                    for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+                    borramarca(advancedDataGridView1, "Chk_B");
                     {
-                        advancedDataGridView1.Columns[i].ReadOnly = true;    // acá ponemos todas las columnas en readonly menos la ultima con check
+                        DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                        chk.Name = "Chk_B";
+                        chk.HeaderText = "BORRA";
+                        chk.Width = 60;
+                        advancedDataGridView1.Columns.Insert(0, chk);
+                        advancedDataGridView1.ReadOnly = false;
+                        for (int i = 0; i < advancedDataGridView1.Columns.Count; i++)
+                        {
+                            advancedDataGridView1.Columns[i].ReadOnly = true;    // acá ponemos todas las columnas en readonly menos la ultima con check
+                        }
                     }
                     advancedDataGridView1.Columns["Chk_B"].ReadOnly = false;
                 }
@@ -2572,16 +2575,37 @@ namespace Conti3
                     {
                         graba_borrar(tabla, selecFecha1.Value.Year.ToString(), "000000000" + CDerecha(tx_idOper.Text, 6), dt_grillaE);
                     }
+                    string[,] arr = { { "", "" }, { "", ""}, { "", "" }, { "", "" }, { "", "" },
+                                      { "", "" }, { "", ""}, { "", "" }, { "", "" }, { "", "" },
+                                      { "", "" }, { "", ""}, { "", "" }, { "", "" }, { "", "" }
+                    };
                     for (int i=0; i<advancedDataGridView1.Rows.Count-1; i++)
                     {
                         if (advancedDataGridView1.Rows[i].Cells["Chk_B"].FormattedValue.ToString() == "True" &&
                             advancedDataGridView1.Rows[i].Cells["ID_MOVIM"].FormattedValue.ToString() != "")
                         {
-                            string anno = advancedDataGridView1.Rows[i].Cells["ANNO"].Value.ToString();
-                            string idmo = "000000000" + advancedDataGridView1.Rows[i].Cells["ID_MOVIM"].Value.ToString();
-                            graba_borrar(tabla, anno, idmo, dt_grillaE);
+                            if (i<15)
+                            {
+                                string anno = advancedDataGridView1.Rows[i].Cells["ANNO"].Value.ToString();
+                                string idmo = "000000000" + advancedDataGridView1.Rows[i].Cells["ID_MOVIM"].Value.ToString();
+                                arr[i, 0] = anno;
+                                arr[i, 1] = idmo;
+                                //graba_borrar(tabla, anno, idmo, dt_grillaE);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Solo las primeras 15 marcas seran procesadas","Alerta!");
+                            }
                         }
                     }
+                    for (int i=0; i<15; i++)
+                    {
+                        if (arr[i, 1] != "")
+                        {
+                            graba_borrar(tabla, arr[i,0], arr[i,1], dt_grillaE);
+                        }
+                    }
+                    dt_grillaE.AcceptChanges(); // 20/05/2025
                     limpiaObj();
                     limpiaTE();
                 }
@@ -2709,7 +2733,7 @@ namespace Conti3
                     for (int i = dgv.Rows.Count - 1; i >= 0; i--)
                     {
                         DataRow dr = dgv.Rows[i];
-                        if (dr["ANNO"].ToString() == year && dr["ID_MOVIM"].ToString() == CDerecha(idmov, 6))  // (year + CDerecha(idmov, 6)))
+                        if (dr.RowState != DataRowState.Deleted && dr["ANNO"].ToString() == year && dr["ID_MOVIM"].ToString() == CDerecha(idmov, 6))  // (year + CDerecha(idmov, 6)))
                         {
                             if (dr["CodGiro"].ToString().Trim() != "")
                             {
@@ -2762,10 +2786,10 @@ namespace Conti3
                         for (int i = dgv.Rows.Count - 1; i >= 0; i--)
                         {
                             DataRow dr = dgv.Rows[i];   //(year + CDerecha(idmov, 6)))
-                            if (dr["ID_MOVIM"].ToString() == CDerecha(idmov, 6) && dr["ANNO"].ToString() == year)
+                            if (dr.RowState != DataRowState.Deleted && dr["ID_MOVIM"].ToString() == CDerecha(idmov, 6) && dr["ANNO"].ToString() == year)
                                 dr.Delete();
                         }
-                        dgv.AcceptChanges();
+                        //dgv.AcceptChanges();  20/05/2025
                     }
                 }
             }
