@@ -109,7 +109,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@ISE", monto.monSoles);    // importe en soles entrada
                 //micon.Parameters.AddWithValue("@IEE", 0);                // importe en euros entrada
                 //micon.Parameters.AddWithValue("@IEU", monto.monEuros);   // importe en euros salida 
-                micon.Parameters.AddWithValue("@Cam", monto.tipCOri);     // tipCamb
+                micon.Parameters.AddWithValue("@Cam", TipCamb);     // monto.tipCOri
                 micon.Parameters.AddWithValue("@Des", descrip);
                 micon.Parameters.AddWithValue("@mon", Moneda.siglas);     // codigo de la moneda origen de la operación  monto.codMOrige
                 micon.Parameters.AddWithValue("@ctao", ""); // esto va con el giroconto creo
@@ -130,7 +130,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@vOrig", monto.monOrige);
                 micon.Parameters.AddWithValue("@cmon", moneda.codigo);
                 micon.Parameters.AddWithValue("@nmon", moneda.nombre);
-                micon.Parameters.AddWithValue("@tcMO", monto.tipCOri);
+                micon.Parameters.AddWithValue("@tcMO", TipCamb);  // monto.tipCOri
                 micon.Parameters.AddWithValue("@veap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
                 micon.Parameters.AddWithValue("@asd", Program.vg_user);
                 micon.Parameters.AddWithValue("@dipl", lib.iplan());
@@ -170,7 +170,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@IDU", monto.monDolar);    // importe en dolares salida 
                 micon.Parameters.AddWithValue("@ISU", monto.monSoles);    // importe en soles salida
                 //micon.Parameters.AddWithValue("@IEU", monto.monEuros);    // importe en euros salida 
-                micon.Parameters.AddWithValue("@Cam", monto.tipCOri);             // tipo de cambio
+                micon.Parameters.AddWithValue("@Cam", TipCamb);             // tipo de cambio  monto.tipCOri
                 micon.Parameters.AddWithValue("@Des", descrip);
                 micon.Parameters.AddWithValue("@IDG", "");  // luego vemos esto
                 micon.Parameters.AddWithValue("@mon", moneda.siglas);    // codigo de la moneda origen de la operación
@@ -181,7 +181,7 @@ namespace Conti3
                 micon.Parameters.AddWithValue("@vOrig", monto.monOrige);
                 micon.Parameters.AddWithValue("@cmon", moneda.codigo);
                 micon.Parameters.AddWithValue("@nmon", moneda.nombre);
-                micon.Parameters.AddWithValue("@tcMO", monto.tipCOri);
+                micon.Parameters.AddWithValue("@tcMO", TipCamb);   // monto.tipCOri
                 micon.Parameters.AddWithValue("@year", year);
                 micon.Parameters.AddWithValue("@corre", corre);
                 micon.Parameters.AddWithValue("@veap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);

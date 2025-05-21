@@ -308,19 +308,20 @@ namespace Conti3
                     {
                         if (dr.Read())
                         {
-                            tx_tipcam.Text = Math.Round(dr.GetDecimal(0), 3).ToString();
-                            Omonto.tipCDol = Math.Round(dr.GetDecimal(0), 3);
-                            if (Omonto.codMOrige != null && Omonto.codMOrige != "")
+                            if (Tx_modo.Text == "NUEVO")    // 20/05/2025
                             {
-                                Omonto.tipCOri = (Omonto.codMOrige == codEur) ? Math.Round(dr.GetDecimal(1), 3) : (Omonto.codMOrige == codDol) ? Math.Round(dr.GetDecimal(0), 3) : Math.Round(dr.GetDecimal(0), 3);
+                                tx_tipcam.Text = Math.Round(dr.GetDecimal(0), 3).ToString();
+                                Omonto.tipCDol = Math.Round(dr.GetDecimal(0), 3);
+                                if (Omonto.codMOrige != null && Omonto.codMOrige != "")
+                                {
+                                    Omonto.tipCOri = (Omonto.codMOrige == codEur) ? Math.Round(dr.GetDecimal(1), 3) : (Omonto.codMOrige == codDol) ? Math.Round(dr.GetDecimal(0), 3) : Math.Round(dr.GetDecimal(0), 3);
+                                }
                             }
                             tcDia.tcD = Omonto.tipCDol;
                             tcDia.tcE = Math.Round(dr.GetDecimal(1), 3);   // Omonto.tipCOri;
 
                             if (Omonto.tipCDol <= 0 || tcDia.tcE <= 0) // Omonto.tipCDol <= 0 || Omonto.tipCOri <= 0
                             {
-                                //MessageBox.Show("El tipo de cambio Dólares es: " + Omonto.tipCDol.ToString() + Environment.NewLine +
-                                //    "El tipo de cambio Euros es: " + tcDia.tcE.ToString(), "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 MessageBox.Show("No existen tipos de cambio para la fecha actual" + Environment.NewLine +
                                     "Debe ingresarlos en este momento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 retorna = false;
@@ -894,8 +895,8 @@ namespace Conti3
                 Omonto.monOrige = monti;
                 if (Omone.codigo == codDol)
                 {
-                    Omonto.tipCDol = tcDia.tcD; // Omonto.tipCOri;
-                    Omonto.tipCOri = tcDia.tcD;
+                    Omonto.tipCDol = cambi; // tcDia.tcD;
+                    Omonto.tipCOri = cambi; // tcDia.tcD;
                     Omonto.monEuros = 0;
                     Omonto.monDolar = decimal.Parse(tx_monto.Text);
                     Omonto.monSoles = Omonto.monDolar * Omonto.tipCOri;
@@ -903,8 +904,8 @@ namespace Conti3
                 }
                 if (Omone.codigo == codSol)
                 {
-                    Omonto.tipCDol = tcDia.tcD;
-                    Omonto.tipCOri = tcDia.tcD;
+                    Omonto.tipCDol = cambi; // tcDia.tcD;
+                    Omonto.tipCOri = cambi; // tcDia.tcD;
                     Omonto.monEuros = 0;
                     Omonto.monSoles = decimal.Parse(tx_monto.Text); // Omonto.monDolar * Omonto.tipCOri;
                     Omonto.monDolar = Math.Round(Omonto.monSoles / Omonto.tipCDol, 2); // decimal.Parse(tx_monto.Text);
@@ -927,7 +928,7 @@ namespace Conti3
             decimal.TryParse(tx_monto.Text, out monti);
             decimal.TryParse(tx_tipcam.Text, out cambi);
             tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
-            if (Tx_modo.Text == "NUEVO" && monti > 0)
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && monti > 0)
             {
                 Omonto.monOrige = monti;
                 if (true)
@@ -936,6 +937,14 @@ namespace Conti3
                     if (Omonto.codMOrige == codSol) Omonto = oFEgres.calc_monedas(cmb_mon, monti, cambi);
                     if (Omonto.codMOrige == codEur) Omonto = oFEgres.calc_monedas(cmb_mon, monti, Omonto.tipCOri);
                 }
+            }
+        }
+        private void tx_tipcam_Leave(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text == "NUEVO")   // 20/05/2025
+            {
+                //tx_idOper.Focus();
+                Tx_fecha.Focus();
             }
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)

@@ -130,7 +130,7 @@
             this.tx_idOper.Location = new System.Drawing.Point(195, 60);
             this.tx_idOper.Name = "tx_idOper";
             this.tx_idOper.Size = new System.Drawing.Size(78, 13);
-            this.tx_idOper.TabIndex = 2;
+            this.tx_idOper.TabIndex = 222;
             this.tx_idOper.Validating += new System.ComponentModel.CancelEventHandler(this.tx_idOper_Validating);
             // 
             // eti_idOper
@@ -231,6 +231,7 @@
             this.tx_tipcam.Size = new System.Drawing.Size(83, 15);
             this.tx_tipcam.TabIndex = 1;
             this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tx_tipcam.Leave += new System.EventHandler(this.tx_tipcam_Leave);
             this.tx_tipcam.Validating += new System.ComponentModel.CancelEventHandler(this.tx_tipcam_Validating);
             // 
             // generalEtiqueta1
