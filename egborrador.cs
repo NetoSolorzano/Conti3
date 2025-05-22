@@ -1069,7 +1069,7 @@ namespace Conti3
             decimal.TryParse(tx_montoS.Text, out monti);
             tx_montoS.Text = Math.Round(monti, 2).ToString("#,##0.00");
             decimal.TryParse(tx_tipcam.Text, out cambi);
-            if (Tx_modo.Text == "NUEVO" && monti > 0)
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && monti > 0)
             {
                 Omonto.monOrige = monti;
                 if (true)
@@ -1079,8 +1079,8 @@ namespace Conti3
 
                 if (Omone.codigo == codDol)
                 {
-                    Omonto.tipCDol = tcDia.tcD; // Omonto.tipCOri;
-                    Omonto.tipCOri = tcDia.tcD;
+                    Omonto.tipCDol = cambi; // tcDia.tcD
+                    Omonto.tipCOri = cambi; // tcDia.tcD
                     Omonto.monEuros = 0;
                     Omonto.monDolar = decimal.Parse(tx_montoS.Text);
                     Omonto.monSoles = Omonto.monDolar * Omonto.tipCOri;
@@ -1088,8 +1088,8 @@ namespace Conti3
                 }
                 if (Omone.codigo == codSol)
                 {
-                    Omonto.tipCDol = tcDia.tcD;
-                    Omonto.tipCOri = tcDia.tcD;
+                    Omonto.tipCDol = cambi; // tcDia.tcD
+                    Omonto.tipCOri = cambi; // tcDia.tcD
                     Omonto.monEuros = 0;
                     Omonto.monSoles = decimal.Parse(tx_montoS.Text); // Omonto.monDolar * Omonto.tipCOri;
                     Omonto.monDolar = Math.Round(Omonto.monSoles / Omonto.tipCDol, 2); // decimal.Parse(tx_monto.Text);
@@ -1112,7 +1112,7 @@ namespace Conti3
             decimal.TryParse(tx_montoS.Text, out monti);
             decimal.TryParse(tx_tipcam.Text, out cambi);
             tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
-            if (Tx_modo.Text == "NUEVO" && monti > 0)
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && monti > 0)
             {
                 Omonto.monOrige = monti;
                 if (true)
@@ -1120,6 +1120,10 @@ namespace Conti3
                     Omonto = oFEgres.calc_monedas(cmb_mon, monti, cambi);
                 }
             }
+        }
+        private void tx_tipcam_Leave(object sender, EventArgs e)
+        {
+            if (Tx_modo.Text != "NUEVO") Tx_fecha.Focus();
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {

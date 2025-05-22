@@ -877,6 +877,7 @@ namespace Conti3
         private void tx_tipcam_Leave(object sender, EventArgs e)
         {
             Tx_rptos_Leave(null, null);
+            if (Tx_modo.Text != "NUEVO") Tx_fecha.Focus();
         }
         private void Tx_asignado_Enter(object sender, EventArgs e)
         {

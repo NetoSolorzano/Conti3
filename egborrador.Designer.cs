@@ -483,6 +483,7 @@
             this.tx_tipcam.Size = new System.Drawing.Size(130, 19);
             this.tx_tipcam.TabIndex = 3;
             this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tx_tipcam.Leave += new System.EventHandler(this.tx_tipcam_Leave);
             this.tx_tipcam.Validating += new System.ComponentModel.CancelEventHandler(this.tx_tipcam_Validating);
             // 
             // linV1
