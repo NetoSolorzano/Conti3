@@ -324,6 +324,7 @@ namespace Conti3
             cmb_mon.SelectedIndex = -1;
             if (ususvalid.Contains(Program.vg_user)) chk_pagado.Visible = true;
             else chk_pagado.Visible = false;
+            tx_tipcam.ReadOnly = true;      // 26/05/2025 ya no es editable, debe jalarse de la maestra segun la fecha
         }                                               // inicializa ancho de campos y upper case
         private void jala_ultimo(string _idop)
         {
@@ -475,7 +476,8 @@ namespace Conti3
             // buscamos tipo de cambio del día
             using (MySqlCommand micon = new MySqlCommand("select ifnull(Cambio1,0),ifnull(Cambio2,0) from cambi where date(datavaluta)=@fec", conn))  // dolares,euros
             {
-                string fcv = selecFecha1.Value.ToString().Substring(6, 4) + "-" + selecFecha1.Value.ToString().Substring(3, 2) + "-" + selecFecha1.Value.ToString().Substring(0, 2);
+                //string fcv = selecFecha1.Value.ToString().Substring(6, 4) + "-" + selecFecha1.Value.ToString().Substring(3, 2) + "-" + selecFecha1.Value.ToString().Substring(0, 2);
+                string fcv = Tx_fecha.Text.Substring(6, 4) + "-" + Tx_fecha.Text.Substring(3, 2) + "-" + Tx_fecha.Text.Substring(0, 2);
                 micon.Parameters.AddWithValue("@fec", fcv);
                 using (MySqlDataReader dr = micon.ExecuteReader())
                 {
@@ -492,21 +494,15 @@ namespace Conti3
                             {
                                 MessageBox.Show("El tipo de cambio Dólares es: " + Omonto.tipCDol.ToString() + Environment.NewLine +
                                     "El tipo de cambio Euros es: " + Omonto.tipCOri.ToString(), "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Close();
+                                if (Tx_modo.Text == "NUEVO") this.Close();
                             }
                         }
                     }
                     else
                     {
-                        var aa = MessageBox.Show("No existen tipos de cambio para la fecha actual" + Environment.NewLine +
+                        var aa = MessageBox.Show("No existen tipos de cambio para la fecha seleccionada" + Environment.NewLine +
                             "Debe ingresarlos en este momento", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        /*if (aa == DialogResult.Yes)
-                        {
-                            // llamada a formulario de tipos de cambio
-                            tipcam f_tc = new tipcam();
-                            f_tc.ShowDialog();
-                        } */
-                        this.Close();
+                        if (Tx_modo.Text == "NUEVO") this.Close();
                     }
                 }
             }
@@ -659,7 +655,7 @@ namespace Conti3
         private void escribe(string quien)  // pones los campos necesarios en readonly = false
         {
             tx_idOper.ReadOnly = false;
-            tx_tipcam.ReadOnly = false;
+            tx_tipcam.ReadOnly = true;      // 26/05/2025 
             Tx_fecha.ReadOnly = false;
             selecFecha1.Enabled = true;
             Tx_catEgre.ReadOnly = false;
@@ -1139,6 +1135,7 @@ namespace Conti3
             if (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION")
             {
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                Tx_fecha_Validating(null, null);        // 26/05/2025
             }
         }
         private void Tx_fecha_Click(object sender, EventArgs e)
@@ -1162,6 +1159,9 @@ namespace Conti3
                     selecFecha1.Value = DateTime.Now.Date;
                     Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 }
+                {
+                    tipCambio(null);    // 26/05/2025
+                }
             }
             catch (Exception ex)
             {
@@ -1169,6 +1169,11 @@ namespace Conti3
                 Tx_fecha.Text = fecOp.ToString();
             }
         }
+        private void Tx_fecha_Leave(object sender, EventArgs e)
+        {
+            //Tx_fecha_Validating(null, null);
+        }
+
         private void Tx_ctaDes_Leave(object sender, EventArgs e)
         {
             if (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION")
@@ -1865,10 +1870,11 @@ namespace Conti3
             if (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION")
             {
                 // categoria de egreso no es obligatorio, no se valida en nuevo o edicion, solo en validación ... 27/01/2025
-                if (tx_tipcam.Text == "")
+                if (tx_tipcam.Text == "" || double.Parse(tx_tipcam.Text) <= 0)
                 {
-                    MessageBox.Show("Ingrese el tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    tx_tipcam.Focus();
+                    MessageBox.Show("No existe tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    //tx_tipcam.Focus();
+                    Tx_fecha.Focus();
                     return;
                 }
                 if (Tx_ctaDes.Text == "")

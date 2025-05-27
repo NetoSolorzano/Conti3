@@ -618,6 +618,7 @@
             this.Tx_fecha.ValidatingType = typeof(System.DateTime);
             this.Tx_fecha.Click += new System.EventHandler(this.Tx_fecha_Click);
             this.Tx_fecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
+            this.Tx_fecha.Leave += new System.EventHandler(this.Tx_fecha_Leave);
             this.Tx_fecha.Validating += new System.ComponentModel.CancelEventHandler(this.Tx_fecha_Validating);
             // 
             // tx_idOper
