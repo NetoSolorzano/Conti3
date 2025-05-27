@@ -424,6 +424,7 @@ namespace Conti3
             Tx_nomProv.MaxLength = 50;
             Tx_nomProv.CharacterCasing = CharacterCasing.Upper;
             tx_diasA.MaxLength = 3;
+            tx_tipcam.ReadOnly = true;      // 27/05/2025
         }                                               // inicializa ancho de campos y upper case
         private void datsimil()
         {
@@ -518,7 +519,8 @@ namespace Conti3
             // buscamos tipo de cambio del día
             using (MySqlCommand micon = new MySqlCommand("select ifnull(Cambio1,0),ifnull(Cambio2,0) from cambi where date(datavaluta)=@fec", conn))  // dolares,euros
             {
-                string fcv = selecFecha1.Value.ToString().Substring(6, 4) + "-" + selecFecha1.Value.ToString().Substring(3, 2) + "-" + selecFecha1.Value.ToString().Substring(0, 2);
+                //string fcv = selecFecha1.Value.ToString().Substring(6, 4) + "-" + selecFecha1.Value.ToString().Substring(3, 2) + "-" + selecFecha1.Value.ToString().Substring(0, 2);
+                string fcv = Tx_fecha.Text.Substring(6, 4) + "-" + Tx_fecha.Text.Substring(3, 2) + "-" + Tx_fecha.Text.Substring(0, 2);
                 micon.Parameters.AddWithValue("@fec", fcv);
                 using (MySqlDataReader dr = micon.ExecuteReader())
                 {
@@ -549,13 +551,7 @@ namespace Conti3
                     {
                         var aa = MessageBox.Show("No existen tipos de cambio para la fecha actual" + Environment.NewLine +
                             "Debe ingresarlos en este momento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        /*if (aa == DialogResult.Yes)
-                        {
-                            // llamada a formulario de tipos de cambio
-                            tipcam f_tc = new tipcam();
-                            f_tc.ShowDialog();
-                        } */
-                        this.Close();
+                        if (Tx_modo.Text == "NUEVO") this.Close();  // 27/05/2025
                     }
                 }
             }
@@ -660,6 +656,11 @@ namespace Conti3
         {
             Bt_graba.Image = Conti3.Properties.Resources.save_negro40;
             Tx_modo.Text = "NUEVO";
+            selecFecha1.Value = DateTime.Now.Date;
+            Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            tx_anno.Text = DateTime.Now.Date.Year.ToString();
+            tx_anno.ReadOnly = true;
+
             if (tipCambio(null) == true)   // tx_tipcam.Text == ""
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
@@ -680,12 +681,8 @@ namespace Conti3
                 selecFecha1.Enabled = true;
                 escribe("");
                 chk_giroC.Enabled = true;
-                selecFecha1.Value = DateTime.Now.Date;
-                Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
-                tx_anno.Text = DateTime.Now.Date.Year.ToString();
-                tx_anno.ReadOnly = true;
-
-                tx_tipcam.Focus();
+                //tx_tipcam.Focus();
+                Tx_catEgre.Focus();     // 27/05/2025
             }
             else this.Close();
         }
@@ -879,7 +876,7 @@ namespace Conti3
             Tx_nomProv.ReadOnly = false;
             tx_provee.ReadOnly = true; // false; 31/08/2024 solo se jala con F1, no se puede validar por nombre
             tx_prov.ReadOnly = true;
-            tx_tipcam.ReadOnly = false;
+            tx_tipcam.ReadOnly = true;     // 27/05/2025
             //
             cmb_mon.Enabled = true;
             rb_omg.Enabled = true;

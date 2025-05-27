@@ -337,6 +337,7 @@ namespace Conti3
             string opera = "";              // operador, la que ó el que registra
             string aprob = "";              // usuario aprobador
             int pagad = 0;                  // 
+            string OP = "";                 // OMG o PER
             bool exito;
             // 1ro buscamos el registro si esta en la grilla
             DataRow[] fila = dt_grilla.Select("ID_MOVIM=" + oFEgres.CDerecha("00000" + _idop, 6));
@@ -376,6 +377,7 @@ namespace Conti3
                     opera = fila[0]["OPERADOR"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["OPERADOR"].Value.ToString();
                     aprob = fila[0]["APROBADOR"].ToString();   // advancedDataGridView1.Rows[e.RowIndex].Cells["APROBADOR"].Value.ToString();
                     pagad = int.Parse(fila[0]["pagado"].ToString());   // pagado 
+                    OP = fila[0]["tipoE"].ToString();
                 }
             }
             else
@@ -427,10 +429,13 @@ namespace Conti3
                     opera = retu[10];   // fila[0]["OPERADOR"].ToString(); 
                     aprob = retu[12];   // fila[0]["APROBADOR"].ToString();
                     pagad = int.Parse(retu[33]);
+                    OP = retu[30];
                 }
             }
             if (exito == true)
             {
+                if (OP == "OMG") rb_omg.Checked = true;
+                if (OP == "PER") rb_pers.Checked = true;
                 Opreli.creaPrelim(pan_p.Tag.ToString(), fecOp, OcatEg, Omone, Omonto, tipca, Ocajd, Oprove, descr, idmov, Ogiro, opera, "", pagad);
                 // si ya fue aprobado el registro, ya no se puede editar o borrar 28/12/2024
                 if ("EDICION,BORRAR,VALIDACION".Contains(Tx_modo.Text))
@@ -1173,7 +1178,6 @@ namespace Conti3
         {
             //Tx_fecha_Validating(null, null);
         }
-
         private void Tx_ctaDes_Leave(object sender, EventArgs e)
         {
             if (Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION")
@@ -1212,17 +1216,12 @@ namespace Conti3
             if (Tx_modo.Text != "" && rb_pers.Checked == true)
             {
                 pan_p.Tag = "personal";
-                //limpiaTE();
-                //limpiaObj("todo");
                 Tx_ctaDes.Text = "";
                 eti_nomCaja.Text = "";
                 Ocajd.codigo = ""; Ocajd.nombre = ""; Ocajd.largo = "";
-
-                //jalaGrilla(diasAtroya, "");  // cassaconti    muestra datos de un dias atras hasta hoy
                 Tx_ctaDes.Values = lista_.ToArray();
-                //tx_ctaGiro.Values = lista_.ToArray();
-                if (tx_tipcam.Text == "") tx_tipcam.Focus();
-                else tx_idOper.Focus();
+                //if (tx_tipcam.Text == "") tx_tipcam.Focus();  27/05/2025
+                //else tx_idOper.Focus();
             }
         }
         private void rb_omg_CheckedChanged(object sender, EventArgs e)
@@ -1230,17 +1229,12 @@ namespace Conti3
             if (Tx_modo.Text != "" && rb_omg.Checked == true)
             {
                 pan_p.Tag = "omg";
-                //limpiaTE();
-                //limpiaObj("todo");
                 Tx_ctaDes.Text = "";
                 eti_nomCaja.Text = "";
                 Ocajd.codigo = ""; Ocajd.nombre = ""; Ocajd.largo = "";
-
-                //jalaGrilla(diasAtroya, "");  // cassaomg     muestra datos de un dias atras hasta hoy
                 Tx_ctaDes.Values = lista_OMG.ToArray();
-                //tx_ctaGiro.Values = lista_.ToArray();   // tx_ctaGiro.Values = lista_OMG.ToArray();
-                if (tx_tipcam.Text == "") tx_tipcam.Focus();
-                else tx_idOper.Focus();
+                //if (tx_tipcam.Text == "") tx_tipcam.Focus();  27/05/2025
+                //else tx_idOper.Focus();
             }
         }
         private void rb_tos_CheckedChanged(object sender, EventArgs e)
@@ -1685,7 +1679,9 @@ namespace Conti3
             limpiaTE();
             escribe("");
             rb_omg.Checked = false;
+            rb_omg.Enabled = true;
             rb_pers.Checked = false;
+            rb_pers.Enabled = true;
             selecFecha1.Enabled = true;
             Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
@@ -1711,7 +1707,9 @@ namespace Conti3
             chk_datSimil.Checked = false;
             escribe("EDICION");    // sololee("")
             rb_omg.Checked = false;
+            rb_omg.Enabled = true;
             rb_pers.Checked = false;
+            rb_pers.Enabled = true;
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
@@ -1730,7 +1728,9 @@ namespace Conti3
             sololee("");
             chk_datSimil.Checked = false;
             rb_omg.Checked = false;
+            rb_omg.Enabled = false;
             rb_pers.Checked = false;
+            rb_pers.Enabled = false;
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
@@ -1748,7 +1748,9 @@ namespace Conti3
             limpiaTE();
             sololee("");
             rb_omg.Checked = false;
+            rb_omg.Enabled = false;
             rb_pers.Checked = false;
+            rb_pers.Enabled = false;
             tx_anno.Text = DateTime.Now.Year.ToString();
             tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
@@ -1767,11 +1769,22 @@ namespace Conti3
             limpiaObj("todo");
             limpiaTE();
             chk_datSimil.Checked = false;
+            sololee("");
+            rb_omg.Checked = false;
+            rb_omg.Enabled = false;
+            rb_pers.Checked = false;
+            rb_pers.Enabled = false;
+            jalaGrilla(diasAtroya, "");
+            marcaSelec(Tx_modo.Text);
+            Bt_graba.Enabled = true;
+            /* esto estaba por las puras ... 27/05/2025
             if (ususvalid.Contains(Program.vg_user))
             {
                 escribe("EDICION");
                 rb_omg.Checked = false;
+                rb_omg.Enabled = false;
                 rb_pers.Checked = false;
+                rb_pers.Enabled = false;
                 tx_anno.Text = DateTime.Now.Year.ToString();
                 tx_anno.ReadOnly = false;
                 tx_idOper.ReadOnly = false;
@@ -1782,13 +1795,16 @@ namespace Conti3
             {
                 sololee("");
                 rb_omg.Checked = false;
+                rb_omg.Enabled = false;
                 rb_pers.Checked = false;
+                rb_pers.Enabled = false;
                 tx_anno.Text = DateTime.Now.Year.ToString();
                 tx_anno.ReadOnly = false;
                 tx_idOper.ReadOnly = false;
                 jalaGrilla(diasAtroya, "");
                 marcaSelec(Tx_modo.Text);
             }
+            */
         }
         private void Bt_ini_Click(object sender, EventArgs e)
         {
@@ -2003,6 +2019,23 @@ namespace Conti3
             }
             if (Tx_modo.Text == "VALIDACION")
             {
+                int ctaM = 0;
+                foreach (DataGridViewRow row in advancedDataGridView1.Rows)
+                {
+                    if (row.Cells[0].FormattedValue.ToString() == "True")
+                    {
+                        ctaM = ctaM + 1;
+                    }
+                }
+                if (ctaM == 0)
+                {
+                    MessageBox.Show("Debe marcar al menos una fila","Atención",MessageBoxButtons.OK,MessageBoxIcon.Hand);
+                    return;
+                }
+
+                var aaa = MessageBox.Show("Confirma que desea procesar ?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (aaa == DialogResult.No) return;
+
                 // buscamos en la grilla los checks que esten marcados y el campo aprobador=""
                 // con esos registros marcados, fila por fila:
                 //      1. creamos el objeto OEgresos y grabamos el objeto
