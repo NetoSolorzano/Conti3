@@ -372,6 +372,7 @@ namespace Conti3
                 tx_idOper.Text = Oegreso.IdMovim;
                 tx_anno.Text = Oegreso.AnnoOp;    // DateTime.Parse(Oegreso.FechOper).Year.ToString();
                 selecFecha1.Value = DateTime.Parse(Oegreso.FechOper);
+                tx_tipcam.Text = Oegreso.TipCamb.ToString("#0.000");
             }
             else
             {
@@ -380,13 +381,13 @@ namespace Conti3
                 else selecFecha1.Value = DateTime.Parse(Oegreso.FechOper);
                 if (Oegreso.AnnoOp == "") tx_anno.Text = DateTime.Now.Date.Year.ToString();
                 else tx_anno.Text = Oegreso.AnnoOp;
+                tipCambio(null);
             }
             Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
             Tx_catEgre.Text = Oegreso.CatEgreso.largo; // Oegreso.CatEgreso.nombre
             eti_nomCat.Text = Oegreso.CatEgreso.nombre;  // Oegreso.CatEgreso.largo
             cmb_mon.SelectedValue = Oegreso.Moneda.codigo;
             tx_monto.Text = Oegreso.Monto.monOrige.ToString("#0.00");
-            tx_tipcam.Text = Oegreso.TipCamb.ToString("#0.000");
             Tx_ctaDes.Text = Oegreso.CajaDes.largo;    // Oegreso.CajaDes.nombre
             eti_nomCaja.Text = Oegreso.CajaDes.nombre;   // Oegreso.CajaDes.largo
             Tx_nomProv.Text = Oegreso.Proveedor.nombre;
@@ -2220,7 +2221,7 @@ namespace Conti3
                     Omonto.monDolar = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoDU"].Value.ToString());
                     Omonto.tipCDol = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TIP_CAMBIO"].Value.ToString());
                     Omonto.monSoles = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoSU"].Value.ToString());
-                    tipca = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
+                    if (Tx_modo.Text != "NUEVO") tipca = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
                     Ocajd.codigo = advancedDataGridView1.Rows[e.RowIndex].Cells["IDDestino"].Value.ToString();
                     Ocajd.nombre = advancedDataGridView1.Rows[e.RowIndex].Cells["DESTINO"].Value.ToString();
                     Ocajd.largo = advancedDataGridView1.Rows[e.RowIndex].Cells["DET_DESTINO"].Value.ToString();
@@ -2253,7 +2254,7 @@ namespace Conti3
                     Omonto.monDolar = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoDU"].Value.ToString());
                     Omonto.tipCDol = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TIP_CAMBIO"].Value.ToString());
                     Omonto.monSoles = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["ImportoSU"].Value.ToString());
-                    tipca = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
+                    if (Tx_modo.Text != "NUEVO") tipca = decimal.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["TCMonOri"].Value.ToString());
                     Ocajd.codigo = advancedDataGridView1.Rows[e.RowIndex].Cells["IDConto"].Value.ToString();
                     Ocajd.nombre = advancedDataGridView1.Rows[e.RowIndex].Cells["CUENTA"].Value.ToString();
                     Ocajd.largo = advancedDataGridView1.Rows[e.RowIndex].Cells["DET_CUENTA"].Value.ToString();

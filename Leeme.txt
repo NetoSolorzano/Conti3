@@ -223,6 +223,8 @@ Form Finan_camion, arreglo de tipo de cambio puesto a mano por cada operacion ..
 Form egborrador, arreglo de tipo de cambio puesto a mano por cada operacion ..... 21/05/2025
 Form egborrador, tip_camb no debe ser editable, jalar el T.C. de la fecha ....... 27/05/2025
 Form Finan_egres, tip_camb no debe ser editable, jalar el T.C. de la fecha ...... 27/05/2025
-Form Finan_Ingres, tip_camb no debe ser editable, jalar el T.C. de la fecha ..... falta arreglar problema de select_fecha1_validating()
+Form Finan_Ingres, tip_camb no debe ser editable, jalar el T.C. de la fecha ..... 28/05/2025
+Form Finan_egres, NUEVO grilla doble click debe mostrar TC,fecha de fecha actual. 28/05/2025 
+Form Finan_Ingres,modo NUEVO grilla doble click debe mostrar TC,fecha actual .... 
 Form Finan_camion, tip_camb no debe ser editable, jalar el T.C. de la fecha ..... 
 Form defs, modo EDICION poniendo codigo de cta. no graba el cambio ..............	problema detectado por pons el 26/05/2025

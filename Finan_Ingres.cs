@@ -319,10 +319,11 @@ namespace Conti3
                                     Omonto.tipCOri = (Omonto.codMOrige == codEur) ? Math.Round(dr.GetDecimal(1), 3) : (Omonto.codMOrige == codDol) ? Math.Round(dr.GetDecimal(0), 3) : Math.Round(dr.GetDecimal(0), 3);
                                 }
                             }
-                            tcDia.tcD = Omonto.tipCDol;
+                            //tcDia.tcD = (Omonto.tipCDol > 0) ? Omonto.tipCDol : Math.Round(dr.GetDecimal(0), 3);  28/05/2025
+                            tcDia.tcD = Math.Round(dr.GetDecimal(0), 3);
                             tcDia.tcE = Math.Round(dr.GetDecimal(1), 3);   // Omonto.tipCOri;
-
-                            if (Omonto.tipCDol <= 0 || tcDia.tcE <= 0) // Omonto.tipCDol <= 0 || Omonto.tipCOri <= 0
+                            tx_tipcam.Text = Math.Round(tcDia.tcD, 3).ToString("#0.000");
+                            if (tcDia.tcD <= 0 || tcDia.tcE <= 0) // Omonto.tipCDol <= 0 || tcDia.tcE <= 0 28/05/2025
                             {
                                 MessageBox.Show("No existen tipos de cambio para la fecha actual" + Environment.NewLine +
                                     "Debe ingresarlos en este momento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -333,7 +334,10 @@ namespace Conti3
                                 retorna = true;
                                 if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && tx_monto.Text != "")
                                 {
-                                    tx_monto_Validating(null, null);
+                                    if (true)
+                                    {
+                                        tx_monto_Validating(null, null);
+                                    }
                                 }
                             }
                             //else { retorna = true; }
@@ -581,6 +585,7 @@ namespace Conti3
         {
             if (quien == "EDICION") tx_idOper.ReadOnly = true;
             Tx_fecha.ReadOnly = false;
+            selecFecha1.Enabled = true;
             Tx_catIng.ReadOnly = false;
             Tx_ctaDest.ReadOnly = false;
             tx_ctaGiro.ReadOnly = false;
@@ -936,7 +941,7 @@ namespace Conti3
         }
         private void tx_tipcam_Validating(object sender, CancelEventArgs e)
         {
-            decimal monti = 0; decimal cambi = 0;
+            /*  decimal monti = 0; decimal cambi = 0;
             decimal.TryParse(tx_monto.Text, out monti);
             decimal.TryParse(tx_tipcam.Text, out cambi);
             tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
@@ -949,7 +954,7 @@ namespace Conti3
                     if (Omonto.codMOrige == codSol) Omonto = oFEgres.calc_monedas(cmb_mon, monti, cambi);
                     if (Omonto.codMOrige == codEur) Omonto = oFEgres.calc_monedas(cmb_mon, monti, Omonto.tipCOri);
                 }
-            }
+            }   */
         }
         private void tx_tipcam_Leave(object sender, EventArgs e)
         {
@@ -985,8 +990,10 @@ namespace Conti3
             // si es edicion no se permite cambiar la fecha, 04/12/2024
             try
             {
-                if (Tx_fecha.Text.Length != 10) Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
-                DateTime fecOp = DateTime.Parse(Tx_fecha.Text);
+                //if (Tx_fecha.Text.Length != 10) 28/05/2025
+                //Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                //DateTime fecOp = DateTime.Parse(Tx_fecha.Text);
+                DateTime fecOp = DateTime.Parse(selecFecha1.Value.Date.ToString("dd/MM/yyyy"));
                 if (fecOp > DateTime.Now.Date)
                 {
                     MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -995,6 +1002,7 @@ namespace Conti3
                 }
                 else
                 {
+                    Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                     tipCambio(null);    // 27/05/2025
                 }
             }
