@@ -585,6 +585,7 @@
             this.selecFecha1.Size = new System.Drawing.Size(18, 20);
             this.selecFecha1.TabIndex = 12;
             this.selecFecha1.ValueChanged += new System.EventHandler(this.selecFecha1_ValueChanged);
+            this.selecFecha1.Validating += new System.ComponentModel.CancelEventHandler(this.selecFecha1_Validating);
             // 
             // generalEtiqueta1
             // 

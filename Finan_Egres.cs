@@ -543,7 +543,14 @@ namespace Conti3
                                 MessageBox.Show("El tipo de cambio Dólares es: " + Omonto.tipCDol.ToString() + Environment.NewLine +
                                     "El tipo de cambio Euros es: " + Omonto.tipCOri.ToString(), "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 retorna = false;
-                                //this.Close();
+                                if (Tx_modo.Text == "NUEVO") this.Close();
+                            }
+                            else
+                            {
+                                if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && tx_monto.Text != "")
+                                {
+                                    tx_monto_Validating(null, null);
+                                }
                             }
                         }
                     }
@@ -690,6 +697,9 @@ namespace Conti3
         {
             Bt_graba.Image = Conti3.Properties.Resources.save_negro40;
             Tx_modo.Text = "EDICION";
+            selecFecha1.Value = DateTime.Now.Date;
+            Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            tx_anno.Text = DateTime.Now.Date.Year.ToString();
             if (tipCambio(null) == true)
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
@@ -877,6 +887,8 @@ namespace Conti3
             tx_provee.ReadOnly = true; // false; 31/08/2024 solo se jala con F1, no se puede validar por nombre
             tx_prov.ReadOnly = true;
             tx_tipcam.ReadOnly = true;     // 27/05/2025
+            Tx_fecha.ReadOnly = false;      // 27/05/2025
+            selecFecha1.Enabled = true;     // 27/05/2025
             //
             cmb_mon.Enabled = true;
             rb_omg.Enabled = true;
@@ -903,6 +915,8 @@ namespace Conti3
             chk_datSimil.Enabled = false;
             chk_giroC.Enabled = false;
             cmb_mon.Enabled = false;
+            Tx_fecha.ReadOnly = true;
+            selecFecha1.Enabled = false;
             if (quien == "T")
             {
                 tx_idOper.ReadOnly = true;
@@ -1736,6 +1750,10 @@ namespace Conti3
                     selecFecha1.Value = DateTime.Now.Date;
                     Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 }
+                else
+                {
+                    tipCambio(null);    // 27/05/2025
+                }
             }
             catch (Exception ex)
             {
@@ -1745,7 +1763,8 @@ namespace Conti3
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
-            // En ningun caso la fecha puede ser posterior al actual
+            if (Tx_modo.Text == "NUEVO") Tx_catEgre.Focus();
+            /* / En ningun caso la fecha puede ser posterior al actual
             // si es nuevo la fecha puede ser anterior
             // si es edicion no se permite cambiar la fecha, 04/12/2024
             if (selecFecha1.Value.Date > DateTime.Now.Date)
@@ -1766,6 +1785,24 @@ namespace Conti3
             {
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 tipCambio(null);
+            }
+            */
+        }
+        private void selecFecha1_Validating(object sender, CancelEventArgs e)
+        {
+            if (selecFecha1.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                selecFecha1.Value = DateTime.Now.Date;
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
+                {
+                    Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                    tipCambio(null);
+                }
             }
         }
         private void tx_ctaGiro_KeyPress(object sender, KeyPressEventArgs e)
@@ -2440,6 +2477,12 @@ namespace Conti3
         }
         private void Bt_graba_Click(object sender, EventArgs e)
         {
+            if (tx_tipcam.Text == "" || double.Parse(tx_tipcam.Text) <= 0)
+            {
+                MessageBox.Show("No existe tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Tx_fecha.Focus();
+                return;
+            }
             if (Tx_modo.Text == "NUEVO")
             {
                 // validamos datos esenciales

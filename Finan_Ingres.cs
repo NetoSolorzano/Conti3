@@ -221,6 +221,7 @@ namespace Conti3
             tx_descrip.Font = new Font(conf.nombreFont, conf.tamañoFont);
             tx_idOper.MaxLength = 15;
             tx_diasA.MaxLength = 3;
+            tx_tipcam.ReadOnly = true;      // 27/05/2025
         }                                               // inicializa ancho de campos y upper case
         private void datsimil()
         {
@@ -300,7 +301,8 @@ namespace Conti3
             // buscamos tipo de cambio del día
             using (MySqlCommand micon = new MySqlCommand("select ifnull(Cambio1,0),ifnull(Cambio2,0) from cambi where date(datavaluta)=@fec", conn))  // dolares,euros
             {
-                string fcv = selecFecha1.Value.ToString().Substring(6, 4) + "-" + selecFecha1.Value.ToString().Substring(3, 2) + "-" + selecFecha1.Value.ToString().Substring(0, 2);
+                //string fcv = selecFecha1.Value.ToString().Substring(6, 4) + "-" + selecFecha1.Value.ToString().Substring(3, 2) + "-" + selecFecha1.Value.ToString().Substring(0, 2);
+                string fcv = Tx_fecha.Text.Substring(6, 4) + "-" + Tx_fecha.Text.Substring(3, 2) + "-" + Tx_fecha.Text.Substring(0, 2);
                 micon.Parameters.AddWithValue("@fec", fcv);
                 using (MySqlDataReader dr = micon.ExecuteReader())
                 {
@@ -326,7 +328,15 @@ namespace Conti3
                                     "Debe ingresarlos en este momento", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 retorna = false;
                             }
-                            else { retorna = true; }
+                            else
+                            {
+                                retorna = true;
+                                if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && tx_monto.Text != "")
+                                {
+                                    tx_monto_Validating(null, null);
+                                }
+                            }
+                            //else { retorna = true; }
                         }
                     }
                     else
@@ -415,6 +425,11 @@ namespace Conti3
         {
             Bt_graba.Image = Conti3.Properties.Resources.save_negro40;
             Tx_modo.Text = "NUEVO";
+            selecFecha1.Value = DateTime.Now.Date;
+            Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            tx_anno.Text = DateTime.Now.Date.Year.ToString();
+            tx_anno.ReadOnly = true;
+
             if (tipCambio(null) == true)
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
@@ -427,12 +442,7 @@ namespace Conti3
                 selecFecha1.Enabled = true;
                 escribe("");
                 tx_idOper.ReadOnly = true;
-                selecFecha1.Value = DateTime.Now.Date; // DateTime.UtcNow.Date;
-                Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
-                tx_anno.Text = DateTime.Now.Date.Year.ToString();
-                tx_anno.ReadOnly = true;
-
-                tx_tipcam.Focus();
+                Tx_catIng.Focus();     // 27/05/2025
             }
             else this.Close();
         }
@@ -440,6 +450,9 @@ namespace Conti3
         {
             Bt_graba.Image = Conti3.Properties.Resources.save_negro40;
             Tx_modo.Text = "EDICION";
+            selecFecha1.Value = DateTime.Now.Date;
+            Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+            tx_anno.Text = DateTime.Now.Date.Year.ToString();
             if (rb_pers.Checked == false && rb_omg.Checked == false)
             {
                 rb_pers.Checked = true;
@@ -448,12 +461,9 @@ namespace Conti3
             limpiaObj();
             limpiaTE();
             escribe("EDICION");
-            //Tx_fecha.ReadOnly = true;     // 31/01/2025
-            //selecFecha1.Enabled = false;  // 31/01/2025
-            //tx_tipcam.ReadOnly = true;    // 31/01/2025
-            selecFecha1.Value = DateTime.Now.Date;
-            tx_anno.Text = DateTime.Now.Year.ToString();
-            tx_anno.ReadOnly = false;
+            //selecFecha1.Value = DateTime.Now.Date;
+            //tx_anno.Text = DateTime.Now.Year.ToString();
+            //tx_anno.ReadOnly = false;
             tx_idOper.ReadOnly = false;
             pan_p.Enabled = true;
             rb_omg.Enabled = true;
@@ -576,7 +586,7 @@ namespace Conti3
             tx_ctaGiro.ReadOnly = false;
             tx_descrip.ReadOnly = false;
             tx_monto.ReadOnly = false;
-            tx_tipcam.ReadOnly = false;
+            tx_tipcam.ReadOnly = true;      // 27/05/2025
             //
             cmb_mon.Enabled = true;
             rb_omg.Enabled = true;
@@ -601,6 +611,8 @@ namespace Conti3
             chk_datSimil.Enabled = false;
             chk_giroC.Enabled = false;
             cmb_mon.Enabled = false;
+            Tx_fecha.ReadOnly = true;
+            selecFecha1.Enabled = false;
             if (quien == "T")
             {
                 tx_idOper.ReadOnly = true;
@@ -949,7 +961,8 @@ namespace Conti3
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
-            // En ningun caso la fecha puede ser posterior al actual
+            if (Tx_modo.Text == "NUEVO") Tx_catIng.Focus();
+            /* / En ningun caso la fecha puede ser posterior al actual
             // si es nuevo la fecha puede ser anterior
             // si es edicion no se permite cambiar la fecha, 04/12/2024
             if (selecFecha1.Value.Date > DateTime.Now.Date)
@@ -962,6 +975,33 @@ namespace Conti3
             {
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 tipCambio(null);
+            }
+            */
+        }
+        private void selecFecha1_Validating(object sender, CancelEventArgs e)
+        {
+            // En ningun caso la fecha puede ser posterior al actual
+            // si es nuevo la fecha puede ser anterior
+            // si es edicion no se permite cambiar la fecha, 04/12/2024
+            try
+            {
+                if (Tx_fecha.Text.Length != 10) Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                DateTime fecOp = DateTime.Parse(Tx_fecha.Text);
+                if (fecOp > DateTime.Now.Date)
+                {
+                    MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    selecFecha1.Value = DateTime.Now.Date;
+                    Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    tipCambio(null);    // 27/05/2025
+                }
+            }
+            catch (Exception ex)
+            {
+                DateTime fecOp = DateTime.Now.Date;
+                Tx_fecha.Text = fecOp.ToString();
             }
         }
         private void Tx_fecha_Click(object sender, EventArgs e)
@@ -984,6 +1024,10 @@ namespace Conti3
                     MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     selecFecha1.Value = DateTime.Now.Date;
                     Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    tipCambio(null);    // 27/05/2025
                 }
             }
             catch (Exception ex)
@@ -1468,6 +1512,12 @@ namespace Conti3
         }
         private void Bt_graba_Click(object sender, EventArgs e)
         {
+            if (tx_tipcam.Text == "" || double.Parse(tx_tipcam.Text) <= 0)
+            {
+                MessageBox.Show("No existe tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Tx_fecha.Focus();
+                return;
+            }
             if (Tx_modo.Text == "NUEVO")
             {
                 // validamos datos esenciales
@@ -1496,7 +1546,7 @@ namespace Conti3
                 {
                     errorProvider1.SetIconAlignment(tx_tipcam, ErrorIconAlignment.TopLeft);
                     errorProvider1.SetError(tx_tipcam, "Debe ingresar el tipo de cambio");
-                    tx_tipcam.Focus();
+                    Tx_fecha.Focus();
                     return;
                 }
                 errorProvider1.SetError(tx_tipcam, "");
@@ -1681,5 +1731,6 @@ namespace Conti3
             this.Activate();
             this.BringToFront();
         }
+
     }
 }
