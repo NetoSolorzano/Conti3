@@ -1111,7 +1111,7 @@ namespace Conti3
                     Tx_asignado.Focus();
                     return;
                 }
-                if (tx_tipcam.Text == "")
+                if (tx_tipcam.Text == "" || decimal.Parse(tx_tipcam.Text) <= 0)
                 {
                     MessageBox.Show("No existe tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     Tx_fecha.Focus();
@@ -1276,6 +1276,7 @@ namespace Conti3
                 limpiaTE();
                 selecFecha1.Value = DateTime.Now.Date;
                 Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
+                tipoCambio();
                 tx_anno.Text = DateTime.Now.Date.Year.ToString();
             }
         }
