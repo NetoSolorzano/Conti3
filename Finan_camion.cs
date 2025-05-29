@@ -408,6 +408,8 @@ namespace Conti3
             Tx_impues.ReadOnly = false;
             Tx_totalR.ReadOnly = true;
             chk_dol.Enabled = true;
+            chk_datSimil.Enabled = true;
+            selecFecha1.Enabled = true;
         }
         private void sololee(string quien)  //    // T=todos los campos, "" ó "C" campos comunes
         {
@@ -429,6 +431,8 @@ namespace Conti3
             Tx_impues.ReadOnly = true;
             Tx_totalR.ReadOnly = true;
             chk_dol.Enabled = false;
+            chk_datSimil.Enabled = false;
+            selecFecha1.Enabled = false;
         }
         #endregion
 
@@ -705,28 +709,23 @@ namespace Conti3
                 }
             }
         }
-        private void tx_tipcam_Validating(object sender, CancelEventArgs e)
-        {
-            decimal monti = 0; decimal cambi = 0;
-            decimal.TryParse(tx_montoS.Text, out monti);
-            decimal.TryParse(tx_tipcam.Text, out cambi);
-            tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
-            if (Tx_modo.Text == "NUEVO" && monti > 0)
-            {
-                Omonto.monOrige = monti;
-                if (true)
-                {
-                    Omonto = oFEgres.calc_monedas(cmb_mon, monti, cambi);
-                }
-            }
-        }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
-            Tx_ctaDes.Focus();
+            if (selecFecha1.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                selecFecha1.Value = DateTime.Now.Date;
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+            }
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
+            {
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                Tx_fecha_Validating(null,null);
+            }
         }
         private void selecFecha1_Validating(object sender, CancelEventArgs e)
         {
-            // En ningun caso la fecha puede ser posterior al actual
+            /* / En ningun caso la fecha puede ser posterior al actual
             // si es nuevo la fecha puede ser anterior
             // si es edicion no se permite cambiar la fecha, 04/12/2024
             if (selecFecha1.Value.Date > DateTime.Now.Date)
@@ -738,9 +737,16 @@ namespace Conti3
             if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
             {
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
-                tipoCambio();
-                tx_tipcam_Validating(null, null);
+                decimal monti = 0; decimal cambi = 0;
+                decimal.TryParse(tx_montoS.Text, out monti);
+                decimal.TryParse(tx_tipcam.Text, out cambi);
+                tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
+                Omonto.monOrige = monti;
+                Omonto = oFEgres.calc_monedas(cmb_mon, monti, cambi);
+                tx_montoD.Text = Omonto.monDolar.ToString("#0.00");
+                tx_montoS.Text = Omonto.monSoles.ToString("#0.00");
             }
+            */
         }
         private void Tx_fecha_Click(object sender, EventArgs e)
         {
@@ -766,7 +772,21 @@ namespace Conti3
                 else {
                     // sacamos el tipo de cambio para esta fecha
                     tipoCambio();
-                    tx_tipcam_Validating(null, null);
+                    decimal monti = 0; decimal cambi = 0;
+                    decimal.TryParse(tx_montoS.Text, out monti);
+                    decimal.TryParse(tx_tipcam.Text, out cambi);
+                    tx_tipcam.Text = Math.Round(cambi, 3).ToString("#0.000");
+                    Omonto.monOrige = monti;
+                    Omonto = oFEgres.calc_monedas(cmb_mon, monti, cambi);
+                    tx_montoD.Text = Omonto.monDolar.ToString("#0.00");
+                    tx_montoS.Text = Omonto.monSoles.ToString("#0.00");
+                    if (chk_dol.CheckState == CheckState.Checked && Tx_rptos.Text != "")
+                    {
+                        monti = 0;
+                        decimal.TryParse(Tx_rptos.Text, out monti);
+                        tx_dat_rptosS.Text = Math.Round(monti * decimal.Parse(tx_tipcam.Text), 2).ToString("#,##0.00");
+                        sumador();
+                    }
                 }
             }
             catch (Exception ex)
