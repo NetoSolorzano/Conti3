@@ -372,6 +372,7 @@ namespace Conti3
                 tx_idOper.Text = Oegreso.IdMovim;
                 tx_anno.Text = Oegreso.AnnoOp;    // DateTime.Parse(Oegreso.FechOper).Year.ToString();
                 selecFecha1.Value = DateTime.Parse(Oegreso.FechOper);
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 tx_tipcam.Text = Oegreso.TipCamb.ToString("#0.000");
             }
             else
@@ -381,13 +382,14 @@ namespace Conti3
                 else selecFecha1.Value = DateTime.Parse(Oegreso.FechOper);
                 if (Oegreso.AnnoOp == "") tx_anno.Text = DateTime.Now.Date.Year.ToString();
                 else tx_anno.Text = Oegreso.AnnoOp;
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 tipCambio(null);
             }
-            Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
             Tx_catEgre.Text = Oegreso.CatEgreso.largo; // Oegreso.CatEgreso.nombre
             eti_nomCat.Text = Oegreso.CatEgreso.nombre;  // Oegreso.CatEgreso.largo
             cmb_mon.SelectedValue = Oegreso.Moneda.codigo;
             tx_monto.Text = Oegreso.Monto.monOrige.ToString("#0.00");
+            tx_monto_Validating(null, null);            // 29/05/2025
             Tx_ctaDes.Text = Oegreso.CajaDes.largo;    // Oegreso.CajaDes.nombre
             eti_nomCaja.Text = Oegreso.CajaDes.nombre;   // Oegreso.CajaDes.largo
             Tx_nomProv.Text = Oegreso.Proveedor.nombre;
@@ -544,7 +546,7 @@ namespace Conti3
                                 MessageBox.Show("El tipo de cambio Dólares es: " + Omonto.tipCDol.ToString() + Environment.NewLine +
                                     "El tipo de cambio Euros es: " + Omonto.tipCOri.ToString(), "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 retorna = false;
-                                if (Tx_modo.Text == "NUEVO") this.Close();
+                                //if (Tx_modo.Text == null || Tx_modo.Text == "NUEVO") this.Close();  29/05/2025
                             }
                             else
                             {
@@ -669,7 +671,7 @@ namespace Conti3
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
             tx_anno.ReadOnly = true;
 
-            if (tipCambio(null) == true)   // tx_tipcam.Text == ""
+            if (true)   // tipCambio(null) == true  29/05/2025
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
                 {
@@ -692,7 +694,7 @@ namespace Conti3
                 //tx_tipcam.Focus();
                 Tx_catEgre.Focus();     // 27/05/2025
             }
-            else this.Close();
+            //else this.Close();
         }
         private void Bt_edit_Click(object sender, EventArgs e)
         {
@@ -701,7 +703,7 @@ namespace Conti3
             selecFecha1.Value = DateTime.Now.Date;
             Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
-            if (tipCambio(null) == true)
+            if (true)        // tipCambio(null) == true   29/05/2025
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
                 {
@@ -732,10 +734,7 @@ namespace Conti3
                 tx_idOper.ReadOnly = false;
                 tx_idOper.Focus();
             }
-            else
-            {
-                this.Close();
-            }
+            // else this.Close();
         }
         private void Bt_anul_Click(object sender, EventArgs e)
         {
@@ -1764,33 +1763,21 @@ namespace Conti3
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
-            if (Tx_modo.Text == "NUEVO") Tx_catEgre.Focus();
-            /* / En ningun caso la fecha puede ser posterior al actual
-            // si es nuevo la fecha puede ser anterior
-            // si es edicion no se permite cambiar la fecha, 04/12/2024
             if (selecFecha1.Value.Date > DateTime.Now.Date)
             {
                 MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 selecFecha1.Value = DateTime.Now.Date;
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
             }
-            try
-            {
-                if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
-                {
-                    Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
-                    tipCambio(null);
-                }
-            }
-            catch (Exception ex)
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
             {
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
-                tipCambio(null);
+                Tx_fecha_Validating(null, null);
             }
-            */
         }
         private void selecFecha1_Validating(object sender, CancelEventArgs e)
         {
+            /*
             if (selecFecha1.Value.Date > DateTime.Now.Date)
             {
                 MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -1805,6 +1792,7 @@ namespace Conti3
                     tipCambio(null);
                 }
             }
+            */
         }
         private void tx_ctaGiro_KeyPress(object sender, KeyPressEventArgs e)
         {
