@@ -122,6 +122,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(590, 35);
             this.toolStrip1.TabIndex = 33;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.usuarweb_Click);
             // 
             // toolStripSeparator2
             // 
@@ -347,6 +348,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(590, 413);
             this.tabControl1.TabIndex = 159;
+            this.tabControl1.Click += new System.EventHandler(this.usuarweb_Click);
             // 
             // tabgrilla
             // 
@@ -355,10 +357,11 @@
             this.tabgrilla.Location = new System.Drawing.Point(4, 22);
             this.tabgrilla.Name = "tabgrilla";
             this.tabgrilla.Padding = new System.Windows.Forms.Padding(3);
-            this.tabgrilla.Size = new System.Drawing.Size(582, 296);
+            this.tabgrilla.Size = new System.Drawing.Size(582, 387);
             this.tabgrilla.TabIndex = 0;
             this.tabgrilla.Text = "Usuarios Web";
             this.tabgrilla.UseVisualStyleBackColor = true;
+            this.tabgrilla.Click += new System.EventHandler(this.usuarweb_Click);
             this.tabgrilla.Enter += new System.EventHandler(this.tabgrilla_Enter);
             // 
             // advancedDataGridView1
@@ -372,7 +375,7 @@
             this.advancedDataGridView1.DateWithTime = false;
             this.advancedDataGridView1.Location = new System.Drawing.Point(3, 6);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.Size = new System.Drawing.Size(578, 287);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(578, 377);
             this.advancedDataGridView1.TabIndex = 0;
             this.advancedDataGridView1.TimeFilter = false;
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
@@ -380,6 +383,7 @@
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellDoubleClick);
             this.advancedDataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellEnter);
             this.advancedDataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.advancedDataGridView1_CellValidating);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.usuarweb_Click);
             // 
             // tabuser
             // 
@@ -408,6 +412,7 @@
             this.tabuser.Size = new System.Drawing.Size(582, 387);
             this.tabuser.TabIndex = 1;
             this.tabuser.Text = "Registro";
+            this.tabuser.Click += new System.EventHandler(this.usuarweb_Click);
             // 
             // Tx_ctaDes
             // 
@@ -641,6 +646,7 @@
             this.Text = "Administración de acceso web para cuentas personales";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.usuarweb_Load);
+            this.Click += new System.EventHandler(this.usuarweb_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usuarweb_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

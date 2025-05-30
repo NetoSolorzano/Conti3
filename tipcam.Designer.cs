@@ -100,6 +100,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(333, 35);
             this.toolStrip1.TabIndex = 35;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.tipcam_Click);
             // 
             // toolStripSeparator2
             // 
@@ -397,6 +398,7 @@
             this.advancedDataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellEnter);
             this.advancedDataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.advancedDataGridView1_CellValidating);
             this.advancedDataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.advancedDataGridView1_EditingControlShowing);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.tipcam_Click);
             this.advancedDataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewTextBox_KeyPress);
             // 
             // bt_agr
@@ -426,6 +428,7 @@
             this.Name = "tipcam";
             this.Text = "Tipos de Cambio";
             this.Load += new System.EventHandler(this.tipcam_Load);
+            this.Click += new System.EventHandler(this.tipcam_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tipcam_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

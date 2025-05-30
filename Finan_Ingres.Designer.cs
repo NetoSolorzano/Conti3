@@ -120,6 +120,7 @@
             this.eti_tituloForm.Tag = "INGRESOS ";
             this.eti_tituloForm.Text = "INGRESOS";
             this.eti_tituloForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eti_tituloForm.Click += new System.EventHandler(this.Finan_Ingres_Click);
             // 
             // tx_idOper
             // 
@@ -369,6 +370,7 @@
             this.panelGeneral4.Name = "panelGeneral4";
             this.panelGeneral4.Size = new System.Drawing.Size(338, 23);
             this.panelGeneral4.TabIndex = 1;
+            this.panelGeneral4.Click += new System.EventHandler(this.Finan_Ingres_Click);
             // 
             // chk_datSimil
             // 
@@ -395,6 +397,7 @@
             this.pan_p.Name = "pan_p";
             this.pan_p.Size = new System.Drawing.Size(385, 23);
             this.pan_p.TabIndex = 0;
+            this.pan_p.Click += new System.EventHandler(this.Finan_Ingres_Click);
             // 
             // rb_pers
             // 

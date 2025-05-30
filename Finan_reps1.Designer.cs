@@ -391,6 +391,7 @@
             this.eti_tituloForm.Tag = "REPORTES";
             this.eti_tituloForm.Text = "REPORTES";
             this.eti_tituloForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eti_tituloForm.Click += new System.EventHandler(this.Finan_reps1_Click);
             // 
             // advancedDataGridView1
             // 
@@ -638,6 +639,7 @@
             this.panelGeneral1.Name = "panelGeneral1";
             this.panelGeneral1.Size = new System.Drawing.Size(251, 103);
             this.panelGeneral1.TabIndex = 0;
+            this.panelGeneral1.Click += new System.EventHandler(this.Finan_reps1_Click);
             // 
             // rb_gasCam
             // 
@@ -788,6 +790,7 @@
             this.pan_selM.Name = "pan_selM";
             this.pan_selM.Size = new System.Drawing.Size(144, 35);
             this.pan_selM.TabIndex = 681;
+            this.pan_selM.Click += new System.EventHandler(this.Finan_reps1_Click);
             // 
             // generalEtiqueta7
             // 

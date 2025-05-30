@@ -642,6 +642,11 @@ namespace Conti3
             }
             return retorna;
         }
+        private void enlaces_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
 
     }
 }

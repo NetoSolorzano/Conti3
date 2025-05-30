@@ -406,6 +406,7 @@
             this.pan_p.Name = "pan_p";
             this.pan_p.Size = new System.Drawing.Size(388, 23);
             this.pan_p.TabIndex = 0;
+            this.pan_p.Click += new System.EventHandler(this.Finan_Egres_Click);
             // 
             // rb_pers
             // 
@@ -622,6 +623,7 @@
             this.panelGeneral4.Name = "panelGeneral4";
             this.panelGeneral4.Size = new System.Drawing.Size(336, 23);
             this.panelGeneral4.TabIndex = 1;
+            this.panelGeneral4.Click += new System.EventHandler(this.Finan_Egres_Click);
             // 
             // chk_datSimil
             // 
@@ -649,6 +651,7 @@
             this.eti_tituloForm.Tag = "EGRESOS ";
             this.eti_tituloForm.Text = "EGRESOS";
             this.eti_tituloForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eti_tituloForm.Click += new System.EventHandler(this.Finan_Egres_Click);
             // 
             // Bt_graba
             // 

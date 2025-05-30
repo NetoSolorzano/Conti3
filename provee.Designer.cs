@@ -129,6 +129,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(773, 35);
             this.toolStrip1.TabIndex = 35;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.provee_Click);
             // 
             // toolStripSeparator2
             // 
@@ -400,6 +401,7 @@
             this.advancedDataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.advancedDataGridView1_CellValidating);
             this.advancedDataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.advancedDataGridView1_EditingControlShowing);
             this.advancedDataGridView1.EnabledChanged += new System.EventHandler(this.advancedDataGridView1_EnabledChanged);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.provee_Click);
             this.advancedDataGridView1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridViewTextBox_KeyPress);
             // 
             // generalEtiqueta2
@@ -635,6 +637,7 @@
             this.eti_tituloForm.Tag = "PROVEEDORES";
             this.eti_tituloForm.Text = "REGISTRO DE PROVEEDORES";
             this.eti_tituloForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eti_tituloForm.Click += new System.EventHandler(this.provee_Click);
             // 
             // tx_estado
             // 
@@ -772,6 +775,7 @@
             this.Name = "provee";
             this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.provee_Load);
+            this.Click += new System.EventHandler(this.provee_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.provee_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

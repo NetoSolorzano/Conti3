@@ -1069,5 +1069,12 @@ namespace Conti3
             }
         }
         #endregion
+
+        private void usuarweb_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
+
     }
 }

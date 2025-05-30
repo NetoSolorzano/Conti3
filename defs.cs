@@ -1076,5 +1076,12 @@ namespace Conti3
             }
         }
         #endregion
+
+        private void defs_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
+
     }
 }

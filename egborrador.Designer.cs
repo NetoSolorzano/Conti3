@@ -141,6 +141,7 @@
             this.eti_tituloForm.Tag = "VALIDACION ";
             this.eti_tituloForm.Text = "REGISTRO DE EGRESOS PARA VALIDAR";
             this.eti_tituloForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eti_tituloForm.Click += new System.EventHandler(this.egborrador_Click);
             // 
             // toolStrip1
             // 

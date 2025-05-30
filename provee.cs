@@ -766,5 +766,11 @@ namespace Conti3
             limpia_chk();
             pintaFilaAnul();
         }
+
+        private void provee_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
     }
 }

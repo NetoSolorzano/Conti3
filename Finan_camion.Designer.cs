@@ -133,6 +133,7 @@
             this.eti_tituloForm.Tag = "CAMIONES ";
             this.eti_tituloForm.Text = "GASTOS ALMACEN";
             this.eti_tituloForm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.eti_tituloForm.Click += new System.EventHandler(this.Finan_camion_Click);
             // 
             // toolStrip1
             // 

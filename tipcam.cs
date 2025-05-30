@@ -1,13 +1,8 @@
-﻿//using ADGV;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+using System.Runtime.ConstrainedExecution;
 using System.Windows.Forms;
 
 namespace Conti3
@@ -491,5 +486,10 @@ namespace Conti3
             }
         }
 
+        private void tipcam_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
     }
 }

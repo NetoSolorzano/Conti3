@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-//using DocumentFormat.OpenXml.Drawing;
 using MySql.Data.MySqlClient;
 
 namespace Conti3
@@ -1256,5 +1255,12 @@ namespace Conti3
             }
         }
         #endregion
+
+        private void users_Click(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.BringToFront();
+        }
+
     }
 }

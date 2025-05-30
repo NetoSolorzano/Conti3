@@ -230,4 +230,15 @@ Form Finan_camion, tip_camb no debe ser editable, jalar el T.C. de la fecha ....
 Form Finan_egres, poner el codigo fechas y select_fecha como en "camion" ........ 29/05/2025
 Form Finan_Ingres, poner el codigo fechas y select_fecha como en "camion" ....... 29/05/2025
 Form defs, modo EDICION poniendo codigo de cta. no graba el cambio .............. 29/05/2025	problema detectado por pons el 26/05/2025
-
+Form defs, adecuar click form para ser frontal en titulos,grilla y vacios ....... 30/05/2025
+Form egborrador, poner click frontal en titulos y otros, lo + posible ........... 30/05/2025 titulo
+Form enlaces, adecuar click form para ser frontal en titulos,grilla y vacios .... 30/05/2025
+Form Finan_camion, poner click frontal en titulos y otros, lo + posible ......... 30/05/2025
+Form Finan_egres, poner click frontal en titulos y otros, lo + posible .......... 30/05/2025
+Form Finan_Ingres, poner click frontal en titulos y otros, lo + posible ......... 30/05/2025
+Form Finan_reps1, poner click frontal en titulos y otros, lo + posible .......... 30/05/2025
+Form permisos, adecuar click form para ser frontal en titulos,grilla y vacios ... 30/05/2025
+Form provee, adecuar click form para ser frontal en titulos,grilla y vacios ..... 30/05/2025
+Form tipcam, adecuar click form para ser frontal en titulos,grilla y vacios ..... 30/05/2025
+Form users, adecuar click form para ser frontal en titulos,grilla y vacios ...... 30/05/2025
+Form usuarweb, adecuar click form para ser frontal en titulos,grilla y vacios ... 30/05/2025

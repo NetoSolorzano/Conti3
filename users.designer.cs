@@ -140,6 +140,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(662, 35);
             this.toolStrip1.TabIndex = 33;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.users_Click);
             // 
             // toolStripSeparator2
             // 
@@ -363,6 +364,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(662, 369);
             this.tabControl1.TabIndex = 159;
+            this.tabControl1.Click += new System.EventHandler(this.users_Click);
             // 
             // tabgrilla
             // 
@@ -374,6 +376,7 @@
             this.tabgrilla.TabIndex = 0;
             this.tabgrilla.Text = "Usuarios";
             this.tabgrilla.UseVisualStyleBackColor = true;
+            this.tabgrilla.Click += new System.EventHandler(this.users_Click);
             this.tabgrilla.Enter += new System.EventHandler(this.tabgrilla_Enter);
             // 
             // advancedDataGridView1
@@ -393,6 +396,7 @@
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellDoubleClick);
             this.advancedDataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellEnter);
             this.advancedDataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.advancedDataGridView1_CellValidating);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.users_Click);
             // 
             // tabuser
             // 
@@ -435,6 +439,7 @@
             this.tabuser.Size = new System.Drawing.Size(654, 343);
             this.tabuser.TabIndex = 1;
             this.tabuser.Text = "Registro";
+            this.tabuser.Click += new System.EventHandler(this.users_Click);
             // 
             // tx_desenc
             // 
@@ -599,7 +604,7 @@
             this.groupBox9.Controls.Add(this.groupBox10);
             this.groupBox9.Location = new System.Drawing.Point(82, 165);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(230, 1);
+            this.groupBox9.Size = new System.Drawing.Size(229, 1);
             this.groupBox9.TabIndex = 176;
             this.groupBox9.TabStop = false;
             // 
@@ -617,7 +622,7 @@
             this.groupBox7.Controls.Add(this.groupBox8);
             this.groupBox7.Location = new System.Drawing.Point(82, 138);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(230, 1);
+            this.groupBox7.Size = new System.Drawing.Size(229, 1);
             this.groupBox7.TabIndex = 175;
             this.groupBox7.TabStop = false;
             // 
@@ -635,7 +640,7 @@
             this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Location = new System.Drawing.Point(82, 111);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(230, 1);
+            this.groupBox5.Size = new System.Drawing.Size(229, 1);
             this.groupBox5.TabIndex = 174;
             this.groupBox5.TabStop = false;
             // 
@@ -653,7 +658,7 @@
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(82, 84);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(479, 1);
+            this.groupBox3.Size = new System.Drawing.Size(477, 1);
             this.groupBox3.TabIndex = 173;
             this.groupBox3.TabStop = false;
             // 
@@ -671,7 +676,7 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(82, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(180, 1);
+            this.groupBox1.Size = new System.Drawing.Size(178, 1);
             this.groupBox1.TabIndex = 172;
             this.groupBox1.TabStop = false;
             // 
@@ -690,7 +695,7 @@
             this.groupBox11.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox11.Location = new System.Drawing.Point(82, 40);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(180, 1);
+            this.groupBox11.Size = new System.Drawing.Size(178, 1);
             this.groupBox11.TabIndex = 171;
             this.groupBox11.TabStop = false;
             // 
@@ -823,6 +828,7 @@
             this.Text = "Administración de Usuarios";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.users_Load);
+            this.Click += new System.EventHandler(this.users_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.users_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

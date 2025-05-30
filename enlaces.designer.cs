@@ -134,6 +134,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(662, 35);
             this.toolStrip1.TabIndex = 33;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.enlaces_Click);
             // 
             // toolStripSeparator2
             // 
@@ -362,6 +363,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(662, 369);
             this.tabControl1.TabIndex = 159;
+            this.tabControl1.Click += new System.EventHandler(this.enlaces_Click);
             // 
             // tabgrilla
             // 
@@ -373,6 +375,7 @@
             this.tabgrilla.TabIndex = 0;
             this.tabgrilla.Text = "Definiciones";
             this.tabgrilla.UseVisualStyleBackColor = true;
+            this.tabgrilla.Click += new System.EventHandler(this.enlaces_Click);
             // 
             // advancedDataGridView1
             // 
@@ -390,6 +393,7 @@
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellDoubleClick);
             this.advancedDataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellEnter);
             this.advancedDataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.advancedDataGridView1_CellValidating);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.enlaces_Click);
             // 
             // tabreg
             // 
@@ -421,6 +425,7 @@
             this.tabreg.Size = new System.Drawing.Size(654, 343);
             this.tabreg.TabIndex = 1;
             this.tabreg.Text = "Registro";
+            this.tabreg.Click += new System.EventHandler(this.enlaces_Click);
             // 
             // label3
             // 
@@ -709,6 +714,7 @@
             this.Text = "Enlaces de datos";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.enlaces_Load);
+            this.Click += new System.EventHandler(this.enlaces_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.enlaces_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

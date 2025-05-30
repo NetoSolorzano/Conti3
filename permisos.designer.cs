@@ -124,6 +124,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(811, 35);
             this.toolStrip1.TabIndex = 33;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.permisos_Click);
             // 
             // toolStripSeparator2
             // 
@@ -334,6 +335,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(811, 369);
             this.tabControl1.TabIndex = 159;
+            this.tabControl1.Click += new System.EventHandler(this.permisos_Click);
             // 
             // tabgrilla
             // 
@@ -345,6 +347,7 @@
             this.tabgrilla.TabIndex = 0;
             this.tabgrilla.Text = "Definiciones";
             this.tabgrilla.UseVisualStyleBackColor = true;
+            this.tabgrilla.Click += new System.EventHandler(this.permisos_Click);
             // 
             // advancedDataGridView1
             // 
@@ -362,6 +365,7 @@
             this.advancedDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellDoubleClick);
             this.advancedDataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellEnter);
             this.advancedDataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.advancedDataGridView1_CellValidating);
+            this.advancedDataGridView1.Click += new System.EventHandler(this.permisos_Click);
             // 
             // tabreg
             // 
@@ -395,6 +399,7 @@
             this.tabreg.Size = new System.Drawing.Size(803, 343);
             this.tabreg.TabIndex = 1;
             this.tabreg.Text = "Registro";
+            this.tabreg.Click += new System.EventHandler(this.permisos_Click);
             // 
             // button2
             // 
@@ -676,6 +681,7 @@
             this.Text = "Permisos de acceso";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.permisos_Load);
+            this.Click += new System.EventHandler(this.permisos_Click);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.permisos_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
