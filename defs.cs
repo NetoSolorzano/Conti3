@@ -755,6 +755,7 @@ namespace Conti3
                     chk_marc3.Checked = (row[14].ToString() == "0") ? false : true;
                     tx_enla1.Text = row[15].ToString();
                     tx_csunat.Text = row[16].ToString();
+                    tx_idr.Text = row[0].ToString();     // id del registro en descrittive
                 }
                 if(contador == 0)
                 {
@@ -774,6 +775,7 @@ namespace Conti3
                     chk_marc3.Checked = false;
                     tx_enla1.Text = "";
                     tx_csunat.Text = "";
+                    tx_idr.Text = "";
                     return;
                 }
             }
