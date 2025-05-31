@@ -1144,6 +1144,7 @@
             this.tx_descrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_descrip.Location = new System.Drawing.Point(130, 130);
             this.tx_descrip.Name = "tx_descrip";
+            this.tx_descrip.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.tx_descrip.Size = new System.Drawing.Size(580, 39);
             this.tx_descrip.TabIndex = 9;
             this.tx_descrip.Text = "";

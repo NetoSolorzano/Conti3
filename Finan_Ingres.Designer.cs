@@ -859,6 +859,7 @@
             this.tx_descrip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_descrip.Location = new System.Drawing.Point(144, 143);
             this.tx_descrip.Name = "tx_descrip";
+            this.tx_descrip.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.tx_descrip.Size = new System.Drawing.Size(580, 34);
             this.tx_descrip.TabIndex = 8;
             this.tx_descrip.Text = "";
