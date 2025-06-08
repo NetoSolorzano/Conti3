@@ -1253,7 +1253,7 @@ namespace Conti3
         }
         private void tx_idOper_Leave(object sender, EventArgs e)
         {
-            if (Tx_modo.Text == "NUEVO") Tx_fecha.Focus();
+            if (Tx_modo.Text == "NUEVO") selecFecha1.Focus();   // Tx_fecha.Focus();
         }
         private void tx_monto_Validating(object sender, CancelEventArgs e)
         {
@@ -1760,6 +1760,10 @@ namespace Conti3
                 DateTime fecOp = DateTime.Now.Date;
                 Tx_fecha.Text = fecOp.ToString();
             }
+        }
+        private void Tx_fecha_Enter(object sender, EventArgs e)
+        {
+            Tx_fecha.Select(0, 0);
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
