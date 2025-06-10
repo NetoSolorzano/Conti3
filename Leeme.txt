@@ -242,4 +242,5 @@ Form provee, adecuar click form para ser frontal en titulos,grilla y vacios ....
 Form tipcam, adecuar click form para ser frontal en titulos,grilla y vacios ..... 30/05/2025
 Form users, adecuar click form para ser frontal en titulos,grilla y vacios ...... 30/05/2025
 Form usuarweb, adecuar click form para ser frontal en titulos,grilla y vacios ... 30/05/2025
-Form Finan_egres, revision funcionalidad fecha, cambio a selectfecha1 ........... 07/06/2025 queja de Pons
+Form Finan_egres, revision funcionalidad fecha, cambio a selectfecha1 ........... 08/06/2025 queja de Pons
+Form Finan_egres, debe jalar tipo de cambio actual al iniciar el form ........... 10/06/2025  no debe dejar en blanco campo t.c.

@@ -670,7 +670,7 @@ namespace Conti3
             Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
             tx_anno.ReadOnly = true;
-
+            selecFecha1_Leave(null, null);
             if (true)   // tipCambio(null) == true  29/05/2025
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
@@ -703,6 +703,7 @@ namespace Conti3
             selecFecha1.Value = DateTime.Now.Date;
             Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
+            selecFecha1_Leave(null, null);
             if (true)        // tipCambio(null) == true   29/05/2025
             {
                 if (rb_pers.Checked == false && rb_omg.Checked == false)
@@ -1254,6 +1255,7 @@ namespace Conti3
         private void tx_idOper_Leave(object sender, EventArgs e)
         {
             if (Tx_modo.Text == "NUEVO") selecFecha1.Focus();   // Tx_fecha.Focus();
+            else selecFecha1.Focus();
         }
         private void tx_monto_Validating(object sender, CancelEventArgs e)
         {
@@ -1765,7 +1767,7 @@ namespace Conti3
         {
             Tx_fecha.Select(0, 0);
         }
-        private void selecFecha1_ValueChanged(object sender, EventArgs e)
+        private void selecFecha1_Leave(object sender, EventArgs e)
         {
             if (selecFecha1.Value.Date > DateTime.Now.Date)
             {
@@ -1778,6 +1780,20 @@ namespace Conti3
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 Tx_fecha_Validating(null, null);
             }
+        }
+        private void selecFecha1_ValueChanged(object sender, EventArgs e)
+        {
+            /*  if (selecFecha1.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                selecFecha1.Value = DateTime.Now.Date;
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+            }
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
+            {
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                Tx_fecha_Validating(null, null);
+            }   */
         }
         private void selecFecha1_Validating(object sender, CancelEventArgs e)
         {
@@ -2470,15 +2486,15 @@ namespace Conti3
         }
         private void Bt_graba_Click(object sender, EventArgs e)
         {
-            if (tx_tipcam.Text == "" || double.Parse(tx_tipcam.Text) <= 0)
-            {
-                MessageBox.Show("No existe tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                Tx_fecha.Focus();
-                return;
-            }
             if (Tx_modo.Text == "NUEVO")
             {
                 // validamos datos esenciales
+                if (tx_tipcam.Text == "" || double.Parse(tx_tipcam.Text) <= 0)
+                {
+                    MessageBox.Show("No existe tipo de cambio", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    Tx_fecha.Focus();
+                    return;
+                }
                 if (Tx_catEgre.Text == "")
                 {
                     errorProvider1.SetError(Tx_catEgre, "Debe ingresar un tipo");
