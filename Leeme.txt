@@ -244,3 +244,6 @@ Form users, adecuar click form para ser frontal en titulos,grilla y vacios .....
 Form usuarweb, adecuar click form para ser frontal en titulos,grilla y vacios ... 30/05/2025
 Form Finan_egres, revision funcionalidad fecha, cambio a selectfecha1 ........... 08/06/2025 queja de Pons
 Form Finan_egres, debe jalar tipo de cambio actual al iniciar el form ........... 10/06/2025  no debe dejar en blanco campo t.c.
+Form Finan_Ingres, poner fecha como en EGRESOS .................................. 15/06/2025
+Form Finan_camion, poner fecha como en EGRESOS .................................. 15/06/2025
+Form egborrador, poner fecha como en EGRESOS .................................... 15/06/2025

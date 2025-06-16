@@ -131,7 +131,8 @@
             this.tx_idOper.Location = new System.Drawing.Point(195, 60);
             this.tx_idOper.Name = "tx_idOper";
             this.tx_idOper.Size = new System.Drawing.Size(78, 13);
-            this.tx_idOper.TabIndex = 222;
+            this.tx_idOper.TabIndex = 2;
+            this.tx_idOper.Leave += new System.EventHandler(this.tx_idOper_Leave);
             this.tx_idOper.Validating += new System.ComponentModel.CancelEventHandler(this.tx_idOper_Validating);
             // 
             // eti_idOper
@@ -214,12 +215,14 @@
             // 
             // selecFecha1
             // 
+            this.selecFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selecFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.selecFecha1.Location = new System.Drawing.Point(624, 59);
+            this.selecFecha1.Location = new System.Drawing.Point(519, 56);
             this.selecFecha1.Name = "selecFecha1";
-            this.selecFecha1.Size = new System.Drawing.Size(18, 20);
-            this.selecFecha1.TabIndex = 11;
+            this.selecFecha1.Size = new System.Drawing.Size(123, 24);
+            this.selecFecha1.TabIndex = 3;
             this.selecFecha1.ValueChanged += new System.EventHandler(this.selecFecha1_ValueChanged);
+            this.selecFecha1.Leave += new System.EventHandler(this.selecFecha1_Leave);
             this.selecFecha1.Validating += new System.ComponentModel.CancelEventHandler(this.selecFecha1_Validating);
             // 
             // tx_tipcam
@@ -745,13 +748,14 @@
             this.Tx_fecha.BeepOnError = true;
             this.Tx_fecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_fecha.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.Tx_fecha.Location = new System.Drawing.Point(519, 60);
+            this.Tx_fecha.Location = new System.Drawing.Point(807, 124);
             this.Tx_fecha.Mask = "00/00/0000";
             this.Tx_fecha.Name = "Tx_fecha";
             this.Tx_fecha.Size = new System.Drawing.Size(103, 13);
-            this.Tx_fecha.TabIndex = 3;
+            this.Tx_fecha.TabIndex = 333;
             this.Tx_fecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tx_fecha.ValidatingType = typeof(System.DateTime);
+            this.Tx_fecha.Visible = false;
             this.Tx_fecha.Click += new System.EventHandler(this.Tx_fecha_Click);
             this.Tx_fecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.Tx_fecha.Validating += new System.ComponentModel.CancelEventHandler(this.Tx_fecha_Validating);

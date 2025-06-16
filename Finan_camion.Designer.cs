@@ -421,7 +421,7 @@
             this.advancedDataGridView1.DateWithTime = false;
             this.advancedDataGridView1.Location = new System.Drawing.Point(0, 197);
             this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.Size = new System.Drawing.Size(1011, 188);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(1011, 189);
             this.advancedDataGridView1.TabIndex = 8;
             this.advancedDataGridView1.TimeFilter = false;
             this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.advancedDataGridView1_SortStringChanged);
@@ -464,7 +464,7 @@
             this.tx_tipcam.ForeColor = System.Drawing.Color.Blue;
             this.tx_tipcam.Location = new System.Drawing.Point(567, 41);
             this.tx_tipcam.Name = "tx_tipcam";
-            this.tx_tipcam.Size = new System.Drawing.Size(120, 19);
+            this.tx_tipcam.Size = new System.Drawing.Size(115, 19);
             this.tx_tipcam.TabIndex = 1;
             this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tx_tipcam.Leave += new System.EventHandler(this.tx_tipcam_Leave);
@@ -602,13 +602,14 @@
             this.Tx_fecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_fecha.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.Tx_fecha.Location = new System.Drawing.Point(567, 64);
+            this.Tx_fecha.Location = new System.Drawing.Point(300, 65);
             this.Tx_fecha.Mask = "00/00/0000";
             this.Tx_fecha.Name = "Tx_fecha";
             this.Tx_fecha.Size = new System.Drawing.Size(120, 15);
-            this.Tx_fecha.TabIndex = 3;
+            this.Tx_fecha.TabIndex = 333;
             this.Tx_fecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tx_fecha.ValidatingType = typeof(System.DateTime);
+            this.Tx_fecha.Visible = false;
             this.Tx_fecha.Click += new System.EventHandler(this.Tx_fecha_Click);
             this.Tx_fecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.Tx_fecha.Validating += new System.ComponentModel.CancelEventHandler(this.Tx_fecha_Validating);
@@ -639,12 +640,14 @@
             // 
             // selecFecha1
             // 
+            this.selecFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selecFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.selecFecha1.Location = new System.Drawing.Point(688, 62);
+            this.selecFecha1.Location = new System.Drawing.Point(567, 60);
             this.selecFecha1.Name = "selecFecha1";
-            this.selecFecha1.Size = new System.Drawing.Size(19, 20);
-            this.selecFecha1.TabIndex = 13;
+            this.selecFecha1.Size = new System.Drawing.Size(140, 24);
+            this.selecFecha1.TabIndex = 3;
             this.selecFecha1.ValueChanged += new System.EventHandler(this.selecFecha1_ValueChanged);
+            this.selecFecha1.Leave += new System.EventHandler(this.selecFecha1_Leave);
             // 
             // generalEtiqueta6
             // 

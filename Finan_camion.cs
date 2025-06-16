@@ -711,7 +711,7 @@ namespace Conti3
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
-            if (selecFecha1.Value.Date > DateTime.Now.Date)
+            /*  if (selecFecha1.Value.Date > DateTime.Now.Date)
             {
                 MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 selecFecha1.Value = DateTime.Now.Date;
@@ -721,7 +721,7 @@ namespace Conti3
             {
                 Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
                 Tx_fecha_Validating(null,null);
-            }
+            }   */
         }
         private void selecFecha1_Validating(object sender, CancelEventArgs e)
         {
@@ -747,6 +747,20 @@ namespace Conti3
                 tx_montoS.Text = Omonto.monSoles.ToString("#0.00");
             }
             */
+        }
+        private void selecFecha1_Leave(object sender, EventArgs e)
+        {
+            if (selecFecha1.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("No se permite fechas posteriores", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                selecFecha1.Value = DateTime.Now.Date;
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+            }
+            if ((Tx_modo.Text == "NUEVO" || Tx_modo.Text == "EDICION") && chk_datSimil.Checked == false)
+            {
+                Tx_fecha.Text = selecFecha1.Value.Date.ToString("dd/MM/yyyy");
+                Tx_fecha_Validating(null, null);
+            }
         }
         private void Tx_fecha_Click(object sender, EventArgs e)
         {

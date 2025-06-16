@@ -1128,6 +1128,10 @@ namespace Conti3
         }
         private void selecFecha1_ValueChanged(object sender, EventArgs e)
         {
+            // lo pase a leave()   15/06/2025
+        }
+        private void selecFecha1_Leave(object sender, EventArgs e)
+        {
             // En ningun caso la fecha puede ser posterior al actual
             // si es nuevo la fecha puede ser anterior
             // si es edicion no se permite cambiar la fecha, 04/12/2024

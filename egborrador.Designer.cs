@@ -469,7 +469,7 @@
             this.generalEtiqueta2.ForeColor = System.Drawing.Color.Blue;
             this.generalEtiqueta2.Location = new System.Drawing.Point(419, 42);
             this.generalEtiqueta2.Name = "generalEtiqueta2";
-            this.generalEtiqueta2.Size = new System.Drawing.Size(140, 19);
+            this.generalEtiqueta2.Size = new System.Drawing.Size(160, 19);
             this.generalEtiqueta2.TabIndex = 67;
             this.generalEtiqueta2.Text = "Tipo de cambio";
             // 
@@ -479,11 +479,11 @@
             this.tx_tipcam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_tipcam.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_tipcam.ForeColor = System.Drawing.Color.Blue;
-            this.tx_tipcam.Location = new System.Drawing.Point(560, 42);
+            this.tx_tipcam.Location = new System.Drawing.Point(580, 42);
             this.tx_tipcam.Name = "tx_tipcam";
             this.tx_tipcam.Size = new System.Drawing.Size(130, 19);
             this.tx_tipcam.TabIndex = 3;
-            this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tx_tipcam.Leave += new System.EventHandler(this.tx_tipcam_Leave);
             this.tx_tipcam.Validating += new System.ComponentModel.CancelEventHandler(this.tx_tipcam_Validating);
             // 
@@ -610,13 +610,14 @@
             this.Tx_fecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tx_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_fecha.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.Tx_fecha.Location = new System.Drawing.Point(560, 65);
+            this.Tx_fecha.Location = new System.Drawing.Point(792, 172);
             this.Tx_fecha.Mask = "00/00/0000";
             this.Tx_fecha.Name = "Tx_fecha";
             this.Tx_fecha.Size = new System.Drawing.Size(130, 17);
-            this.Tx_fecha.TabIndex = 6;
+            this.Tx_fecha.TabIndex = 666;
             this.Tx_fecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tx_fecha.ValidatingType = typeof(System.DateTime);
+            this.Tx_fecha.Visible = false;
             this.Tx_fecha.Click += new System.EventHandler(this.Tx_fecha_Click);
             this.Tx_fecha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             this.Tx_fecha.Leave += new System.EventHandler(this.Tx_fecha_Leave);
@@ -647,12 +648,14 @@
             // 
             // selecFecha1
             // 
+            this.selecFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selecFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.selecFecha1.Location = new System.Drawing.Point(690, 63);
+            this.selecFecha1.Location = new System.Drawing.Point(580, 61);
             this.selecFecha1.Name = "selecFecha1";
-            this.selecFecha1.Size = new System.Drawing.Size(20, 20);
-            this.selecFecha1.TabIndex = 20;
+            this.selecFecha1.Size = new System.Drawing.Size(131, 24);
+            this.selecFecha1.TabIndex = 6;
             this.selecFecha1.ValueChanged += new System.EventHandler(this.selecFecha1_ValueChanged);
+            this.selecFecha1.Leave += new System.EventHandler(this.selecFecha1_Leave);
             // 
             // generalEtiqueta6
             // 
@@ -661,7 +664,7 @@
             this.generalEtiqueta6.ForeColor = System.Drawing.Color.Blue;
             this.generalEtiqueta6.Location = new System.Drawing.Point(419, 64);
             this.generalEtiqueta6.Name = "generalEtiqueta6";
-            this.generalEtiqueta6.Size = new System.Drawing.Size(140, 19);
+            this.generalEtiqueta6.Size = new System.Drawing.Size(161, 19);
             this.generalEtiqueta6.TabIndex = 365;
             this.generalEtiqueta6.Text = "Fecha Operación";
             // 
@@ -853,7 +856,7 @@
             this.pan_p.Location = new System.Drawing.Point(129, 40);
             this.pan_p.Name = "pan_p";
             this.pan_p.Size = new System.Drawing.Size(289, 22);
-            this.pan_p.TabIndex = 679;
+            this.pan_p.TabIndex = 2;
             // 
             // rb_pers
             // 
@@ -864,7 +867,7 @@
             this.rb_pers.Location = new System.Drawing.Point(150, 0);
             this.rb_pers.Name = "rb_pers";
             this.rb_pers.Size = new System.Drawing.Size(87, 17);
-            this.rb_pers.TabIndex = 6;
+            this.rb_pers.TabIndex = 1;
             this.rb_pers.TabStop = true;
             this.rb_pers.Text = "Personales";
             this.rb_pers.UseVisualStyleBackColor = false;
@@ -879,7 +882,7 @@
             this.rb_omg.Location = new System.Drawing.Point(48, 0);
             this.rb_omg.Name = "rb_omg";
             this.rb_omg.Size = new System.Drawing.Size(52, 17);
-            this.rb_omg.TabIndex = 5;
+            this.rb_omg.TabIndex = 0;
             this.rb_omg.TabStop = true;
             this.rb_omg.Text = "OMG";
             this.rb_omg.UseVisualStyleBackColor = false;
