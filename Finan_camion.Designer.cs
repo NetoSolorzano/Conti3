@@ -312,7 +312,6 @@
             // Tx_modo
             // 
             this.Tx_modo.BackColor = System.Drawing.SystemColors.Control;
-            this.Tx_modo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Tx_modo.Name = "Tx_modo";
             this.Tx_modo.ReadOnly = true;
             this.Tx_modo.Size = new System.Drawing.Size(100, 35);
@@ -449,11 +448,11 @@
             this.generalEtiqueta2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta2.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta2.Location = new System.Drawing.Point(426, 41);
+            this.generalEtiqueta2.Location = new System.Drawing.Point(476, 41);
             this.generalEtiqueta2.Name = "generalEtiqueta2";
-            this.generalEtiqueta2.Size = new System.Drawing.Size(140, 19);
+            this.generalEtiqueta2.Size = new System.Drawing.Size(119, 19);
             this.generalEtiqueta2.TabIndex = 67;
-            this.generalEtiqueta2.Text = "Tipo de cambio";
+            this.generalEtiqueta2.Text = "Tipo cambio";
             this.generalEtiqueta2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tx_tipcam
@@ -462,11 +461,11 @@
             this.tx_tipcam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tx_tipcam.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_tipcam.ForeColor = System.Drawing.Color.Blue;
-            this.tx_tipcam.Location = new System.Drawing.Point(567, 41);
+            this.tx_tipcam.Location = new System.Drawing.Point(596, 41);
             this.tx_tipcam.Name = "tx_tipcam";
-            this.tx_tipcam.Size = new System.Drawing.Size(115, 19);
+            this.tx_tipcam.Size = new System.Drawing.Size(110, 19);
             this.tx_tipcam.TabIndex = 1;
-            this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tx_tipcam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tx_tipcam.Leave += new System.EventHandler(this.tx_tipcam_Leave);
             // 
             // linV1
@@ -642,9 +641,9 @@
             // 
             this.selecFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selecFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.selecFecha1.Location = new System.Drawing.Point(567, 60);
+            this.selecFecha1.Location = new System.Drawing.Point(596, 60);
             this.selecFecha1.Name = "selecFecha1";
-            this.selecFecha1.Size = new System.Drawing.Size(140, 24);
+            this.selecFecha1.Size = new System.Drawing.Size(111, 24);
             this.selecFecha1.TabIndex = 3;
             this.selecFecha1.ValueChanged += new System.EventHandler(this.selecFecha1_ValueChanged);
             this.selecFecha1.Leave += new System.EventHandler(this.selecFecha1_Leave);
@@ -654,11 +653,11 @@
             this.generalEtiqueta6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(228)))), ((int)(((byte)(195)))));
             this.generalEtiqueta6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalEtiqueta6.ForeColor = System.Drawing.Color.Blue;
-            this.generalEtiqueta6.Location = new System.Drawing.Point(426, 63);
+            this.generalEtiqueta6.Location = new System.Drawing.Point(476, 63);
             this.generalEtiqueta6.Name = "generalEtiqueta6";
-            this.generalEtiqueta6.Size = new System.Drawing.Size(140, 19);
+            this.generalEtiqueta6.Size = new System.Drawing.Size(119, 19);
             this.generalEtiqueta6.TabIndex = 365;
-            this.generalEtiqueta6.Text = "Fecha Operación";
+            this.generalEtiqueta6.Text = "Fecha Operac.";
             this.generalEtiqueta6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -945,7 +944,7 @@
             this.Tx_asignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tx_asignado.Location = new System.Drawing.Point(130, 42);
             this.Tx_asignado.Name = "Tx_asignado";
-            this.Tx_asignado.Size = new System.Drawing.Size(294, 17);
+            this.Tx_asignado.Size = new System.Drawing.Size(345, 17);
             this.Tx_asignado.TabIndex = 0;
             this.Tx_asignado.Values = null;
             this.Tx_asignado.Enter += new System.EventHandler(this.Tx_asignado_Enter);

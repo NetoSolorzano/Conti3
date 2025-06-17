@@ -947,7 +947,7 @@ namespace Conti3
                     {
                         advancedDataGridView1.Columns[i].ReadOnly = true;    // acá ponemos todas las columnas en readonly menos la ultima con check
                     }
-                    advancedDataGridView1.Columns["Chk_PAG"].ReadOnly = true;  // false 06/05/2025 no se puede cambiar 
+                    advancedDataGridView1.Columns["Chk_PAG"].ReadOnly = false;  // true 17/06/2025 no se puede cambiar 
                     // si el registro ya fue pagado, le pone el check
                     for (int i = 0; i < advancedDataGridView1.Rows.Count - 1; i++)
                     {
@@ -1028,6 +1028,40 @@ namespace Conti3
             DataTable dtg = (DataTable)advancedDataGridView1.DataSource;
             dtg.DefaultView.RowFilter = advancedDataGridView1.FilterString;
         }
+        private void advancedDataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // se paso a cellValidating
+        }
+        private void advancedDataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // no pasa nada por aca
+        }
+        private void advancedDataGridView1_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
+        {
+            // aca tampoco
+        }
+        private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int q = advancedDataGridView1.CurrentCell.ColumnIndex;
+            if (Tx_modo.Text == "EDICION" && advancedDataGridView1.Rows.Count > -1 && q == 0)
+            {
+                string est = advancedDataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString();
+                //MessageBox.Show(est);
+                if (est == "False")
+                {
+                    // estaba desmarcado, osea lo marca
+                    advancedDataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = ColorTranslator.FromHtml(col1rafila);
+                    actuatabl(int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString()), 1);
+                }
+                if (est == "True")
+                {
+                    // estaba marcado, osea lo desmarca
+                    advancedDataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    actuatabl(int.Parse(advancedDataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString()), 0);
+                }
+            }
+        }
+
         #endregion
 
         #region leaves y focus
