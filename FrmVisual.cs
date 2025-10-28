@@ -38,6 +38,7 @@ namespace Conti3
             if (_dataSet1.ResCtasPers.Rows.Count > 0)
             {
                 string nf = _dataSet1.ResCtasPers.Rows[0].ItemArray[12].ToString();
+                //string nf = "repResCtaPersInt.rpt";
                 ReportDocument rpt = new ReportDocument();
                 rpt.Load(nf);
                 rpt.SetDataSource(_dataSet1);

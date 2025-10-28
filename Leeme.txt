@@ -247,4 +247,11 @@ Form Finan_egres, debe jalar tipo de cambio actual al iniciar el form ..........
 Form Finan_Ingres, poner fecha como en EGRESOS .................................. 15/06/2025
 Form Finan_camion, poner fecha como en EGRESOS .................................. 15/06/2025
 Form egborrador, poner fecha como en EGRESOS .................................... 15/06/2025
-Form egborrador, asunto de check de pagado en edicion ........................... 
+Form FrmVisual, cambio a nombre de reporte hardcodeado para pruebas ............. 22/10/2025 prueba de interlineado
+Form egborrador, asunto de check de pagado en edicion ........................... imagino ok en algun momento
+C.R. repCtaPers1, interlineado gris y centrado en detalle ....................... 28/10/2025
+C.R. repGasCam1, interlineado gris y centrado en detalle ........................ 28/10/2025
+C.R. repGenOMG1, interlineado gris y centrado en detalle ........................ 28/10/2025
+C.R. repGenOMGR, interlineado gris y centrado en detalle ........................ 28/10/2025
+C.R. repResCtaPers1, interlineado gris y centrado en detalle .................... 28/10/2025
+

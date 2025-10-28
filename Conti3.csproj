@@ -398,9 +398,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="repResCtaPers1.cs">
+      <DependentUpon>repResCtaPers1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="repResCtaPersInt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>repResCtaPers1.rpt</DependentUpon>
+      <DependentUpon>repResCtaPersInt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Resource1.Designer.cs">
@@ -501,6 +507,10 @@
     <EmbeddedResource Include="repResCtaPers1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>repResCtaPers1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="repResCtaPersInt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repResCtaPersInt.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
