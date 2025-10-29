@@ -233,6 +233,7 @@ namespace Conti3
                         if (dr["property"].ToString() == "Fondo_grilla") OColores.Fondo_grilla = dr["uvalue"].ToString();
                         if (dr["property"].ToString() == "Grilla_fila_normal") OColores.Grilla_fila_normal = dr["uvalue"].ToString();
                         if (dr["property"].ToString() == "Grilla_fila_anulada") OColores.Grilla_fila_anulada = dr["uvalue"].ToString();
+                        if (dr["property"].ToString() == "Resaltado_amarillo") OColores.Resaltado_amarillo = dr["uvalue"].ToString();
                     }
                 }
             }

@@ -565,14 +565,17 @@ namespace Conti3
         }                               // actualiza marca en tabla
         private void coloreaGiro(bool pinta)                                                // 
         {
-            if (pinta == false)
+            if (pinta == true)
             {
-                tx_ctaGiro.BackColor = OColores.Fondo_fuerte;
-                eti_nomCtaGiro.BackColor = ;
+                tx_ctaGiro.BackColor = ColorTranslator.FromHtml(OColores.Resaltado_amarillo);
+                eti_nomCtaGiro.BackColor = ColorTranslator.FromHtml(OColores.Resaltado_amarillo);
+                chk_giroC.BackColor = ColorTranslator.FromHtml(OColores.Resaltado_amarillo);
             }
             else
             {
-
+                tx_ctaGiro.BackColor = Color.White;
+                eti_nomCtaGiro.BackColor = Color.White;
+                chk_giroC.BackColor = Color.Empty;
             }
         }
 

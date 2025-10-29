@@ -373,5 +373,6 @@ namespace Conti3
         public string Fondo_grilla { get; set; }
         public string Grilla_fila_normal { get; set; }
         public string Grilla_fila_anulada { get; set; }
+        public string Resaltado_amarillo { get; set; }
     }
 }
