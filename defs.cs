@@ -629,6 +629,14 @@ namespace Conti3
                         dr[16] = tx_csunat.Text;
                         dr[17] = textBox4.Text;
                         dtg.Rows.Add(dr);
+                        // insertamos en dt_definic
+                        DataRow drd = Program.dt_definic.NewRow();
+                        drd[0] = textBox4.Text; 
+                        drd[1] = textBox1.Text;
+                        drd[2] = textBox3.Text;
+                        drd[3] = textBox5.Text;
+                        drd[4] = (checkBox1.CheckState == CheckState.Checked) ? "1" : "0";
+                        Program.dt_definic.Rows.Add(drd);
                     }
                     else
                     {
@@ -655,7 +663,7 @@ namespace Conti3
                         "deta1=@det1,deta2=@det2,deta3=@det3,deta4=@det4,ubidir=@det5," +
                         "marca1=@mar1,marca2=@mar2,marca3=@mar3,enlace1=@enl1,codsunat=@csun," +
                         "verApp=@veap,userm=@asd,fechm=now(),diriplan4=@dipl,diripwan4=@dipw,netbname=@nbna " +
-                        "where id=@idc";
+                        "where idtabella=@idt and idcodice=@idc";    // id=@idc
                     MySqlConnection conn = new MySqlConnection(DB_CONN_STR);
                     conn.Open();
                     if (conn.State == ConnectionState.Open)
@@ -664,7 +672,7 @@ namespace Conti3
                         mycom.Parameters.AddWithValue("@cod", textBox2.Text);
                         mycom.Parameters.AddWithValue("@des", aTx_desc.Text);   // textBox3.Text
                         mycom.Parameters.AddWithValue("@der", textBox5.Text);
-                        mycom.Parameters.AddWithValue("@num", (checkBox1.Checked == true) ? "1" : "0");
+                        mycom.Parameters.AddWithValue("@num", (checkBox1.CheckState == CheckState.Checked) ? "1" : "0");  // checkBox1.Checked == true
                         mycom.Parameters.AddWithValue("@sed", "LIM");       // sede por defecto
                         mycom.Parameters.AddWithValue("@det1", tx_det1.Text);
                         mycom.Parameters.AddWithValue("@det2", tx_det2.Text);
@@ -689,7 +697,9 @@ namespace Conti3
                         mycom.Parameters.AddWithValue("@dipl", lib.iplan());
                         mycom.Parameters.AddWithValue("@dipw", Conti3.Program.vg_ipwan);
                         mycom.Parameters.AddWithValue("@nbna", Environment.MachineName);
-                        mycom.Parameters.AddWithValue("@idc", tx_idr.Text);
+                        //mycom.Parameters.AddWithValue("@idc", tx_idr.Text);
+                        mycom.Parameters.AddWithValue("@idt", textBox4.Text);
+                        mycom.Parameters.AddWithValue("@idc", textBox1.Text);
                         try
                         {
                             mycom.ExecuteNonQuery();
@@ -711,13 +721,13 @@ namespace Conti3
                         {
                             dr[0]["descrizione"] = aTx_desc.Text;
                             dr[0]["descrizionerid"] = textBox5.Text;
-                            dr[0]["numero"] = (checkBox1.CheckState == CheckState.Checked) ? 1 : 0;
+                            dr[0]["numero"] = (checkBox1.CheckState == CheckState.Checked) ? "1" : "0";
                         }
                         // actualizamos el datatable
                         for (int i = 0; i < dtg.Rows.Count; i++)
                         {
-                            DataRow row = dtg.Rows[i];
-                            if (row[0].ToString() == tx_idr.Text)
+                            DataRow row = dtg.Rows[i];  // row[0].ToString() == tx_idr.Text
+                            if (row[2].ToString() == textBox1.Text && row[17].ToString() == textBox4.Text)
                             {
                                 //id,idtabella,idcodice,codigo,descrizione,descrizionerid,numero
                                 dtg.Rows[i][3] = textBox2.Text;
@@ -790,8 +800,9 @@ namespace Conti3
             if (textBox1.Text != "" && Tx_modo.Text != "NUEVO")
             {
                 int contador = 0;
-                DataRow[] linea = dtg.Select("idcodice like '%" + textBox1.Text + "%' and idtabella='" + textBox4.Text + "'");
-                foreach(DataRow row in linea)
+                //DataRow[] linea = dtg.Select("idcodice like '%" + textBox1.Text + "%' and idtabella='" + textBox4.Text + "'");
+                DataRow[] linea = dtg.Select("idcodice='" + textBox1.Text.Trim() + "' and idtabella='" + textBox4.Text + "'");
+                foreach (DataRow row in linea)
                 {
                     contador = contador + 1;
                     textBox2.Text = row[3].ToString();

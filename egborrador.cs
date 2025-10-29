@@ -1,4 +1,5 @@
 ﻿using ADGV;
+using DocumentFormat.OpenXml.Drawing;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -198,6 +199,7 @@ namespace Conti3
                 tx_ctaGiro.Text = Ogiro.largo;      // ctades;     // nombre corto
                 tx_dat_giro.Text = Ogiro.idcod;     // idcodice de la cuenta
                 eti_nomCtaGiro.Text = Ogiro.ctades; //largo;  // nombre largo de la cuenta
+                if ("EDICION,VALIDACION".Contains(Tx_modo.Text)) coloreaGiro(true);
             }
             else
             {
@@ -308,6 +310,7 @@ namespace Conti3
         }
         private void initCampos()
         {
+            coloreaGiro(false);
             Bt_graba.Image = null;
             tx_anno.MaxLength = 4;
             tx_idOper.MaxLength = 15;
@@ -560,6 +563,18 @@ namespace Conti3
                 }
             }
         }                               // actualiza marca en tabla
+        private void coloreaGiro(bool pinta)                                                // 
+        {
+            if (pinta == false)
+            {
+                tx_ctaGiro.BackColor = OColores.Fondo_fuerte;
+                eti_nomCtaGiro.BackColor = ;
+            }
+            else
+            {
+
+            }
+        }
 
         #region marcación de checks de grilla
         private void marcaSelec(string modo)
@@ -1735,6 +1750,7 @@ namespace Conti3
                 tipCambio(null);
                 //tx_tipcam.Focus();
             }
+            coloreaGiro(false);
         }
         private void Bt_edit_Click(object sender, EventArgs e)
         {
@@ -1756,6 +1772,7 @@ namespace Conti3
             jalaGrilla(diasAtroya, "");
             marcaSelec(Tx_modo.Text);
             rb_omg.Focus();
+            coloreaGiro(false);
         }
         private void Bt_anul_Click(object sender, EventArgs e)
         {
@@ -1777,6 +1794,7 @@ namespace Conti3
             jalaGrilla(diasAtroya, "");
             marcaSelec(Tx_modo.Text);
             rb_omg.Focus();
+            coloreaGiro(false);
         }
         private void Bt_ver_Click(object sender, EventArgs e)
         {
@@ -1795,6 +1813,7 @@ namespace Conti3
             jalaGrilla(diasAtroya, "");
             marcaSelec(Tx_modo.Text);
             rb_omg.Focus();
+            coloreaGiro(false);
         }
         private void Bt_print_Click(object sender, EventArgs e)
         {
@@ -1815,6 +1834,7 @@ namespace Conti3
             jalaGrilla(diasAtroya, "");
             marcaSelec(Tx_modo.Text);
             Bt_graba.Enabled = true;
+            coloreaGiro(false);
             /* esto estaba por las puras ... 27/05/2025
             if (ususvalid.Contains(Program.vg_user))
             {
