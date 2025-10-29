@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 //using System.Configuration;
 using System.Data;
 using System.Drawing;
@@ -26,6 +28,7 @@ namespace Conti3
         public string perAn = "";
         public string perIm = "";
         string idsv = "'CON','DES','CAM','CMN'";    // identif.  mostrarse y trabajarse
+        List<string> lista_ = new List<string>();   // lista según el idtabella
         libreria lib = new libreria();
         Finan_Egres OFegre = new Finan_Egres();
         // string de conexion
@@ -51,8 +54,8 @@ namespace Conti3
             toolTipNombre.SetToolTip(toolStrip1, nomform);   // toolStrip1 Set up the ToolTip text for the object
             init();
             toolboton();
-            limpiar(this);
-            sololee(this);
+            limpiar(tabreg);
+            sololee(tabreg);
             dataload();
             grilla();
             KeyPreview = true;
@@ -193,12 +196,14 @@ namespace Conti3
         public void jalaoc(string campo)        // jala datos de usuarios por id o nom_user
         {
             //textBox1.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[].Value.ToString();  // 
+            textBox4.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[17].Value.ToString();  // idtabella
+            checkBox1.Checked = (advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[6].Value.ToString() == "1") ? true : false;
+            cargaTipo(textBox4.Text);
             textBox1.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[2].Value.ToString();  // idcodice
             textBox2.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[3].Value.ToString();  // codigo 2
             textBox3.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[4].Value.ToString();  // descrizione
+            aTx_desc.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[4].Value.ToString();  // descrizione
             textBox5.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[5].Value.ToString();  // descrizionerid
-            textBox4.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[17].Value.ToString();  // idtabella
-            checkBox1.Checked = (advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[6].Value.ToString() == "1") ? true : false;
             tx_det1.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[7].Value.ToString();  // detalle 1
             tx_det2.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[8].Value.ToString();  // detalle 2
             tx_det3.Text = advancedDataGridView1.Rows[int.Parse(tx_rind.Text)].Cells[9].Value.ToString();  // detalle 3
@@ -344,9 +349,24 @@ namespace Conti3
                 else { advancedDataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.CadetBlue; }
             }
         }
+        private void cargaTipo(string tipo)         // jala el tipo de cuenta para el campo autocompletado
+        {
+            if (Tx_modo.Text != "NUEVO")
+            {
+                // tipo de cuenta
+                DataRow[] depar = Program.dt_definic.Select("idtabella='" + tipo + "'");    // "idtabella='CON' and numero=1"
+                lista_.Clear();
+                lista_ = new List<string>();
+                foreach (DataRow row in depar)
+                {
+                    lista_.Add(row["descrizione"].ToString().Trim().ToUpper());
+                }
+                aTx_desc.Values = lista_.ToArray();
+            }
+        }
 
         #region limpiadores_modos
-        public void sololee(Form lfrm)
+        public void sololee(TabPage lfrm)
         {
             foreach (Control oControls in lfrm.Controls)
             {
@@ -374,9 +394,13 @@ namespace Conti3
                 {
                     oControls.Enabled = false;
                 }
+                if (oControls is CheckBox)
+                {
+                    oControls.Enabled = false;
+                }
             }
         }
-        public void escribe(Form efrm)
+        public void escribe(TabPage efrm)
         {
             foreach (Control oControls in efrm.Controls)
             {
@@ -400,15 +424,28 @@ namespace Conti3
                 {
                     oControls.Enabled = true;
                 }
+                if (oControls is CheckBox)
+                {
+                    oControls.Enabled = true;
+                }
             }
         }
-        public static void limpiar(Form ofrm)
+        public static void limpiar(TabPage ofrm)   // Form ofrm
         {
             foreach (Control oControls in ofrm.Controls)
             {
                 if (oControls is TextBox)
                 {
                     oControls.Text = "";
+                }
+                if (oControls is AutoCompleteTextBox)
+                {
+                    oControls.Text = "";
+                }
+                if (oControls is CheckBox)
+                {
+                    CheckBox cb = (CheckBox)oControls;
+                    cb.CheckState = CheckState.Unchecked;
                 }
             }
         }
@@ -456,12 +493,6 @@ namespace Conti3
                 //textBox2.Focus();
                 //return;
             }
-            if (textBox3.Text.Trim() == "")
-            {
-                MessageBox.Show("Ingrese una descripción", " Dato obligatorio! ");
-                textBox3.Focus();
-                return;
-            }
             if (textBox5.Text.Trim() == "")
             {
                 MessageBox.Show("Ingrese una descripción corta", " Dato obligatorio! ");
@@ -479,6 +510,13 @@ namespace Conti3
             string iserror = "no";
             if (modo == "NUEVO")
             {
+                if (textBox3.Text.Trim() == "")
+                {
+                    MessageBox.Show("Ingrese una descripción", " Dato obligatorio! ");
+                    textBox3.Focus();
+                    return;
+                }
+
                 if (textBox4.Text.Trim() == "")
                 {
                     MessageBox.Show("Confirme Id Tabla", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -602,6 +640,13 @@ namespace Conti3
             }
             if (modo == "EDITAR")
             {
+                if (aTx_desc.Text.Trim() == "")
+                {
+                    MessageBox.Show("Ingrese una descripción", " Dato obligatorio! ");
+                    textBox3.Focus();
+                    return;
+                }
+
                 var mes = MessageBox.Show("Realmente desea EDITAR este registro?", "Confirme por favor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (mes == DialogResult.Yes)
                 {
@@ -617,7 +662,7 @@ namespace Conti3
                     {
                         MySqlCommand mycom = new MySqlCommand(consulta, conn);
                         mycom.Parameters.AddWithValue("@cod", textBox2.Text);
-                        mycom.Parameters.AddWithValue("@des", textBox3.Text);
+                        mycom.Parameters.AddWithValue("@des", aTx_desc.Text);   // textBox3.Text
                         mycom.Parameters.AddWithValue("@der", textBox5.Text);
                         mycom.Parameters.AddWithValue("@num", (checkBox1.Checked == true) ? "1" : "0");
                         mycom.Parameters.AddWithValue("@sed", "LIM");       // sede por defecto
@@ -660,7 +705,14 @@ namespace Conti3
                             iserror = "si";
                         }
                         conn.Close();
-                        //permisos();
+                        // actualizamos dt_definic
+                        DataRow[] dr = Program.dt_definic.Select("idtabella='" + textBox4.Text + "' and idcodice='" + textBox1.Text + "'");
+                        if (dr != null)
+                        {
+                            dr[0]["descrizione"] = aTx_desc.Text;
+                            dr[0]["descrizionerid"] = textBox5.Text;
+                            dr[0]["numero"] = (checkBox1.CheckState == CheckState.Checked) ? 1 : 0;
+                        }
                         // actualizamos el datatable
                         for (int i = 0; i < dtg.Rows.Count; i++)
                         {
@@ -669,7 +721,7 @@ namespace Conti3
                             {
                                 //id,idtabella,idcodice,codigo,descrizione,descrizionerid,numero
                                 dtg.Rows[i][3] = textBox2.Text;
-                                dtg.Rows[i][4] = textBox3.Text;
+                                dtg.Rows[i][4] = aTx_desc.Text; // textBox3.Text
                                 dtg.Rows[i][5] = textBox5.Text;
                                 dtg.Rows[i][6] = (checkBox1.CheckState == CheckState.Checked) ? "1" : "0";
                                 dtg.Rows[i][7] = tx_det1.Text;
@@ -701,12 +753,13 @@ namespace Conti3
             if (iserror == "no")
             {
                 // debe limpiar los campos y actualizar la grilla
-                limpiar(this);
+                limpiar(tabreg);
                 limpiatab(tabreg);
                 limpia_otros();
                 limpia_chk();
-                //limpia_combos();
-                textBox1.Focus();
+                limpia_combos();
+                //textBox1.Focus();
+                comboBox1.Focus();
                 pintaFilaAnul();
             }
         }
@@ -743,6 +796,7 @@ namespace Conti3
                     contador = contador + 1;
                     textBox2.Text = row[3].ToString();
                     textBox3.Text = row[4].ToString();
+                    aTx_desc.Text = row[4].ToString();
                     textBox5.Text = row[5].ToString();
                     checkBox1.Checked = (row[6].ToString() == "0") ? false : true;
                     tx_det1.Text = row[7].ToString();
@@ -763,6 +817,7 @@ namespace Conti3
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
+                    aTx_desc.Text = "";
                     textBox5.Text = "";
                     checkBox1.Checked = false;
                     tx_det1.Text = "";
@@ -793,6 +848,154 @@ namespace Conti3
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
+            }
+        }
+        private void aTx_desc_TextChanged(object sender, EventArgs e)
+        {
+            if (aTx_desc.Text != "" && textBox4.Text == "")
+            {
+                aTx_desc.Text = "";
+                MessageBox.Show("Debe seleccionar tipo de cuenta");
+                comboBox1.Focus();
+            }
+        }
+        private void aTx_desc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13 || e.KeyChar == (char)09)
+            {
+                if (aTx_desc.Text.Trim() != "" && aTx_desc.Text.Length >= 3)
+                {
+                    if (Tx_modo.Text != "EDITAR")
+                    {
+                        if (textBox4.Text == "CAM") // tipos de egresos
+                        {
+                            DataRow[] nc = Program.dt_definic.Select("idtabella='CAM' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            if (nc.Length > 0)
+                            {
+                                textBox1.Text = nc[0].ItemArray[1].ToString();   // idcodice
+                                textBox5.Text = nc[0].ItemArray[3].ToString();   // descrip corta
+                                checkBox1.Checked = (nc[0].ItemArray[4].ToString() == "1") ? true : false;
+                            }
+                            else
+                            {
+                                textBox1.Text = "";
+                                textBox5.Text = "";
+                                checkBox1.Checked = false;
+                                MessageBox.Show("No existe el nombre del egreso");
+                                aTx_desc.Text = "";
+                            }
+                        }
+                        if (textBox4.Text == "CMN") // camion
+                        {
+                            DataRow[] row = Program.dt_definic.Select("idtabella='CMN' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            if (row.Length > 0)
+                            {
+                                textBox1.Text = row[0].ItemArray[1].ToString();   // idcodice
+                                textBox5.Text = row[0].ItemArray[3].ToString();   // descrip corta
+                                checkBox1.Checked = (row[0].ItemArray[4].ToString() == "1") ? true : false;
+                            }
+                            else
+                            {
+                                textBox1.Text = "";
+                                textBox5.Text = "";
+                                checkBox1.Checked = false;
+                                MessageBox.Show("No existe el nombre del asignado");
+                                aTx_desc.Text = "";
+                            }
+                        }
+                        if (textBox4.Text == "CON" || textBox4.Text == "DES") // per, omg
+                        {
+                            DataRow[] vuelto = { };
+                            if (textBox4.Text == "CON")
+                            {
+                                vuelto = Program.dt_definic.Select("idtabella='CON' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            }
+                            if (textBox4.Text == "DES")
+                            {
+                                vuelto = Program.dt_definic.Select("idtabella='DES' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            }
+                            if (vuelto.Length > 0)
+                            {
+                                textBox1.Text = vuelto[0].ItemArray[1].ToString();
+                                textBox5.Text = vuelto[0].ItemArray[3].ToString();
+                                checkBox1.Checked = (vuelto[0].ItemArray[4].ToString() == "1") ? true : false;
+                            }
+                            else
+                            {
+                                textBox1.Text = "";
+                                textBox5.Text = "";
+                                checkBox1.Checked = false;
+                                MessageBox.Show("No existe el nombre de la cuenta");
+                                aTx_desc.Text = "";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (textBox4.Text == "CAM" && textBox1.Text.Trim() == "") // tipos de egresos
+                        {
+                            DataRow[] nc = Program.dt_definic.Select("idtabella='CAM' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            if (nc.Length > 0)
+                            {
+                                textBox1.Text = nc[0].ItemArray[1].ToString();   // idcodice
+                                textBox5.Text = nc[0].ItemArray[3].ToString();   // descrip corta
+                                checkBox1.Checked = (nc[0].ItemArray[4].ToString() == "1") ? true : false;
+                            }
+                            else
+                            {
+                                textBox1.Text = "";
+                                textBox5.Text = "";
+                                checkBox1.Checked = false;
+                                MessageBox.Show("No existe el nombre del egreso");
+                                aTx_desc.Text = "";
+                            }
+                        }
+                        if (textBox4.Text == "CMN" && textBox1.Text.Trim() == "") // camion
+                        {
+                            DataRow[] row = Program.dt_definic.Select("idtabella='CMN' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            if (row.Length > 0)
+                            {
+                                textBox1.Text = row[0].ItemArray[1].ToString();   // idcodice
+                                textBox5.Text = row[0].ItemArray[3].ToString();   // descrip corta
+                                checkBox1.Checked = (row[0].ItemArray[4].ToString() == "1") ? true : false;
+                            }
+                            else
+                            {
+                                textBox1.Text = "";
+                                textBox5.Text = "";
+                                checkBox1.Checked = false;
+                                MessageBox.Show("No existe el nombre del asignado");
+                                aTx_desc.Text = "";
+                            }
+                        }
+                        if (textBox1.Text.Trim() == "" && (textBox4.Text == "CON" || textBox4.Text == "DES")) // per, omg
+                        {
+                            DataRow[] vuelto = { };
+                            if (textBox4.Text == "CON")
+                            {
+                                vuelto = Program.dt_definic.Select("idtabella='CON' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            }
+                            if (textBox4.Text == "DES")
+                            {
+                                vuelto = Program.dt_definic.Select("idtabella='DES' and descrizione='" + aTx_desc.Text.Trim() + "'");
+                            }
+                            if (vuelto.Length > 0)
+                            {
+                                textBox1.Text = vuelto[0].ItemArray[1].ToString();
+                                textBox5.Text = vuelto[0].ItemArray[3].ToString();
+                                checkBox1.Checked = (vuelto[0].ItemArray[4].ToString() == "1") ? true : false;
+                            }
+                            else
+                            {
+                                textBox1.Text = "";
+                                textBox5.Text = "";
+                                checkBox1.Checked = false;
+                                MessageBox.Show("No existe el nombre de la cuenta");
+                                aTx_desc.Text = "";
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -880,15 +1083,24 @@ namespace Conti3
                 advancedDataGridView1.ReadOnly = true;
                 pintaFilaAnul();
                 tabControl1.SelectedTab = tabreg;
-                escribe(this);
+                escribe(tabreg);
                 Tx_modo.Text = "NUEVO";
                 button1.Image = Properties.Resources.save_negro40; //Image.FromFile(img_grab);
                 textBox1.Focus();
-                limpiar(this);
+                limpiar(tabreg);
                 limpiatab(tabreg);
                 limpia_chk();
                 limpia_otros();
                 limpia_combos();
+                //
+                textBox3.Visible = true;
+                aTx_desc.Visible = false;
+                textBox3.TabIndex = 4;
+                aTx_desc.TabIndex = 444;
+                textBox3.Width = 393;
+                textBox3.Left = 167;
+                //
+                button1.Enabled = true;
             }
         }
         private void Bt_edit_Click(object sender, EventArgs e)
@@ -898,12 +1110,12 @@ namespace Conti3
                 advancedDataGridView1.Enabled = true;
                 advancedDataGridView1.ReadOnly = true;
                 pintaFilaAnul();
-                escribe(this);
+                escribe(tabreg);
                 Tx_modo.Text = "EDITAR";
                 button1.Image = Properties.Resources.save_negro40; //Image.FromFile(img_grab);
                 //var qa = tx_rind.Text;
                 tabControl1.SelectedTab = tabgrilla;
-                limpiar(this);
+                limpiar(tabreg);
                 limpiatab(tabreg);
                 //tx_rind.Text = qa;
                 limpia_otros();
@@ -911,14 +1123,26 @@ namespace Conti3
                 limpia_chk();
                 //jalaoc("tx_idr");
                 advancedDataGridView1.Focus();
+                //
+                textBox3.Visible = false;
+                aTx_desc.Visible = true;
+                aTx_desc.TabIndex = 4;
+                textBox3.TabIndex = 444;
+                aTx_desc.Width = 393;
+                aTx_desc.Left = 167;
+                //
+                button1.Enabled = true;
             }
         }
         private void Bt_ver_Click(object sender, EventArgs e)
         {
-            sololee(this);
+            sololee(tabreg);
             advancedDataGridView1.Enabled = true;
             advancedDataGridView1.ReadOnly = true;
             pintaFilaAnul();
+            escribe(tabreg);
+            limpiar(tabreg);
+            limpia_combos();
             Tx_modo.Text = "VISUALIZAR";
             button1.Image = null; //Image.FromFile(img_ver);
             //
@@ -926,6 +1150,15 @@ namespace Conti3
             Bt_sig.Enabled = true;
             Bt_ret.Enabled = true;
             Bt_fin.Enabled = true;
+            //
+            textBox3.Visible = false;
+            aTx_desc.Visible = true;
+            aTx_desc.TabIndex = 4;
+            textBox3.TabIndex = 444;
+            aTx_desc.Width = 393;
+            aTx_desc.Left = 167;
+            //
+            button1.Enabled = false;
         }
         private void Bt_close_Click(object sender, EventArgs e)
         {
@@ -944,7 +1177,7 @@ namespace Conti3
         }
         private void Bt_first_Click(object sender, EventArgs e)
         {
-            limpiar(this);
+            limpiar(tabreg);
             limpia_chk();
             limpia_combos();
             //--
@@ -956,7 +1189,7 @@ namespace Conti3
             string aca = tx_idr.Text;
             limpia_chk();
             limpia_combos();
-            limpiar(this);
+            limpiar(tabreg);
             //--
             tx_idr.Text = lib.goback(nomtab, aca);
             tx_idr_Leave(null, null);
@@ -966,14 +1199,14 @@ namespace Conti3
             string aca = tx_idr.Text;
             limpia_chk();
             limpia_combos();
-            limpiar(this);
+            limpiar(tabreg);
             //--
             tx_idr.Text = lib.gonext(nomtab, aca);
             tx_idr_Leave(null, null);
         }
         private void Bt_last_Click(object sender, EventArgs e)
         {
-            limpiar(this);
+            limpiar(tabreg);
             limpia_chk();
             limpia_combos();
             //--
@@ -998,6 +1231,7 @@ namespace Conti3
             }
             //limpia_combos();
             var xx = textBox4.Text;
+            cargaTipo(xx);
             limpiatab(tabreg);
             limpia_chk();
             limpia_otros();
@@ -1021,10 +1255,10 @@ namespace Conti3
             {
                 //string codu = "";
                 string idr = "";
-                idr = advancedDataGridView1.CurrentRow.Cells[0].Value.ToString();
-                tx_rind.Text = advancedDataGridView1.CurrentRow.Index.ToString();
+                idr = advancedDataGridView1.CurrentRow.Cells[0].Value.ToString();                
                 tabControl1.SelectedTab = tabreg;
-                limpiar(this);
+                limpiar(tabreg);
+                tx_rind.Text = advancedDataGridView1.CurrentRow.Index.ToString();
                 limpia_otros();
                 limpia_combos();
                 jalaoc("tx_idr");

@@ -126,6 +126,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.aTx_desc = new Conti3.AutoCompleteTextBox();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabgrilla.SuspendLayout();
@@ -502,6 +503,7 @@
             this.tabreg.Controls.Add(this.textBox2);
             this.tabreg.Controls.Add(this.textBox1);
             this.tabreg.Controls.Add(this.button1);
+            this.tabreg.Controls.Add(this.aTx_desc);
             this.tabreg.ForeColor = System.Drawing.Color.Black;
             this.tabreg.Location = new System.Drawing.Point(4, 22);
             this.tabreg.Name = "tabreg";
@@ -1161,10 +1163,11 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Window;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(167, 85);
+            this.textBox3.Location = new System.Drawing.Point(585, 86);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(393, 18);
+            this.textBox3.Size = new System.Drawing.Size(61, 18);
             this.textBox3.TabIndex = 4;
+            this.textBox3.Visible = false;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox2
@@ -1198,6 +1201,16 @@
             this.button1.TabIndex = 15;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // aTx_desc
+            // 
+            this.aTx_desc.Location = new System.Drawing.Point(167, 84);
+            this.aTx_desc.Name = "aTx_desc";
+            this.aTx_desc.Size = new System.Drawing.Size(393, 20);
+            this.aTx_desc.TabIndex = 222;
+            this.aTx_desc.Values = null;
+            this.aTx_desc.TextChanged += new System.EventHandler(this.aTx_desc_TextChanged);
+            this.aTx_desc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.aTx_desc_KeyPress);
             // 
             // defs
             // 
@@ -1347,5 +1360,6 @@
         private System.Windows.Forms.GroupBox groupBox35;
         private System.Windows.Forms.GroupBox groupBox36;
         private System.Windows.Forms.TextBox tx_csunat;
+        private AutoCompleteTextBox aTx_desc;
     }
 }
