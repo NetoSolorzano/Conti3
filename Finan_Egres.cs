@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ADGV;
 using MySql.Data.MySqlClient;
+using ZstdSharp.Unsafe;
 
 namespace Conti3
 {
@@ -2754,20 +2755,24 @@ namespace Conti3
                         Oegreso.EditaEgreso(conn, tx_anno.Text, ("000000000" + CDerecha(tx_idOper.Text, 6)));
                         if (chk_giroC.CheckState == CheckState.Checked)
                         {
-                            catIngresos OcatIn = new catIngresos();
-                            OcatIn.codigo = OcatEg.codigo;
-                            OcatIn.nombre = OcatEg.nombre;
-                            OcatIn.largo = OcatEg.largo;
-                            cajDestino _desgiro = new cajDestino();
-                            _desgiro.codigo = tx_dat_giro.Text;
-                            _desgiro.nombre = tx_ctaGiro.Text;
-                            _desgiro.largo = eti_nomCtaGiro.Text;
-                            // jalamos el idmov a partir del codigo del giro
-                            Ogiro.idcod = Ocajd.codigo;
-                            corre = jalaIDMov(conn , Ogiro.codigo, ((rb_omg.Checked == true) ? "cassaomg" : "cassaconti"), Ogiro.idcod);
-                            Oingresos.creaIngreso(pan_p.Tag.ToString(), fecOp, OcatIn, Omone, Omonto, decimal.Parse(tx_tipcam.Text),
-                            _desgiro, tx_descrip.Text, corre, Ogiro, tx_anno.Text);
-                            Oingresos.EditaIngreso(conn, tx_anno.Text, corre);   // "000000000" + CDerecha(tx_idOper.Text, 6)
+                            var zx = MessageBox.Show("Desea cambiar también en el ingreso?","Egreso con Giro",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                            if (zx == DialogResult.Yes)
+                            {
+                                catIngresos OcatIn = new catIngresos();
+                                OcatIn.codigo = OcatEg.codigo;
+                                OcatIn.nombre = OcatEg.nombre;
+                                OcatIn.largo = OcatEg.largo;
+                                cajDestino _desgiro = new cajDestino();
+                                _desgiro.codigo = tx_dat_giro.Text;
+                                _desgiro.nombre = tx_ctaGiro.Text;
+                                _desgiro.largo = eti_nomCtaGiro.Text;
+                                // jalamos el idmov a partir del codigo del giro
+                                Ogiro.idcod = Ocajd.codigo;
+                                corre = jalaIDMov(conn, Ogiro.codigo, ((rb_omg.Checked == true) ? "cassaomg" : "cassaconti"), _desgiro.codigo); // , Ogiro.idcod   tx_dat_giro.Text
+                                Oingresos.creaIngreso(pan_p.Tag.ToString(), fecOp, OcatIn, Omone, Omonto, decimal.Parse(tx_tipcam.Text),
+                                _desgiro, tx_descrip.Text, corre, Ogiro, tx_anno.Text);
+                                Oingresos.EditaIngreso(conn, tx_anno.Text, corre);   // "000000000" + CDerecha(tx_idOper.Text, 6)
+                            }
                         }
                         actFilaEnDataG(dt_grillaE, "LIM", tx_idOper.Text);
                         limpiaObj();
@@ -3131,7 +3136,7 @@ namespace Conti3
             string retorna = "";
             if (conn.State == ConnectionState.Open)
             {
-                string aaa = "select * from " + tabla + " where CodGiro=@cg and IDGiroConto=@idg";
+                string aaa = "select * from " + tabla + " where CodGiro=@cg and IDConto=@idg";
                 using (MySqlCommand mcom = new MySqlCommand(aaa, conn))
                 {
                     mcom.Parameters.AddWithValue("@cg", codGiro);       // codigo del Giro
