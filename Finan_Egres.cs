@@ -2755,7 +2755,7 @@ namespace Conti3
                         Oegreso.EditaEgreso(conn, tx_anno.Text, ("000000000" + CDerecha(tx_idOper.Text, 6)));
                         if (chk_giroC.CheckState == CheckState.Checked)
                         {
-                            var zx = MessageBox.Show("Desea cambiar también en el ingreso?","Egreso con Giro",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                            var zx = MessageBox.Show("Desea cambiar también en el ingreso?","¡EGRESO CON GIRO!",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                             if (zx == DialogResult.Yes)
                             {
                                 catIngresos OcatIn = new catIngresos();
@@ -2768,8 +2768,8 @@ namespace Conti3
                                 _desgiro.largo = eti_nomCtaGiro.Text;
                                 // jalamos el idmov a partir del codigo del giro
                                 Ogiro.idcod = Ocajd.codigo;
-                                corre = jalaIDMov(conn, Ogiro.codigo, ((rb_omg.Checked == true) ? "cassaomg" : "cassaconti"), _desgiro.codigo); // , Ogiro.idcod   tx_dat_giro.Text
-                                Oingresos.creaIngreso(pan_p.Tag.ToString(), fecOp, OcatIn, Omone, Omonto, decimal.Parse(tx_tipcam.Text),
+                                corre = jalaIDMov(conn, Ogiro.codigo, "cassaconti", _desgiro.codigo);
+                                Oingresos.creaIngreso("personal", fecOp, OcatIn, Omone, Omonto, decimal.Parse(tx_tipcam.Text),
                                 _desgiro, tx_descrip.Text, corre, Ogiro, tx_anno.Text);
                                 Oingresos.EditaIngreso(conn, tx_anno.Text, corre);   // "000000000" + CDerecha(tx_idOper.Text, 6)
                             }
@@ -3136,7 +3136,9 @@ namespace Conti3
             string retorna = "";
             if (conn.State == ConnectionState.Open)
             {
-                string aaa = "select * from " + tabla + " where CodGiro=@cg and IDConto=@idg";
+                string aaa = "";
+                if (tabla == "cassaomg") aaa = "select * from cassaomg where CodGiro=@cg and IDDestino=@idg";
+                if (tabla == "cassaconti") aaa = "select * from cassaconti where CodGiro=@cg and IDConto=@idg";
                 using (MySqlCommand mcom = new MySqlCommand(aaa, conn))
                 {
                     mcom.Parameters.AddWithValue("@cg", codGiro);       // codigo del Giro
