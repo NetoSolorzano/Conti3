@@ -1339,13 +1339,13 @@ namespace Conti3
                         }
                         if (_tipo_.ToUpper() == "OMG")
                         {
-                            if (_EoS_ == "E") consulta = "ConIngre_cassaOmg";
-                            if (_EoS_ == "S") consulta = "ConEgre_cassaOmg";
+                            if (_EoS_ == "E") consulta = "ConIngre_cassaOmg0";
+                            if (_EoS_ == "S") consulta = "ConEgre_cassaOmg0";
                         }
                         if (_tipo_.ToUpper() == "PER")
                         {
-                            if (_EoS_ == "E") consulta = "ConIngre_cassaConti";
-                            if (_EoS_ == "S") consulta = "ConEgre_cassaConti";
+                            if (_EoS_ == "E") consulta = "ConIngre_cassaConti0";
+                            if (_EoS_ == "S") consulta = "ConEgre_cassaConti0";
                         }
                         if (_tipo_.ToUpper() == "CAMION")
                         {
@@ -1359,6 +1359,7 @@ namespace Conti3
                             micon.Parameters.AddWithValue("@Vanno", int.Parse(yea));
                             micon.Parameters.AddWithValue("@Vidmov", _id_);
                             if (_tipo_ == "PRE-OMG" || _tipo_ == "PRE-PER") micon.Parameters.AddWithValue("@proce", "T");
+                            else micon.Parameters.AddWithValue("@proce", _EoS_);
                             using (MySqlDataReader dr = micon.ExecuteReader())
                             {
                                 if (dr.HasRows == true)

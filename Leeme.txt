@@ -256,4 +256,5 @@ C.R. repGenOMGR, interlineado gris y centrado en detalle .......................
 C.R. repResCtaPers1, interlineado gris y centrado en detalle .................... 28/10/2025
 Form defs, poner autocompletado en descripción y busqueda con ese valor ......... 29/10/2025
 Form egborrador, colorear si tiene Giro y/o Asociacion modos EDITA y APRUEBA .... 29/10/2025
-Form Finan_egres, ediciones con Giro, debe preguntar y hacerlo todo ............. 
+Form Finan_egres, ediciones con Giro, debe preguntar y hacerlo todo ............. 03/11/2025
+Form Finan_egres, el ID a buscar debe corresponder con el formulario (ing/egr) .. me quede en adecuar OMG y probar todo
