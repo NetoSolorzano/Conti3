@@ -257,4 +257,6 @@ C.R. repResCtaPers1, interlineado gris y centrado en detalle ...................
 Form defs, poner autocompletado en descripción y busqueda con ese valor ......... 29/10/2025
 Form egborrador, colorear si tiene Giro y/o Asociacion modos EDITA y APRUEBA .... 29/10/2025
 Form Finan_egres, ediciones con Giro, debe preguntar y hacerlo todo ............. 03/11/2025
-Form Finan_egres, el ID a buscar debe corresponder con el formulario (ing/egr) .. me quede en adecuar OMG y probar todo
+Form Finan_egres, el ID a buscar debe corresponder con el formulario (ing/egr) .. 04/11/2025
+Form Finan_egres, si es NUEVO y se presiona OMG o PER, no debe borrar los campos. falta probar grabando 
+Form Finan_Ingres, si NUEVO y se presiona OMG o PER, no debe borrar los campos .. 
