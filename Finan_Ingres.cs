@@ -634,7 +634,14 @@ namespace Conti3
             {
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS OMG";
                 pan_p.Tag = "omg";
-                limpiaTE();
+
+                if (Tx_modo.Text == "NUEVO")                // 04-11-2025
+                {
+                    Tx_ctaDest.Clear();
+                    eti_nomCaja.Text = "";
+                }
+                else limpiaTE();
+
                 jalaGrilla(int.Parse(tx_diasA.Text), "cassaomg");  // jalaGrilla(diasAtroya, "cassaomg") 11/05/2025
                 Tx_ctaDest.Values = lista_DES.ToArray();
                 tx_ctaGiro.Values = lista_DES.ToArray();
@@ -646,7 +653,14 @@ namespace Conti3
             {
                 eti_tituloForm.Text = eti_tituloForm.Tag.ToString() + "DE CUENTAS PERSONALES";
                 pan_p.Tag = "personal";
-                limpiaTE();
+
+                if (Tx_modo.Text == "NUEVO")                // 04-11-2025
+                {
+                    Tx_ctaDest.Clear();
+                    eti_nomCaja.Text = "";
+                }
+                else limpiaTE();
+
                 jalaGrilla(int.Parse(tx_diasA.Text), "cassaconti");  // jalaGrilla(diasAtroya, "cassaconti") 11/05/2025
                 Tx_ctaDest.Values = lista_CON.ToArray();
                 tx_ctaGiro.Values = lista_CON.ToArray();
