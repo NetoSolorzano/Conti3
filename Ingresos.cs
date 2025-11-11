@@ -152,11 +152,23 @@ namespace Conti3
             }
             else
             {
-                consulta = "update cassaconti set IDBanco=@IDB,Anno=@Ann,DataMovimento=@DMo,IDConto=@IDCo,IDCategoria=@IDCa," +
+                if (giroC.ctades == null || giroC.ctades == "")
+                {
+                    consulta = "update cassaconti set IDBanco=@IDB,Anno=@Ann,DataMovimento=@DMo,IDConto=@IDCo,IDCategoria=@IDCa," +
+                    "ImportoDE=@IDU,ImportoSE=@ISU,Cambio=@Cam,Descrizione=@Des,monori=@mon,ctaori=@ctao,ctades=@ctad," +
+                    "usuario=@usua,diaM=now(),valorOrig=@vOrig,codimon=@cmon,nombmon=@nmon,tcMonOri=@tcMO," +
+                    "verApp=@veap,userm=@asd,fechm=now(),diriplan4=@dipl,diripwan4=@dipw,netbname=@nbna " +
+                    "where anno=@year and idmovimento=@corre";
+                }
+                else
+                {
+                    consulta = "update cassaconti set IDBanco=@IDB,Anno=@Ann,DataMovimento=@DMo,IDConto=@IDCo,IDCategoria=@IDCa," +
                     "ImportoDE=@IDU,ImportoSE=@ISU,Cambio=@Cam,Descrizione=@Des,IDGiroConto=@IDG,monori=@mon,ctaori=@ctao,ctades=@ctad," +
                     "usuario=@usua,diaM=now(),tipodesgiro=@tidgiro,valorOrig=@vOrig,codimon=@cmon,nombmon=@nmon,tcMonOri=@tcMO," +
                     "verApp=@veap,userm=@asd,fechm=now(),diriplan4=@dipl,diripwan4=@dipw,netbname=@nbna " +
                     "where anno=@year and idmovimento=@corre";
+                }
+                    
             }
             using (MySqlCommand micon = new MySqlCommand(consulta, conn))
             {
@@ -172,16 +184,19 @@ namespace Conti3
                 //micon.Parameters.AddWithValue("@IEU", monto.monEuros);    // importe en euros salida 
                 micon.Parameters.AddWithValue("@Cam", TipCamb);             // tipo de cambio  monto.tipCOri
                 micon.Parameters.AddWithValue("@Des", descrip);
-                micon.Parameters.AddWithValue("@IDG", GiroC.idcod);  // cuenta origen del GIRO
                 micon.Parameters.AddWithValue("@mon", moneda.siglas);    // codigo de la moneda origen de la operación
                 micon.Parameters.AddWithValue("@ctao", ""); // esto va con el giroconto creo
                 micon.Parameters.AddWithValue("@ctad", ""); // esto va con el giroconto creo
                 micon.Parameters.AddWithValue("@usua", Program.vg_user);
-                micon.Parameters.AddWithValue("@tidgiro", GiroC.tipodes);   // tipo de giroconto OMG | PER
                 micon.Parameters.AddWithValue("@vOrig", monto.monOrige);
                 micon.Parameters.AddWithValue("@cmon", moneda.codigo);
                 micon.Parameters.AddWithValue("@nmon", moneda.nombre);
                 micon.Parameters.AddWithValue("@tcMO", TipCamb);   // monto.tipCOri
+                if (giroC.ctades != null && giroC.ctades != "")
+                {
+                    micon.Parameters.AddWithValue("@IDG", GiroC.idcod);  // cuenta origen del GIRO
+                    micon.Parameters.AddWithValue("@tidgiro", GiroC.tipodes);   // tipo de giroconto OMG | PER
+                }
                 micon.Parameters.AddWithValue("@year", year);
                 micon.Parameters.AddWithValue("@corre", corre);
                 micon.Parameters.AddWithValue("@veap", System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath).FileVersion);
