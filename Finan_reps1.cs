@@ -1521,7 +1521,9 @@ namespace Conti3
                     {
                         DataSet1.DetGasCamRow detalle = set1.DetGasCam.NewDetGasCamRow();
                         detalle.id = "0";
-                        detalle.fecha = f_claudia(row["FECHA"].ToString());
+                        string FC = row["FECHA"].ToString().Substring(6, 4).Substring(2, 2);
+                        string FCc = row["FECHA"].ToString().Substring(0, 6) + FC;
+                        detalle.fecha = f_claudia(FCc); // f_claudia(row["FECHA"].ToString())
                         detalle.movimiento = row["IDMOV"].ToString();
                         detalle.id_camion = row["ID_CAMION"].ToString();
                         detalle.cuenta = row["CUENTA"].ToString();

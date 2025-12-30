@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:repSaldoIni_" ZOrder="7" X="52" Y="48" Height="448" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="444" />
     <Shape ID="DesignTable:detalle1" ZOrder="6" X="211" Y="50" Height="391" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="387" />
     <Shape ID="DesignTable:CabGasCam" ZOrder="4" X="391" Y="51" Height="258" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:DetGasCam" ZOrder="3" X="552" Y="52" Height="410" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="406" />
+    <Shape ID="DesignTable:DetGasCam" ZOrder="3" X="552" Y="52" Height="333" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="406" />
     <Shape ID="DesignTable:ResCtasPers" ZOrder="1" X="717" Y="53" Height="315" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="311" />
   </Shapes>
   <Connectors>

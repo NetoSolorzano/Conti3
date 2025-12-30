@@ -260,3 +260,7 @@ Form Finan_egres, ediciones con Giro, debe preguntar y hacerlo todo ............
 Form Finan_egres, el ID a buscar debe corresponder con el formulario (ing/egr) .. 04/11/2025
 Form Finan_egres, si es NUEVO y se presiona OMG o PER, no debe borrar los campos. 04/11/2025
 Form Finan_Ingres, si NUEVO y se presiona OMG o PER, no debe borrar los campos .. 04/11/2025
+Form Finan_Ingres, adecuaciones EDICION ingresos venidos de egresos con giro .... 11/11/2025
+clase Ingresos, adecuaciones EDICION ingresos venidos de egresos con giro ....... 11/11/2025
+Form Finan_reps1, adecuación para agregar idMov en reps camiones ................ 30/12/2025
+
