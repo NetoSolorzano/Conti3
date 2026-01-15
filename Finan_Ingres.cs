@@ -457,6 +457,7 @@ namespace Conti3
             selecFecha1.Value = DateTime.Now.Date;
             Tx_fecha.Text = DateTime.Now.Date.ToString("dd/MM/yyyy");
             tx_anno.Text = DateTime.Now.Date.Year.ToString();
+            tx_anno.ReadOnly = false;
             selecFecha1_Leave(null, null);
             if (rb_pers.Checked == false && rb_omg.Checked == false)
             {

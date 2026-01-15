@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("Conti3")]
-[assembly: AssemblyDescription("Conti Cassa 2025")]
+[assembly: AssemblyDescription("ContiCassa 2025")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("solorsoft.com")]
 [assembly: AssemblyProduct("Conti3")]
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Número de compilación
 //      Revisión
 //
-[assembly: AssemblyVersion("2025.11.11.1")]
-[assembly: AssemblyFileVersion("2025.11.11.1")]
+[assembly: AssemblyVersion("2026.01.15.1")]
+[assembly: AssemblyFileVersion("2026.01.15.1")]
